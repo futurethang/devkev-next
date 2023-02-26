@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
+import Link from 'next/link'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,11 +20,16 @@ export default function Home() {
           <h1>Kevin Hyde</h1>
           <h2>designer / developer</h2>
           <p>
-            Where design and development convene, there's a sticky spot where What's Possible!™️ meets &lt;whats-possible&gt;</p>
+            Building a great product invariably presents a lot of sticky spots where <b>What's Possible!™️</b> butts heads with <b>&lt;whats-possible&gt;</b></p>
           <p>
             Whether you're looking for a developer that 'speaks designer' or a designer that 'speaks developer', we'll have something to talk about.
           </p>
         </div>
+        <nav>
+          <Link href={'/product'}>Product</Link>
+          <Link href={'/design'}>Design</Link>
+          <Link href={'/dev'}>Code</Link>
+        </nav>
         <section>
           <h3 className='section-header'>Experience</h3>
           <details>
@@ -37,7 +43,7 @@ export default function Home() {
             </div>
           </details>
           <details>
-            <summary><h4 className='job-title'>Cisco Systems Inc</h4></summary>
+            <summary><h4 className='job-title'>Cisco Systems Inc.</h4></summary>
             <div className="summary-content">
               <p>I was part of a new product incubator within Cisco's Webex team prototyping greenfield enterprise solutions, designing and engineering innovative UX/UI for rapid iteration.</p>
               <p>
