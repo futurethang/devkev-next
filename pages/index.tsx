@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Footer from '../components/footer'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
@@ -17,7 +18,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <div className={styles.description}>
-          <h1>Kevin Hyde</h1>
+          <h1><span className='kern'>K</span>evin Hyde</h1>
           <h2>designer / developer</h2>
           <p>
             Building a great product invariably presents a lot of sticky spots where <b>What's Possible!™️</b> butts heads with <b>&lt;whats-possible&gt;</b></p>
@@ -90,8 +91,8 @@ export default function Home() {
           <h4 className='tools'>Whatever Works</h4>
         </section>
 
-
       </main>
+      <Footer />
     </>
   )
 }

@@ -10,7 +10,7 @@ function Header() {
         <>
             <div className={styles.description}>
                 <Link href={'/'}>
-                <h1>Kevin Hyde</h1>
+                    <h1><span className='kern'>K</span>evin Hyde</h1>
                 </Link>
             </div>
             <Nav />

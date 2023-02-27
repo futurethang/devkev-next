@@ -2,6 +2,7 @@
 
 import Head from 'next/head';
 import Header from '../components/header';
+import Footer from '../components/footer';
 import styles from '@/styles/Home.module.css'
 
 
@@ -14,11 +15,12 @@ function Dev() {
             <main className={styles.main}>
                 <Header />
                 <div>
-                    <h1>Front End Dev</h1>
+                    <h2>Front End Development</h2>
                     <p>Get in touch with us using the form below:</p>
                     {/* Add your contact form here */}
                 </div>
             </main>
+            <Footer />
         </>
     );
 }

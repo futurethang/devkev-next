@@ -106,7 +106,7 @@ main {
   background: var(--main-background);
 }
 
-nav {
+main nav {
   max-width: 60ch;
   margin-bottom: var(--bottom-margin-big);
   display: flex;
@@ -114,12 +114,12 @@ nav {
   align-items: flex-start;
 }
 
-nav>a {
+main nav>a {
   background-color: #330864;
   padding: 1rem 3rem;
   transition: all 200ms;
 }
-nav>a:hover {
+main nav>a:hover {
   border-radius: 8px;
   background-color: #FECC5B;
   color: #330864;
@@ -150,7 +150,7 @@ h3 {
 h4 {
   font-size: var(--font-size-hn);
   line-height: var(--font-size-hn);
-  font-weight: var(--font-weight-slim);
+  font-weight: var(--font-weight-regular);
   letter-spacing: 1px;
   color: var(--text-copy);
   margin-bottom: var(--bottom-margin-small);
@@ -158,6 +158,12 @@ h4 {
 
 p {
   margin-bottom: 1rem;
+  line-height: var(--bottom-margin-med);
+  font-weight: var(--font-weight-slim);
+}
+
+p > b {
+  font-weight: var(--font-weight-regular);
 }
 
 section {
@@ -179,6 +185,7 @@ details {
 
 details>summary {
   list-style: none;
+  cursor: pointer;
 }
 
 details>summary>h4 {
@@ -199,6 +206,10 @@ summary:after {
 
 details[open]>summary:after {
   transform: rotate(90deg);
+}
+
+.kern {
+  letter-spacing: -5px;
 }
 
 @media (prefers-color-scheme: dark) {
