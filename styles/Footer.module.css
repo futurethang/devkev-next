@@ -10,3 +10,10 @@
     flex-direction: column;
     margin-bottom: var(--bottom-margin-med);
 }
+
+.connect {
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: 1rem;
+}

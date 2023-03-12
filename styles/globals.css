@@ -11,7 +11,8 @@
     'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
   --font-sans: 'Poppins', sans-serif;
-  --font-weight-slim: 100;
+  --font-weight-extra-thin: 100;
+  --font-weight-thin: 200;
   --font-weight-regular: 400;
   --font-weight-semibold: 600;
   --font-weight-extrabold: 800;
@@ -159,7 +160,7 @@ h4 {
 p {
   margin-bottom: 1rem;
   line-height: var(--bottom-margin-med);
-  font-weight: var(--font-weight-slim);
+  font-weight: var(--font-weight-thin);
 }
 
 p > b {

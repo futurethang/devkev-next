@@ -19,11 +19,11 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.description}>
           <h1><span className='kern'>K</span>evin Hyde</h1>
-          <h2>designer / developer</h2>
+          <h2>developer / designer</h2>
           <p>
-            Building a great product invariably presents a lot of sticky spots where <b>What's Possible!™️</b> butts heads with <b>&lt;whats-possible&gt;</b></p>
+            Building a great product invariably presents those sticky spots where <b>What's Possible!™️</b> butts heads with <b>&lt;whats-possible&gt;</b></p>
           <p>
-            Whether you're looking for a developer that 'speaks designer' or a designer that 'speaks developer', we'll have something to talk about.
+            Whether you're looking for a developer that 'speaks designer' or a designer that 'speaks developer', we'll have plenty to talk about together.
           </p>
         </div>
         <nav>
@@ -32,7 +32,7 @@ export default function Home() {
           <Link href={'/dev'}>Code</Link>
         </nav>
         <section>
-          <h3 className='section-header'>Experience</h3>
+          <h3 className='section-header'>Professional Experience</h3>
           <details>
             <summary><h4 className='job-title'>DefiHedge Corp.</h4></summary>
             <div className="summary-content">
@@ -68,16 +68,22 @@ export default function Home() {
           </details>
         </section>
         <section>
-          <h3 className='section-header'>Hats</h3>
-          <h4 className='hat'>Designer</h4>
-          <h4 className='hat'>Developer</h4>
-          <h4 className='hat'>Product</h4>
-          <h4 className='hat'>Project</h4>
-          <h4 className='hat'>Pivot</h4>
+          <h3 className='section-header'>How I Contribute</h3>
+          <h4 className='hat'>Front End Development</h4>
+          <h4 className='hat'>Graphics & Experience Design</h4>
+          <h4 className='hat'>Product Direction</h4>
+          <h4 className='hat'>Project Management</h4>
+          <h4 className='hat'>Market & User Research</h4>
         </section>
 
         <section>
-          <h3 className='section-header'>Building Tools</h3>
+          <h3 className='section-header'>Favorite Tools</h3>
+          <p>
+            I believe in big picture product thinking over specific tools, and take an undaunted stance to learning or adopting whatever knowledge skills and toolkits get the job done right.
+          </p>
+          <p>
+            That said, here are some of the technologies I've had the privilege of getting very familiar with over the course of work experience. 
+          </p>
           <h4 className='tech'>TypeScript</h4>
           <h4 className='tech'>Vanilla JS</h4>
           <h4 className='tech'>React</h4>
