@@ -1,0 +1,21 @@
+.techIcons > h3 {
+    margin: 4rem 0 2rem 0;
+}
+
+.iconGroup {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 2rem;
+}
+
+.iconGroup > * {
+    width: 4rem;
+    height: 4rem;
+    filter: brightness(.8);
+    transition: all 200ms;
+}
+.iconGroup > *:hover {
+    /* filter: saturate(0.2); */
+    filter: brightness(1.4);
+}

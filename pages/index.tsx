@@ -1,9 +1,10 @@
 import Head from 'next/head'
-import Image from 'next/image'
+import TechIcons from '../components/techIcons'
 import Footer from '../components/footer'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import Link from 'next/link'
+import typescript from '../public/icons/typescript.svg'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -68,33 +69,23 @@ export default function Home() {
           </details>
         </section>
         <section>
-          <h3 className='section-header'>How I Contribute</h3>
+          <h3 className='section-header'>Where I Contribute</h3>
           <h4 className='hat'>Front End Development</h4>
-          <h4 className='hat'>Graphics & Experience Design</h4>
+          <h4 className='hat'>Interface & Experience Design</h4>
           <h4 className='hat'>Product Direction</h4>
           <h4 className='hat'>Project Management</h4>
           <h4 className='hat'>Market & User Research</h4>
         </section>
 
         <section>
-          <h3 className='section-header'>Favorite Tools</h3>
+          <h3 className='section-header'>Technology Toolkit</h3>
           <p>
-            I believe in big picture product thinking over specific tools, and take an undaunted stance to learning or adopting whatever knowledge skills and toolkits get the job done right.
+            I believe in big picture product thinking over specific tools, and have an undaunted attitude towards learning and adopting whatever knowledge, skills or toolkits are the best for the job.
           </p>
           <p>
-            That said, here are some of the technologies I've had the privilege of getting very familiar with over the course of work experience. 
+            That said, here are some of the technologies I've had the privilege of getting the most familiar with over the course of my work experience. 
           </p>
-          <h4 className='tech'>TypeScript</h4>
-          <h4 className='tech'>Vanilla JS</h4>
-          <h4 className='tech'>React</h4>
-          <h4 className='tech'>Web Components</h4>
-          <h4 className='tech'>HTML/CSS</h4>
-          <h4 className='tech'>Node</h4>
-          <h4 className='tech'>Solidity</h4>
-          <h4 className='tools'>Figma</h4>
-          <h4 className='tools'>Adobe CS</h4>
-          <h4 className='tools'>Google</h4>
-          <h4 className='tools'>Whatever Works</h4>
+          <TechIcons />
         </section>
 
       </main>
