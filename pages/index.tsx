@@ -1,10 +1,9 @@
 import Head from 'next/head'
 import TechIcons from '../components/techIcons'
 import Footer from '../components/footer'
+import Nav from '../components/nav'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
-import Link from 'next/link'
-import typescript from '../public/icons/typescript.svg'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -27,11 +26,7 @@ export default function Home() {
             Whether you're looking for a developer that 'speaks designer' or a designer that 'speaks developer', we'll have plenty to talk about together.
           </p>
         </div>
-        <nav>
-          <Link href={'/product'}>Product</Link>
-          <Link href={'/design'}>Design</Link>
-          <Link href={'/dev'}>Code</Link>
-        </nav>
+        <Nav />
         <section>
           <h3 className='section-header'>Professional Experience</h3>
           <details>
@@ -83,7 +78,7 @@ export default function Home() {
             I believe in big picture product thinking over specific tools, and have an undaunted attitude towards learning and adopting whatever knowledge, skills or toolkits are the best for the job.
           </p>
           <p>
-            That said, here are some of the technologies I've had the privilege of getting the most familiar with over the course of my work experience. 
+            That said, here are some of the technologies I've had the privilege of getting the most familiar with over the course of my work experience.
           </p>
           <TechIcons />
         </section>

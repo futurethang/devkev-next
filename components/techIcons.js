@@ -66,7 +66,6 @@ export default function TechIcons(icon) {
         <Image src={aftereffects} alt='After Effects' />
         <Image src={creativesuite} alt='Adobe Creative Suite' />
       </div>
-      <h4 className='tech'>Solidity</h4>
     </div>
   )
 }

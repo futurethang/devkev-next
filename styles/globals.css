@@ -48,6 +48,10 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
+
+  --md-chip-height: 32px;
+  --md-chip-color: #e0e0e0;
+  --themecolor: #1579b3;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -116,10 +120,12 @@ main nav {
 }
 
 main nav>a {
+  font-size: var(--font-size-h2);
   background-color: #330864;
   padding: 1rem 3rem;
   transition: all 200ms;
 }
+
 main nav>a:hover {
   border-radius: 8px;
   background-color: #FECC5B;
@@ -163,7 +169,7 @@ p {
   font-weight: var(--font-weight-thin);
 }
 
-p > b {
+p>b {
   font-weight: var(--font-weight-regular);
 }
 

@@ -18,11 +18,9 @@ function Footer() {
                 <SocialIcon bgColor='#FECC5B' style={{ height: '1.75rem', width: '1.75rem' }} target="_blank" url="https://www.linkedin.com/in/kevin-hyde-fullstack/" />
             </div>
             <nav>
-                <Link href={'/product'}>Product</Link>
-                <Link href={'/design'}>Design</Link>
-                <Link href={'/dev'}>Code</Link>
+                <Link href={'/samples'}>Work Samples</Link>
                 <Link href={'#'}>Cool Stuff</Link>
-                <Link href={'#'}>SkunkWorks</Link>
+                {/* <Link href={'#'}>SkunkWorks</Link> */}
             </nav>
             <div className='copyright'>
                 ©2023 Kevin Hyde

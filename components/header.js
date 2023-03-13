@@ -1,7 +1,6 @@
 // components/Header.js
 
 import Link from 'next/link';
-import Nav from './nav';
 import styles from '@/styles/Home.module.css'
 
 
@@ -13,7 +12,7 @@ function Header() {
                     <h1><span className='kern'>K</span>evin Hyde</h1>
                 </Link>
             </div>
-            <Nav />
+            {/* <Nav /> */}
         </>
     );
 }
