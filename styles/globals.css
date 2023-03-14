@@ -96,6 +96,7 @@
 html,
 body {
   max-width: 100vw;
+  height: 100vh;
   overflow-x: hidden;
 }
 
@@ -107,7 +108,9 @@ body {
 
 main {
   padding: var(--bottom-margin-big);
+  padding-bottom: 15rem;
   max-width: 80ch;
+  height: auto;
   background: var(--main-background);
 }
 

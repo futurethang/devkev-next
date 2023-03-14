@@ -6,9 +6,10 @@ import style from '@/styles/Samples.module.css'
 import { samples } from '../constants/samples'
 import { useEffect, useState } from 'react';
 
-function Samples() {
-    const [showing, setShowing] = useState(['Experience', 'Interface', 'Front End', 'Graphics', 'Motion'])
-    const [stateSamples, setStateSamples] = useState(samples)
+function Samples2() {
+    const [visible, setVisible] = useState([])
+    const [stateSamples, setStateSamples] = useState([])
+    const [sampleData, setSampleData] = useState(samples)
 
     const selectAll = (source) => {
         // TO DO: 
@@ -27,16 +28,23 @@ function Samples() {
     }
 
     useEffect(() => {
+        listSections()
         selectAll()
-        debugger;
-        console.log(stateSamples)
+        checkSelected()
     }, [])
 
+    const listSections = async () => {
+        const sectionArr = []
+        for (const sample in samples) {
+            sectionArr.push(samples[sample].displaLabel)
+        }
+        await setStateSamples(sectionArr)
+    }
 
-    const checkSelected = () => {
+    const checkSelected = async () => {
         const checkboxes = Array.from(document.getElementsByTagName('input'));
         const filteredArr = checkboxes.filter(item => item.checked).map(thing => thing.value).filter(label => label !== "all")
-        setShowing(filteredArr)
+        await setVisible(filteredArr)
     }
 
     return (
@@ -53,36 +61,30 @@ function Samples() {
                         <div className={style.chips} onClick={checkSelected}>
                             <input className={style.input} type="checkbox" onClick={e => selectAll(e)} id="myCheckbox" value="all" />
                             <label for="myCheckbox" className={style.chip}>All</label>
-                            {
-                                stateSamples.map((section, i) => {
-                                    return (
-                                        <>
-                                            <input className={style.input} type="checkbox" name={section} value={section} id={i} />
-                                            <label for={i} className={style.chip}>{section}</label>
-                                        </>
-                                    )
-                                })
-                            }
-                            <input className={style.input} type="checkbox" name="Interface" value="Interface" id="2" />
-                            <label for="2" className={style.chip}>Interface</label>
-                            <input className={style.input} type="checkbox" name="Front End" value="Front End" id="3" />
-                            <label for="3" className={style.chip}>Front End</label>
-                            <input className={style.input} type="checkbox" name="Graphics" value="Graphics" id="4" />
-                            <label for="4" className={style.chip}>Graphics</label>
-                            <input className={style.input} type="checkbox" name="Motion" value="Motion" id="5" />
-                            <label for="5" className={style.chip}>Motion</label>
+                            {stateSamples.map((section, i) => {
+                                return (
+                                    <>
+                                        <input className={style.input} type="checkbox" name={section} value={section} id={i} />
+                                        <label for={i} className={style.chip}>{section}</label>
+                                    </>
+
+                                )
+                            })}
                         </div>
                     </section>
                     <section>
-                        {showing.map(item => {
+                        {visible.map(item => {
                             return (
                                 <>
                                     <h2>{item}</h2>
-                                    {/* {samples[item].map(sample => {
-                                    return (
-                                        sample.title
-                                    )
-                                })} */}
+                                    {sampleData[item].samples.map((sample, i) => {
+                                        return (
+                                            <>
+                                                <h4>{sample.title}</h4>
+                                                <p>{sample.copy}</p>
+                                            </>
+                                        )
+                                    })}
                                 </>
 
                             )
@@ -95,4 +97,4 @@ function Samples() {
     );
 }
 
-export default Samples;
+export default Samples2;
