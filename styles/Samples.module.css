@@ -27,3 +27,32 @@
 .input:checked + label {
     background-color: yellowgreen;
 }
+
+.sampleSection {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.preview {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    max-width: 60ch;
+    height: auto;
+    background-color: var(--body-background);
+    padding: 1.5rem;
+    border-radius: 1rem;
+}
+
+.preview p {
+    font-size: var(--font-size-small);
+    max-width: 60ch;
+}
+
+.preview img {
+    width: auto;
+    max-width: 40ch;
+    height: auto;
+    border-radius: .5rem;
+}

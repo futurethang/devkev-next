@@ -20,6 +20,7 @@
   --font-size-h1: 3rem;
   --font-size-h2: 1.5rem;
   --font-size-hn: 1rem;
+  --font-size-small: .75rem;
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -58,7 +59,7 @@
   :root {
     --foreground-rgb: 255, 255, 255;
     --text-headers: #FECC5B;
-    --text-copy: #FFFFFF;
+    --text-copy: #C6C6C6;
     --body-background: #330864;
     --main-background: #0C1A1F;
     --background-start-rgb: 0, 0, 0;
@@ -108,7 +109,6 @@ body {
 
 main {
   padding: var(--bottom-margin-big);
-  padding-bottom: 15rem;
   max-width: 80ch;
   height: auto;
   background: var(--main-background);
