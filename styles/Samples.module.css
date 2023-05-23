@@ -40,13 +40,13 @@
     width: auto;
     max-width: 60ch;
     height: auto;
-    background-color: var(--body-background);
+    background: radial-gradient(circle at right bottom, #B100DD, #370151, #4a006c);
     padding: 1.5rem;
     border-radius: 1rem;
 }
 
 .preview p {
-    font-size: var(--font-size-small);
+    font-size: var(--font-size);
     max-width: 60ch;
 }
 
@@ -55,4 +55,24 @@
     max-width: 40ch;
     height: auto;
     border-radius: .5rem;
+}
+
+.tags {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+    list-style: none;
+}
+
+.tag {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--main-background);
+    color: var(--text-copy);
+    padding: .25rem .5rem;
+    border-radius: .25rem;
+}
+
+.tag::before {
+    content: '#';
 }
