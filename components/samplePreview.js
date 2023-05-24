@@ -4,13 +4,8 @@ import Image from 'next/image'
 import style from '@/styles/Samples.module.css'
 
 export default function SamplePreview({ sample } = props) {
-
-  useEffect(() => {
-    console.log("sample?", sample)
-  }, [])
-
   return (
-    <Link href={`/${sample.link}`} className={style.preview}>
+    <Link href={`/samples/${sample.link}`} className={style.preview}>
       <h4>{sample.title}</h4>
       <p>{sample.copy}</p>
       <Image src={sample.thumbnail} alt={sample.alt} />

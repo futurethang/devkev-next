@@ -8,7 +8,7 @@ function Nav() {
       {/* <Link href={'/product'}>Product</Link>
       <Link href={'/design'}>Design</Link>
       <Link href={'/dev'}>Code</Link> */}
-      <Link href={'/samples2'}>Work Samples ✏︎</Link>
+      <Link href={'/samples'}>Work Samples ✏︎</Link>
     </nav>
   );
 }

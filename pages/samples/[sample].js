@@ -9,10 +9,10 @@ import styles from '@/styles/Home.module.css'
 
 export default function swivL2() {
     const router = useRouter();
-    const { sample } = router.query;
+    const sample = router.query.sample;
 
     // Find the right sample from the samples array
-    const sampleItem = samples.find(s => s.link === `/${sample}`);
+    const sampleItem = samples.find(s => s.link === sample);
 
     return (
         <>
@@ -23,6 +23,8 @@ export default function swivL2() {
                 <Header />
                 <Nav />
                 <div>
+                    <h1>{sample}</h1>
+
                     <h2>{sampleItem.title}</h2>
                     <p>{sampleItem.copy}</p>
                 </div>
