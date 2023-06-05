@@ -1,6 +1,7 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { DefaultSeo } from 'next-seo';
+import { useEffect } from 'react';
 
 const defaultSEOConfig = {
   title: 'Kevin Hyde - Web Developer and Product Designer',
@@ -27,6 +28,24 @@ const defaultSEOConfig = {
 };
 
 function MyApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log('scrolling');
+      const bg = document.body;
+      const scrolled = document.documentElement.scrollTop || document.body.scrollTop;
+      bg.style.backgroundPositionY = -(scrolled * 0.1) + 'px';
+    };
+
+    if (typeof window !== 'undefined') {
+      document.addEventListener('scroll', handleScroll);
+
+      return () => {
+        document.removeEventListener('scroll', handleScroll);
+      };
+    }
+  }, []); // Empty array means this effect runs once on mount and clean up on unmount
+
+
   return (
     <>
       <DefaultSeo {...defaultSEOConfig} />
