@@ -2,7 +2,7 @@ import Head from 'next/head'
 import TechIcons from '../components/techIcons'
 import Footer from '../components/footer'
 import Nav from '../components/nav'
-import Marquee from '../components/Marquee';
+import Marquee from '../components/marquee';
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 
