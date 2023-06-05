@@ -7,7 +7,7 @@ import style from '@/styles/Samples.module.css'
 import { samples } from '../../constants/samples'
 import { useState, useLayoutEffect } from 'react';
 
-function Samples2() {
+function Samples() {
 
     const renderSample = (sample, i) => {
         return (
@@ -39,4 +39,4 @@ function Samples2() {
     );
 }
 
-export default Samples2;
+export default Samples;

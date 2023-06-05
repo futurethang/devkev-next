@@ -18,7 +18,7 @@ function Footer() {
                 <SocialIcon bgColor='#FECC5B' style={{ height: '1.75rem', width: '1.75rem' }} target="_blank" url="https://www.linkedin.com/in/kevin-hyde-fullstack/" />
             </div>
             <nav>
-                <Link href={'/samples2'}>Work Samples</Link>
+                <Link href={'/samples'}>Work Samples</Link>
                 <Link href={'/blog'}>Blog</Link>
                 <Link href={'#'}>Cool Stuff</Link>
                 {/* <Link href={'#'}>SkunkWorks</Link> */}

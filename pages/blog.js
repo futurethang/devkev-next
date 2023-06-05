@@ -30,7 +30,7 @@ export default function Blog() {
             </Head>
             <main className={styles.main} >
                 <Header />
-                {data.map(i => <h3>{i.title}</h3>)}
+                {data.map((post, i) => <h3 key={i}>{post.title}</h3>)}
             </main>
             <Footer />
         </>

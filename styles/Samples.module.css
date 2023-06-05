@@ -40,7 +40,7 @@
     width: auto;
     max-width: 60ch;
     height: auto;
-    background: radial-gradient(circle at right bottom, #B100DD, #370151, #4a006c);
+    background: radial-gradient(circle at right bottom, #B100DD, #711f99, #4a006c);
     padding: 1.5rem;
     border-radius: 1rem;
 }

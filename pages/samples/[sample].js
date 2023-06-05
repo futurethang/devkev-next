@@ -7,12 +7,16 @@ import Header from '../../components/header'
 import Footer from '../../components/footer'
 import styles from '@/styles/Home.module.css'
 
-export default function swivL2() {
+export default function Sample() {
     const router = useRouter();
     const sample = router.query.sample;
 
     // Find the right sample from the samples array
     const sampleItem = samples.find(s => s.link === sample);
+
+    if (!sampleItem) {
+        return <div>laoding...</div>
+    }
 
     return (
         <>
@@ -23,7 +27,7 @@ export default function swivL2() {
                 <Header />
                 <Nav />
                 <div>
-                    <h1>{sample}</h1>
+                    <h2>{sample}</h2>
 
                     <h2>{sampleItem.title}</h2>
                     <p>{sampleItem.copy}</p>
