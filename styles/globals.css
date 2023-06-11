@@ -122,7 +122,8 @@ main {
   max-width: 68ch;
   height: auto;
   background: var(--main-background);
-  margin: auto;
+  margin: 1rem auto;
+  border-radius: 1rem;
 }
 
 main nav {
