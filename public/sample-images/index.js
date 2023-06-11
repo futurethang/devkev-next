@@ -44,7 +44,6 @@ export {
   l2Selector4,
   l2Selector5,
   l2Selector6,
-  l2Selector7,
-
+  l2Selector7
 }
 

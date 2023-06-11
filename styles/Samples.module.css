@@ -24,7 +24,7 @@
     display: none;
 }
 
-.input:checked + label {
+.input:checked+label {
     background-color: yellowgreen;
 }
 
@@ -82,4 +82,16 @@
 
 .tag::before {
     content: '#';
+}
+
+.images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    gap: 2rem;
+}
+
+.images img {
+    width: 100%;
+    height: auto;
+    border-radius: .5rem;
 }

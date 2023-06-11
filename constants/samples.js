@@ -13,6 +13,36 @@ Without introducing an all-new selection component, we played with approaches to
         thumbnail: img.prevL2,
         alt: "",
         link: 'swiv-l2',
+        images: [
+            {
+                src: img.l2Selector,
+                alt: "L2 switching on Swivel Finance"
+            },
+            {
+                src: img.l2Selector2,
+                alt: "L2 switching on Swivel Finance"
+            },
+            {
+                src: img.l2Selector3,
+                alt: "L2 switching on Swivel Finance"
+            },
+            {
+                src: img.l2Selector4,
+                alt: "L2 switching on Swivel Finance"
+            },
+            {
+                src: img.l2Selector5,
+                alt: "L2 switching on Swivel Finance"
+            },
+            {
+                src: img.l2Selector6,
+                alt: "L2 switching on Swivel Finance"
+            },
+            {
+                src: img.l2Selector7,
+                alt: "L2 switching on Swivel Finance"
+            },
+        ],
         tags: ['web3', 'UXUI', 'Figma']
     },
     {

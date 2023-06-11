@@ -38,6 +38,17 @@ export default function Sample() {
                     <img src={sampleItem.thumbnail.src} alt={sampleItem.title} loading='lazy' />
                     {/* </div> */}
                     <ReactMarkdown>{sampleItem.bodyCopy}</ReactMarkdown>
+                    <div className={sampleStyles.images}>
+                        {sampleItem.images.map((image, index) => {
+                          console.log(image.src.src)
+                            return (
+                                // <div key={index} className={sampleStyles.imgwrap}>
+                                    <img src={image.src.src} alt={image.alt} loading='lazy' />
+                                // </div>
+                            )
+                        })}
+
+                    </div>
                 </div>
             </main>
             <Footer />
