@@ -7,7 +7,7 @@ import styles from '@/styles/Home.module.css'
 function Header() {
     return (
         <>
-            <div className={styles.description}>
+            <div className={styles.subPage}>
                 <Link href={'/'}>
                     <h1><span className='kern'>K</span>evin Hyde</h1>
                 </Link>

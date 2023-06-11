@@ -27,3 +27,59 @@
 .input:checked + label {
     background-color: yellowgreen;
 }
+
+.sampleSection {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.preview {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    max-width: 60ch;
+    height: auto;
+    background: radial-gradient(circle at right bottom, #B100DD, #711f99, #4a006c);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    transition: all 200ms;
+}
+
+.preview:hover {
+    filter: brightness(1.2);
+}
+
+.preview p {
+    font-size: var(--font-size);
+    max-width: 60ch;
+}
+
+.preview img {
+    width: auto;
+    max-width: 40ch;
+    height: auto;
+    border-radius: .5rem;
+    margin-bottom: 1.5rem;
+}
+
+.tags {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: .5rem;
+    list-style: none;
+}
+
+.tag {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: var(--main-background);
+    color: var(--text-copy);
+    padding: .25rem .5rem;
+    border-radius: .25rem;
+}
+
+.tag::before {
+    content: '#';
+}

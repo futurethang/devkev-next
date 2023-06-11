@@ -2,6 +2,7 @@ import Head from 'next/head'
 import TechIcons from '../components/techIcons'
 import Footer from '../components/footer'
 import Nav from '../components/nav'
+import Marquee from '../components/marquee';
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 
@@ -19,7 +20,7 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.description}>
           <h1><span className='kern'>K</span>evin Hyde</h1>
-          <h2>developer / designer</h2>
+          <h2><Marquee>developer / designer / product nerd / developer advocate / UX researcher / avid reader / polyglot</Marquee></h2>
           <p>
             Building a great product invariably presents those sticky spots where <b>What's Possible!™️</b> butts heads with <b>&lt;whats-possible&gt;</b></p>
           <p>
@@ -64,12 +65,13 @@ export default function Home() {
           </details>
         </section>
         <section>
-          <h3 className='section-header'>Where I Contribute</h3>
+          <h3 className='section-header'>What Do I Do?</h3>
           <h4 className='hat'>Front End Development</h4>
           <h4 className='hat'>Interface & Experience Design</h4>
           <h4 className='hat'>Product Direction</h4>
           <h4 className='hat'>Project Management</h4>
           <h4 className='hat'>Market & User Research</h4>
+          <h4 className='hat'>Et Cetera</h4>
         </section>
 
         <section>

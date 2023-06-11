@@ -10,7 +10,7 @@ function Footer() {
         <footer className={styles.footer}>
             <div className={styles.connect}>
                 <Link href={'/'}>
-                    <h3><span className='kern'>K</span>evin Hyde</h3>
+                    <h3>Kevin Hyde</h3>
                 </Link>
                 <SocialIcon bgColor='#FECC5B' style={{ height: '1.75rem', width: '1.75rem' }} target="_blank" url="mailto:kphyde@gmail.com" />
                 <SocialIcon bgColor='#FECC5B' style={{ height: '1.75rem', width: '1.75rem' }} target="_blank" url="https://t.me/futurethang" />
@@ -19,6 +19,7 @@ function Footer() {
             </div>
             <nav>
                 <Link href={'/samples'}>Work Samples</Link>
+                <Link href={'/blog'}>Blog</Link>
                 <Link href={'#'}>Cool Stuff</Link>
                 {/* <Link href={'#'}>SkunkWorks</Link> */}
             </nav>

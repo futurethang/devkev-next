@@ -1,0 +1,22 @@
+.marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 43%;
+  height: 2rem;
+  position: relative;
+}
+
+.marquee__content {
+  display: inline-block;
+  animation: marquee 22s linear infinite;
+}
+
+@keyframes marquee {
+  0%, 10% { /* This will make the text hold the initial position for 10% of the animation duration (2.2s) */
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}

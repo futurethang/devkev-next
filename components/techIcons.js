@@ -1,38 +1,31 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import style from '../styles/TechIcons.module.css'
-import typescript from '../public/icons/typescript.svg'
-import javascript from '../public/icons/javascript.svg'
-import figma from '../public/icons/figma.svg'
-import illustrator from '../public/icons/illustrator.svg'
-import photoshop from '../public/icons/photoshop.svg'
-import creativesuite from '../public/icons/creative-suite.svg'
-import aftereffects from '../public/icons/aftereffects.svg'
-import vscode from '../public/icons/vscode.svg'
-import angular from '../public/icons/angular.svg'
-import react from '../public/icons/react.svg'
-import vue from '../public/icons/vue.svg'
-import jest from '../public/icons/jest.svg'
-import sass from '../public/icons/sass.svg'
-import webpack from '../public/icons/webpack.svg'
-import node from '../public/icons/node.svg'
-import webcomponents from '../public/icons/webcomponents.svg'
-import html from '../public/icons/html.svg'
-import css from '../public/icons/css.svg'
+import * as img from '../public/icons/index.js'
 
 export default function TechIcons(icon) {
   const [devLabel, setDevLabel] = useState('')
   const [designLabel, setDesignLabel] = useState('')
+  const [aiLabel, setAiLabel] = useState('')
 
   const onHover = (e, section) => {
-    if (e.target.alt) {
-      section === 'dev' ? setDevLabel(e.target.alt) : setDesignLabel(e.target.alt)
-    } else {
-      return
+    switch (section) {
+      case 'dev':
+        setDevLabel(titleCase(e.target.alt))
+        break;
+      case 'design':
+        setDesignLabel(titleCase(e.target.alt))
+        break;
+      case 'ai':
+        setAiLabel(titleCase(e.target.alt))
+        break;
+      default:
+        break;
     }
   }
 
   function titleCase(str) {
+    if (!str) return
     str = str.toLowerCase().split(' ');
     for (var i = 0; i < str.length; i++) {
       str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
@@ -42,29 +35,35 @@ export default function TechIcons(icon) {
 
   return (
     <div className={style.techIcons}>
-      <h3>Dev Tools: <span style={{color:'white'}}>{devLabel}</span></h3>
-      <div className={style.iconGroup} onMouseOver={e => onHover(e, 'dev')}>
-        <Image src={typescript} alt='Typescript' />
-        <Image src={javascript} alt='Javascript' />
-        <Image src={node} alt='Node' />
-        <Image src={react} alt='React' />
-        <Image src={webcomponents} alt='Web Components' />
-        <Image src={html} alt='HTML5' />
-        <Image src={css} alt='CSS3' />
-        <Image src={sass} alt='Sass' />
-        <Image src={angular} alt='Angular' />
-        <Image src={vue} alt='Vue' />
-        <Image src={jest} alt='Jest' />
-        <Image src={webpack} alt='Webpack' />
-        <Image src={vscode} alt='VSCode' />
+      <h3>Dev Tools: <span style={{ color: 'white' }}>{devLabel}</span></h3>
+      <div className={style.iconGroup} onMouseOver={e => onHover(e, 'dev')} onFocus={e => onHover(e, 'dev')}>
+        <Image src={img.typescript} alt='Typescript' tabIndex={0} />
+        <Image src={img.javascript} alt='Javascript' tabIndex={0} />
+        <Image src={img.node} alt='Node' tabIndex={0} />
+        <Image src={img.react} alt='React' tabIndex={0} />
+        <Image src={img.webcomponents} alt='Web Components' tabIndex={0} />
+        <Image src={img.html} alt='HTML5' tabIndex={0} />
+        <Image src={img.css} alt='CSS3' tabIndex={0} />
+        <Image src={img.sass} alt='Sass' tabIndex={0} />
+        <Image src={img.angular} alt='Angular' tabIndex={0} />
+        <Image src={img.vue} alt='Vue' tabIndex={0} />
+        <Image src={img.jest} alt='Jest' tabIndex={0} />
+        <Image src={img.webpack} alt='Webpack' tabIndex={0} />
+        <Image src={img.vscode} alt='VSCode' tabIndex={0} />
       </div>
-      <h3>Design Tools: <span style={{color:'white'}}>{designLabel}</span></h3>
-      <div className={style.iconGroup} onMouseOver={e => onHover(e, 'design')}>
-        <Image src={figma} alt='Figma' />
-        <Image src={illustrator} alt='Illustrator' />
-        <Image src={photoshop} alt='Photoshop' />
-        <Image src={aftereffects} alt='After Effects' />
-        <Image src={creativesuite} alt='Adobe Creative Suite' />
+      <h3>Design Tools: <span style={{ color: 'white' }}>{designLabel}</span></h3>
+      <div className={style.iconGroup} onMouseOver={e => onHover(e, 'design')} onFocus={e => onHover(e, 'dev')}>
+        <Image src={img.figma} alt='Figma' tabIndex={0}/>
+        <Image src={img.illustrator} alt='Illustrator' tabIndex={0}/>
+        <Image src={img.photoshop} alt='Photoshop' tabIndex={0}/>
+        <Image src={img.aftereffects} alt='After Effects' tabIndex={0}/>
+        <Image src={img.creativesuite} alt='Adobe Creative Suite' tabIndex={0}/>
+      </div>
+      <h3>AI Tools: <span style={{ color: 'white' }}>{aiLabel}</span></h3>
+      <div className={style.iconGroup} onMouseOver={e => onHover(e, 'ai')} onFocus={e => onHover(e, 'dev')}>
+        <Image src={img.openai} alt='OpenAI' tabIndex={0}/>
+        <Image src={img.langchain} alt='LangChain' tabIndex={0}/>
+        <Image src={img.midjourney} alt='Midjourney' tabIndex={0}/>
       </div>
     </div>
   )
