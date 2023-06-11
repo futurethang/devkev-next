@@ -62,6 +62,7 @@
     --text-copy: #dedede;
     --body-background: #330864;
     --main-background: #0C1A1F;
+    --purple: #620084;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
 
@@ -130,15 +131,15 @@ main nav {
 
 main nav>a {
   font-size: var(--font-size-h2);
-  background-color: #330864;
-  padding: 1rem 3rem;
+  background-color: var(--purple);
+  border-radius: 8px;
+  padding: 1rem 2rem;
   transition: all 200ms;
 }
 
 main nav>a:hover {
-  border-radius: 8px;
   background-color: #FECC5B;
-  color: #330864;
+  color: var(--purple);
 }
 
 h1 {
@@ -206,9 +207,14 @@ details>summary {
 
 details>summary>h4 {
   display: inline-block;
-  background: rgb(51 8 100);
+  background: var(--purple);
   border-radius: 0.25rem;
   padding: 0.25rem 0.5rem;
+  transition: all 100ms;  
+}
+
+details>summary>h4:hover, details>summary>h4:focus {
+  filter: brightness(1.2);
 }
 
 details>summary::-webkit-details-marker {

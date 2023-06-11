@@ -1,11 +1,13 @@
 import React from 'react'
+import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 import Head from 'next/head'
 import { useRouter } from 'next/router';
 import { samples } from '../../constants/samples';
-import Nav from '../../components/nav'
+import Link from 'next/link';
 import Header from '../../components/header'
 import Footer from '../../components/footer'
 import styles from '@/styles/Home.module.css'
+import sampleStyles from '@/styles/Samples.module.css'
 
 export default function Sample() {
     const router = useRouter();
@@ -18,6 +20,8 @@ export default function Sample() {
         return <div>laoding...</div>
     }
 
+    console.log(sampleItem.thumbnail.src)
+
     return (
         <>
             <Head>
@@ -25,12 +29,15 @@ export default function Sample() {
             </Head>
             <main className={styles.main}>
                 <Header />
-                <Nav />
-                <div>
-                    <h2>{sample}</h2>
-
+                <nav>
+                    <Link href={'/samples'}>👈 Back</Link>
+                </nav>
+                <div className={sampleStyles.preview}>
                     <h2>{sampleItem.title}</h2>
-                    <p>{sampleItem.copy}</p>
+                    {/* <div className={sampleStyles.imgwrap}> */}
+                    <img src={sampleItem.thumbnail.src} alt={sampleItem.title} loading='lazy' />
+                    {/* </div> */}
+                    <ReactMarkdown>{sampleItem.bodyCopy}</ReactMarkdown>
                 </div>
             </main>
             <Footer />

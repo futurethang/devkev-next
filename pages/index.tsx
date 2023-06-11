@@ -65,12 +65,13 @@ export default function Home() {
           </details>
         </section>
         <section>
-          <h3 className='section-header'>Where I Contribute</h3>
+          <h3 className='section-header'>What Do I Do?</h3>
           <h4 className='hat'>Front End Development</h4>
           <h4 className='hat'>Interface & Experience Design</h4>
           <h4 className='hat'>Product Direction</h4>
           <h4 className='hat'>Project Management</h4>
           <h4 className='hat'>Market & User Research</h4>
+          <h4 className='hat'>Et Cetera</h4>
         </section>
 
         <section>

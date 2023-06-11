@@ -43,6 +43,11 @@
     background: radial-gradient(circle at right bottom, #B100DD, #711f99, #4a006c);
     padding: 1.5rem;
     border-radius: 1rem;
+    transition: all 200ms;
+}
+
+.preview:hover {
+    filter: brightness(1.2);
 }
 
 .preview p {
@@ -55,12 +60,14 @@
     max-width: 40ch;
     height: auto;
     border-radius: .5rem;
+    margin-bottom: 1.5rem;
 }
 
 .tags {
     padding-top: 1rem;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: .5rem;
     list-style: none;
 }
