@@ -20,7 +20,7 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.description}>
           <h1><span className='kern'>K</span>evin Hyde</h1>
-          <h2><Marquee>developer / designer / product nerd / developer advocate / UX researcher / avid reader / polyglot</Marquee></h2>
+          <h2><Marquee>developer / designer / product nerd / developer advocate / UX researcher / avid reader / polyglot / prompt engineer</Marquee></h2>
           <p>
             Building a great product invariably presents those sticky spots where <b>What's Possible!™️</b> butts heads with <b>&lt;whats-possible&gt;</b></p>
           <p>

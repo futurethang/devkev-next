@@ -24,7 +24,7 @@
     display: none;
 }
 
-.input:checked + label {
+.input:checked+label {
     background-color: yellowgreen;
 }
 
@@ -40,7 +40,7 @@
     width: auto;
     max-width: 60ch;
     height: auto;
-    background: radial-gradient(circle at right bottom, #B100DD, #711f99, #4a006c);
+    background: radial-gradient(circle at right bottom, #340c98, var(--theme-blue));
     padding: 1.5rem;
     border-radius: 1rem;
     transition: all 200ms;
@@ -82,4 +82,16 @@
 
 .tag::before {
     content: '#';
+}
+
+.images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    gap: 2rem;
+}
+
+.images img {
+    width: 100%;
+    height: auto;
+    border-radius: .5rem;
 }
