@@ -45,7 +45,7 @@ export default function Sample() {
               console.log(image.src.src)
               return (
                 // <div key={index} className={sampleStyles.imgwrap}>
-                <img src={image.src.src} alt={image.alt} loading='lazy' onClick={() => {
+                <img src={image.src.src} alt={image.alt} key={`image-${index}`} loading='lazy' onClick={() => {
                   setSelectedImage(image);
                   setShowModal(true);
                 }} />
