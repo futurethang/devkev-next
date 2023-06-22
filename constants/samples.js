@@ -160,55 +160,25 @@ Illuminate protocol needed a ground-up landing page to promote the protocol and 
 Starting with design cues from the UI (that I also designed) and an evolving brand aesthetic, I built the page from the ground up, communicating the protocol's value proposition and mechanics through animations and graphics built using Figma and Adobe tools. Like a fully fledged web project, I had a lot of conversations with internal stakeholders and outside parties to push the content and design towards higher impact. After a series of design revisions and mocks I coded the page using HTML, CSS, and Javascript, relying on Web Components for reusable elements. [Illuminate.finance](https://illuminate.finance)
 ##### The Result
 A sexy, screen-responsive landing page that draws visitors into our unique protocol, its features, and possible use cases.
+##### Why I Bring It Up
+This was another project that made use of my full stack of skills, from design to development. Not only did I spearhead all of the graphic elements and coding of the site, but I lead the conversations with stakeholders in marketing and business development to make sure the final result met clear stated goals.
         `,
-        thumbnail: img.prevIlluminate,
+        thumbnail: img.illLanding1,
         alt: "",
         link: "ill-landing",
         tags: ['web3', 'Web Design', 'Figma', 'Web Components', 'Marketing', 'CSS'],
         images: [
             {
-                src: img.l2Selector,
-                alt: "L2 switching on Swivel Finance"
-            },]
-    },
-    {
-        title: "Shadowpattern.com",
-        previewCopy: "An editable band homepage that allows all members to add and update information about upcoming shows.",
-        bodyCopy: `
-##### The Situation
-You always gotta have a sweet wevsite for your band so people can get info about upcoming shows, listen to music, and see images of live performances and neat poster art. But managing updates for the site becomes too much of a one-person job. 
-##### The Solution
-I redid the site and added a Supabase backend to a NextJS frontend to allow all band members to add and update information about upcoming shows and add new poster images.
-##### The Result
-I finally got the bass player off of my back about making site changes, and he texts me a lot less frequently! 😎
-        `,
-        thumbnail: img.prevIlluminate,
-        alt: "",
-        link: "band-site",
-        tags: ['Web Design', 'NextJS', 'Marketing', 'Supabase', 'CSS'],
-        images: [
+                src: img.illLanding1,
+                alt: "Above the fold on the Illuminate landing page."
+            },
             {
-                src: img.l2Selector,
-                alt: "L2 switching on Swivel Finance"
-            },]
+                src: img.illLanding2,
+                alt: "Samples of sectioning and graphics design."
+            },
+        ]
     },
-    {
-        title: "Poster Designs",
-        previewCopy: "Captivating, creative visuals for print and web to promote live music events.",
-        bodyCopy: `
-##### The Situation
-Outside of the professional worls of product development I enjoy creative projects playing music, writing songs, and doing illustrations. As the most graphic-designerly member of whatever band I'm currently in, I get a lot of opportunities to whip up posters for upcoming shows. Here's a selection of posters to show some of my more playful and creative works.
-        `,
-        thumbnail: img.prevIlluminate,
-        alt: "",
-        link: "posters",
-        tags: ['Design', 'Marketing', 'Photoshop', 'Illustrator', 'Generative AI'],
-        images: [
-            {
-                src: img.l2Selector,
-                alt: "L2 switching on Swivel Finance"
-            },]
-    },
+
     {
         title: "Brand Assets and Social Media",
         previewCopy: "Materials for business development and marketing teams that enforce branding and messaging for product offerings",
@@ -301,5 +271,43 @@ Mainly because it shows that I can switch hats and take on a new role when neede
         alt: "",
         link: "storyboarding",
         tags: ['Design', 'Marketing', 'Photoshop', 'Illustrator', 'Figma']
+    },
+    {
+        title: "Shadowpattern.com",
+        previewCopy: "An editable band homepage that allows all members to add and update information about upcoming shows.",
+        bodyCopy: `
+##### The Situation
+You always gotta have a sweet wevsite for your band so people can get info about upcoming shows, listen to music, and see images of live performances and neat poster art. But managing updates for the site becomes too much of a one-person job. 
+##### The Solution
+I redid the site and added a Supabase backend to a NextJS frontend to allow all band members to add and update information about upcoming shows and add new poster images.
+##### The Result
+I finally got the bass player off of my back about making site changes, and he texts me a lot less frequently! 😎
+        `,
+        thumbnail: img.prevIlluminate,
+        alt: "",
+        link: "band-site",
+        tags: ['Web Design', 'NextJS', 'Marketing', 'Supabase', 'CSS'],
+        images: [
+            {
+                src: img.l2Selector,
+                alt: "L2 switching on Swivel Finance"
+            },]
+    },
+    {
+        title: "Poster Designs",
+        previewCopy: "Captivating, creative visuals for print and web to promote live music events.",
+        bodyCopy: `
+##### The Situation
+Outside of the professional worls of product development I enjoy creative projects playing music, writing songs, and doing illustrations. As the most graphic-designerly member of whatever band I'm currently in, I get a lot of opportunities to whip up posters for upcoming shows. Here's a selection of posters to show some of my more playful and creative works.
+        `,
+        thumbnail: img.prevIlluminate,
+        alt: "",
+        link: "posters",
+        tags: ['Design', 'Marketing', 'Photoshop', 'Illustrator', 'Generative AI'],
+        images: [
+            {
+                src: img.l2Selector,
+                alt: "L2 switching on Swivel Finance"
+            },]
     },
 ]
