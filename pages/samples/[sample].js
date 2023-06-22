@@ -37,7 +37,7 @@ export default function Sample() {
         <div className={sampleStyles.preview}>
           <h2>{sampleItem.title}</h2>
           {/* <div className={sampleStyles.imgwrap}> */}
-          <img src={sampleItem.thumbnail.src} alt={sampleItem.title} loading='lazy' />
+          {/* <img src={sampleItem.thumbnail.src} alt={sampleItem.title} loading='lazy' /> */}
           {/* </div> */}
           <ReactMarkdown>{sampleItem.bodyCopy}</ReactMarkdown>
           <div className={sampleStyles.images}>

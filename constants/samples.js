@@ -3,7 +3,7 @@ import * as img from '../public/sample-images/index.js'
 export const samples = [
     {
         title: "L2 switching on Swivel Finance",
-        previewCopy: "To expand to other chains, our existing app required an intuitive design for switching between networks to interact with more markets.",
+        previewCopy: "To expand to other chains, our existing app required an intuitive menu design for switching between networks to interact with more markets.",
         bodyCopy: `
 ##### The Situation
 Live already Ethereum Mainnet, we know that to capitalize on more markets and enjoy much lower transaction costs, we need to get users on to more L2s. Previously not included in the UI, we needed an interface that will make it intuitive and unmistakable for users to switch between networks and devnets within an increasingly crowded top-nav space.
@@ -15,39 +15,31 @@ Without introducing an all-new selection component, we played with approaches to
         link: 'swiv-l2',
         images: [
             {
-                src: img.l2Selector,
-                alt: "L2 switching on Swivel Finance"
-            },
-            {
-                src: img.l2Selector2,
-                alt: "L2 switching on Swivel Finance"
+                src: img.l2Selector4,
+                alt: "Open view showing difference depending on current network"
             },
             {
                 src: img.l2Selector3,
-                alt: "L2 switching on Swivel Finance"
+                alt: "Interaction focus states for mouse and keyboard navigation"
             },
             {
-                src: img.l2Selector4,
-                alt: "L2 switching on Swivel Finance"
+                src: img.l2Selector2,
+                alt: "Full app context view on Ethereum Mainnet"
             },
             {
-                src: img.l2Selector5,
-                alt: "L2 switching on Swivel Finance"
-            },
-            {
-                src: img.l2Selector6,
-                alt: "L2 switching on Swivel Finance"
+                src: img.l2Selector,
+                alt: "Full app context view on Arbitrum"
             },
             {
                 src: img.l2Selector7,
-                alt: "L2 switching on Swivel Finance"
+                alt: "Large Display view on Arbitrum"
             },
         ],
         tags: ['web3', 'UXUI', 'Figma']
     },
     {
         title: "Multi-Market selector on Swivel Finance",
-        previewCopy: "Expanding an initial design to facilitate an expanding selection of markets.",
+        previewCopy: "Our initial market selector design was poorly equipped to facilitate an expanding selection of markets, and needed design revisions.",
         bodyCopy: `
 ##### The Situation
 The existing UI for browsing active markets in Swivel is suitable only for a handful of markets. But what would happen when we have several, or even dozens or hundreds of markets? We needed a way to make it easy for users to filter and find the markets they want to interact with.
@@ -59,23 +51,41 @@ We prevented the headache of needing to reimagine the broader UI to accomodate a
         thumbnail: img.prevMarket,
         alt: "",
         link: 'swiv-multi-market',
-        tags: ['web3', 'UXUI', 'Figma']
+        tags: ['web3', 'UXUI', 'Figma'],
+        images: [
+            {
+                src: img.marketSelect,
+                alt: "Design iterations for multi market selector on Swivel Finance"
+            },
+            {
+                src: img.marketSelect2,
+                alt: "Final design implemented in live app"
+            },
+        ]
     },
     {
         title: "Orderbook Swivel Finance",
-        previewCopy: "Swivel's novel on/off chain orderbook allows users to manage several posituations, a complex structure to represent in an informative and helpful way.",
+        previewCopy: "Swivel's novel on/off chain orderbook allows users to place any number limit orders, leading to a design challenge to balance complexity and simplicity.",
         bodyCopy: `
 ##### The Situation
-Swivel's novel on/off chain orderbook allows users to manage several posituations, a complex structure to represent in an informative and helpful way.
+Perhaps the most critical and differentiating features of Swivel is its use of a novel orderbook solution, allowing for the better rates and capital efficiency over competing protocols that rely upon AMMs. But with many possible order types, the complexity of the order grew rapidly. 
 ##### The Solution
-A simple interface that allows users to lend and borrow without having to understand the underlying derivative contracts.
-##### The Result
-A simple interface that allows users to lend and borrow without having to understand the underlying derivative contracts.
+By designing easily recognizable visual heuristics alongside careful consideration of our Domain Driven Language, not to mention a powerful state-machine based front end, we managed to create a delightfully reactive table view that can display all of a user's possible trades and key datapoints at a glance.
         `,
         thumbnail: img.prevOrders,
         alt: "",
         link: 'swiv-orderbook',
-        tags: ['web3', 'UXUI', 'Figma']
+        tags: ['web3', 'UXUI', 'Figma'],
+        images: [
+            {
+                src: img.orderbook1,
+                alt: "Design variations for various order states on Swivel Finance"
+            },
+            {
+                src: img.orderbook2,
+                alt: "Transaction history states on Swivel Finance"
+            },
+        ]
     },
     {
         title: "Transactions on Illuminate",
@@ -91,7 +101,12 @@ A simple interface that allows users to lend and borrow without having to unders
         thumbnail: img.prevIlluminate,
         alt: "",
         link: 'illuminate-txn',
-        tags: ['web3', 'UXUI', 'Figma']
+        tags: ['web3', 'UXUI', 'Figma'],
+        images: [
+            {
+                src: img.l2Selector,
+                alt: "L2 switching on Swivel Finance"
+            },]
     },
     {
         title: "Orderbook Swivel Finance",
@@ -107,7 +122,12 @@ A simple interface that allows users to lend and borrow without having to unders
         thumbnail: img.prevIlluminate,
         alt: "",
         link: "swiv-orderbook",
-        tags: ['web3', 'UXUI', 'Figma']
+        tags: ['web3', 'UXUI', 'Figma'],
+        images: [
+            {
+                src: img.l2Selector,
+                alt: "L2 switching on Swivel Finance"
+            },]
     },
     {
         title: "Transaction UI on Illuminate",
@@ -126,7 +146,12 @@ I saw our design process for a brand new product from the core idea - expressed 
         thumbnail: img.prevIlluminate,
         alt: "",
         link: "illuminate-txn",
-        tags: ['web3', 'UXUI', 'Figma']
+        tags: ['web3', 'UXUI', 'Figma'],
+        images: [
+            {
+                src: img.l2Selector,
+                alt: "L2 switching on Swivel Finance"
+            },]
     },
     {
         title: "Momentum Web Components",
@@ -145,7 +170,12 @@ This was relatively early in my developer career, and the task set for me was la
         thumbnail: img.prevIlluminate,
         alt: "",
         link: "momentum-ui",
-        tags: ['UIKit', 'UXUI', 'Web Components', 'Enterprise', 'CSS']
+        tags: ['UIKit', 'UXUI', 'Web Components', 'Enterprise', 'CSS'],
+        images: [
+            {
+                src: img.l2Selector,
+                alt: "L2 switching on Swivel Finance"
+            },]
     },
     {
         title: "Illuminate Landing Page",
@@ -161,7 +191,12 @@ A sexy, screen-responsive landing page that draws visitors into our unique proto
         thumbnail: img.prevIlluminate,
         alt: "",
         link: "ill-landing",
-        tags: ['web3', 'Web Design', 'Figma', 'Web Components', 'Marketing', 'CSS']
+        tags: ['web3', 'Web Design', 'Figma', 'Web Components', 'Marketing', 'CSS'],
+        images: [
+            {
+                src: img.l2Selector,
+                alt: "L2 switching on Swivel Finance"
+            },]
     },
     {
         title: "Shadowpattern.com",
@@ -177,7 +212,12 @@ I finally got the bass player off of my back about making site changes, and he t
         thumbnail: img.prevIlluminate,
         alt: "",
         link: "band-site",
-        tags: ['Web Design', 'NextJS', 'Marketing', 'Supabase', 'CSS']
+        tags: ['Web Design', 'NextJS', 'Marketing', 'Supabase', 'CSS'],
+        images: [
+            {
+                src: img.l2Selector,
+                alt: "L2 switching on Swivel Finance"
+            },]
     },
     {
         title: "Poster Designs",
@@ -189,7 +229,12 @@ Outside of the professional worls of product development I enjoy creative projec
         thumbnail: img.prevIlluminate,
         alt: "",
         link: "posters",
-        tags: ['Design', 'Marketing', 'Photoshop', 'Illustrator', 'Generative AI']
+        tags: ['Design', 'Marketing', 'Photoshop', 'Illustrator', 'Generative AI'],
+        images: [
+            {
+                src: img.l2Selector,
+                alt: "L2 switching on Swivel Finance"
+            },]
     },
     {
         title: "Brand Assets and Social Media",
@@ -205,7 +250,12 @@ The primary benefit of my branding efforts was to draw our team and our public v
         thumbnail: img.prevSocials,
         alt: "",
         link: "branding",
-        tags: ['Design', 'Marketing', 'Photoshop', 'Illustrator', 'Figma']
+        tags: ['Design', 'Marketing', 'Photoshop', 'Illustrator', 'Figma'],
+        images: [
+            {
+                src: img.l2Selector,
+                alt: "L2 switching on Swivel Finance"
+            },]
     },
     {
         title: "NFTs and POAPs",
