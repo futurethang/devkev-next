@@ -88,77 +88,49 @@ By designing easily recognizable visual heuristics alongside careful considerati
         ]
     },
     {
-        title: "Transactions on Illuminate",
-        previewCopy: "Complex derivative contracts are abstracted away for a very simple interface for retail users to lend without fuss.",
-        bodyCopy: `
-##### The Situation
-Retail users are not *familiar* with the complex derivative contracts that make up the Illuminate protocol.
-##### The Solution
-Abstract away the complexity and present a simple interface for retail users to lend without fuss.
-##### The Result
-A simple interface that allows users to lend and borrow without having to understand the underlying derivative contracts.   
-        `,
-        thumbnail: img.prevIlluminate,
-        alt: "",
-        link: 'illuminate-txn',
-        tags: ['web3', 'UXUI', 'Figma'],
-        images: [
-            {
-                src: img.l2Selector,
-                alt: "L2 switching on Swivel Finance"
-            },]
-    },
-    {
-        title: "Orderbook Swivel Finance",
-        previewCopy: "lorem ipsum",
-        bodyCopy: `
-##### The Situation
-Swivel's novel on/off chain orderbook allows users to manage several posituations, a complex structure to represent in an informative and helpful way.
-##### The Solution
-A simple interface that allows users to lend and borrow without having to understand the underlying derivative contracts.
-##### The Result
-A simple interface that allows users to lend and borrow without having to understand the underlying derivative contracts.
-        `,
-        thumbnail: img.prevIlluminate,
-        alt: "",
-        link: "swiv-orderbook",
-        tags: ['web3', 'UXUI', 'Figma'],
-        images: [
-            {
-                src: img.l2Selector,
-                alt: "L2 switching on Swivel Finance"
-            },]
-    },
-    {
         title: "Transaction UI on Illuminate",
-        previewCopy: "Make it easy for users to interact with complex DeFi derivatives.",
+        previewCopy: "Complex derivative contract interactions are abstracted enough to present a simple interface for retail users to lend without fuss.",
         bodyCopy: `
 ##### The Situation
-Setting out to develop a new DeFi lending protocol, we knew that above all esle we wanted the UI to be extremely simple and easy to use, ready for a retail user base. With the inherent complexity of DeFi and the derivative nature of the product, abstracting away the complexity and presenting a simple interface offered brand new challenges.
+While seasoned DeFi users might well understand the progression of financial derivatives Illuminate relies upon, retail users can be quickly confused by the complex derivative contracts that make up the Illuminate protocol. And even well versed traders benefit from a succinct and clear interface with just enough details to accurately represent transactions.
 ##### The Solution
-In a Figma-fever lasting a few months, I iterated over dozens of designs, beginning with low fidelity mocks and wireframes, user workflow stories, and many conversations about language abstractions that align with our Domain Driven Language already budding in our codebase.
+Through a series of design iterations based upon competitor analysis, test-user input, and coinciding development of the product's domain language, we were able to distill the complexity of the transactions into a simple, intuitive interface that allows users to lend without having to confront the complexity of the underlying derivative contracts.
+
 I progressed our UI designs towards interactive prototypes of high-fidelity designs and staged numerous demos and user interviews with members of our Discord community, investor partners, and other DeFi users. Gathering feedback and iterating on the designs, I worked closely with our front-end lead dev to ensure the designs were feasible and scalable.
 ##### The Result
 Our live product has been received well, with numerous users commenting on the simplicity of the UI and the ease of use, not too mention good lookin' 😘. We have a long way to go, but we're off to a great start.
 ##### Why I Bring It Up
 I saw our design process for a brand new product from the core idea - expressed in Solidity code and financial derivative theses - to a fully operable UI. Because of my knowledge and experience in Front End Web development, I was able to keep the design spec within realistic bounds so that moving them to code production was a smooth process. And because my FE dev counterpart is an absolute pro, we continued to uncover and address emergent UX and design issues as we built out the product.
         `,
-        thumbnail: img.prevIlluminate,
+        thumbnail: img.illTxn3,
         alt: "",
-        link: "illuminate-txn",
+        link: 'illuminate-txn',
         tags: ['web3', 'UXUI', 'Figma'],
         images: [
             {
-                src: img.l2Selector,
-                alt: "L2 switching on Swivel Finance"
-            },]
+                src: img.illTxn1,
+                alt: "Step 1: Selecting an asset to lend."
+            },
+            {
+                src: img.illTxn2,
+                alt: "Step 2: slecting an active market to lend into."
+            },
+            {
+                src: img.illTxn3,
+                alt: "Step 3: Entering an amount and reviewing the transaction."
+            },
+            {
+                src: img.illTxn4,
+                alt: "Step 3.5: Illuminate is all about aggregating for the best rate, and this bit of UI shows how well we did!"
+            },
+        ]
     },
     {
         title: "Momentum Web Components",
         previewCopy: "Framework agnostic collection of Web-Component based UI elements used by Cisco Systems Inc. to build enterprise platform GUIs.",
         bodyCopy: `
 ##### The Situation
-The Webex family of products developed by Cisco Systems Inc. uses a design system called Momentum UI to establish a cohesive visual language for related products, however the varying product teams had their own developement approaches, resulting in a bloated codebase that repeated the UI library in React, Angular, and Vue. The widening gaps of quality and difficulty of upkeep and ongoing development of the UI library was . . . a problem. Especially once work bagan on a new product that allows microservices to be built independently and deployed in one master dashboard. 
+The Webex family of products developed by Cisco Systems Inc. uses a design system called [Momentum UI](https://momentum.design/) to establish a cohesive visual language for related products, however the varying product teams had their own developement approaches, resulting in a bloated codebase that repeated the UI library in React, Angular, and Vue. The widening gaps of quality and difficulty of upkeep and ongoing development of the UI library was . . . a problem. Especially once work bagan on a new product that allows microservices to be built independently and deployed in one master dashboard. 
 ##### The Solution
 What was needed was a new approach that could operate within any FE dev environment, and be consumed in projects regardless of chosen framework. Utilizing a light-weight library of helper classes called Lit, we built a broadened refresh of the Momentum UI system as a Web Component library. My team worked closely with the design team to groom new atomic and molecular UI elements to add to the library, while re-engineering exising components to be Web Components.
 I personally tackled a number of complex components, and went deeeeep into the CSSOM and wizardy of the Shadow DOM to find a scalable solution to deploying a UI elements a la cart, _without_ a boatload of dependencies and a barge of unused CSS.
@@ -167,15 +139,16 @@ Through a lot of exploration and thesis validation, we built and simultaneously 
 ##### Why I Bring It Up
 This was relatively early in my developer career, and the task set for me was large and complex, requiring some still nascent technology and skills that are not as well documented. I approached the task undaunted by new or unfamiliar technologies, learned a great deal, and made a valuable contribution to the project's success.
         `,
-        thumbnail: img.prevIlluminate,
+        thumbnail: img.momentum1,
         alt: "",
         link: "momentum-ui",
         tags: ['UIKit', 'UXUI', 'Web Components', 'Enterprise', 'CSS'],
         images: [
             {
-                src: img.l2Selector,
-                alt: "L2 switching on Swivel Finance"
-            },]
+                src: img.momentum2,
+                alt: "Momentum is a complete library of UI elements, from atomic to molecular, that can be used to build a wide variety of interfaces."
+            },
+        ]
     },
     {
         title: "Illuminate Landing Page",

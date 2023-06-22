@@ -5,7 +5,6 @@ import Head from 'next/head'
 import { useRouter } from 'next/router';
 import { samples } from '../../constants/samples';
 import Link from 'next/link';
-import Header from '../../components/header'
 import Footer from '../../components/footer'
 import styles from '@/styles/Home.module.css'
 import sampleStyles from '@/styles/Samples.module.css'
