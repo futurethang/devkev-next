@@ -20,6 +20,18 @@ import l2Selector4 from './UI-Swiv-L2Selector_04.webp';
 import l2Selector5 from './UI-Swiv-L2Selector_05.webp';
 import l2Selector6 from './UI-Swiv-L2Selector_06.webp';
 import l2Selector7 from './UI-Swiv-L2Selector_07.webp';
+import marketSelect from './UI-Swiv-MarketSelector.webp';
+import marketSelect2 from './UI-Swiv-MarketSelector2.webp';
+import orderbook1 from './UI-Swiv-Orderbook1.webp';
+import orderbook2 from './UI-Swiv-Orderbook2.webp';
+import illTxn1 from './UI-Illuminate-txn-1.webp';
+import illTxn2 from './UI-Illuminate-txn-2.webp';
+import illTxn3 from './UI-Illuminate-txn-3.webp';
+import illTxn4 from './UI-Illuminate-txn-4.webp';
+import momentum1 from './Cisco-momentum1.webp';
+import momentum2 from './Cisco-momentum2.webp';
+import illLanding1 from './Illuminate-landing1.webp';
+import illLanding2 from './Illuminate-landing2.webp';
 
 
 export {
@@ -44,6 +56,19 @@ export {
   l2Selector4,
   l2Selector5,
   l2Selector6,
-  l2Selector7
+  l2Selector7,
+  marketSelect,
+  marketSelect2,
+  orderbook1,
+  orderbook2,
+  illTxn1,
+  illTxn2,
+  illTxn3,
+  illTxn4,
+  momentum1,
+  momentum2,
+  illLanding1,
+  illLanding2
 }
 
+// I have a NextJS project with a lot of images in the public/ directory for static serving. i am using an index.js file to import and export all of the images so they can be brought in as imports on the pages needed, but the process of adding and editing images to the project is a repetitive task.  What is the most effective way to organize my project so that making changes to the image files is less time consuming, but still allows me to import them into pages as static assets?

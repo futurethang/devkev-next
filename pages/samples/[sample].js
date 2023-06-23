@@ -5,7 +5,6 @@ import Head from 'next/head'
 import { useRouter } from 'next/router';
 import { samples } from '../../constants/samples';
 import Link from 'next/link';
-import Header from '../../components/header'
 import Footer from '../../components/footer'
 import styles from '@/styles/Home.module.css'
 import sampleStyles from '@/styles/Samples.module.css'
@@ -37,7 +36,7 @@ export default function Sample() {
         <div className={sampleStyles.preview}>
           <h2>{sampleItem.title}</h2>
           {/* <div className={sampleStyles.imgwrap}> */}
-          <img src={sampleItem.thumbnail.src} alt={sampleItem.title} loading='lazy' />
+          {/* <img src={sampleItem.thumbnail.src} alt={sampleItem.title} loading='lazy' /> */}
           {/* </div> */}
           <ReactMarkdown>{sampleItem.bodyCopy}</ReactMarkdown>
           <div className={sampleStyles.images}>

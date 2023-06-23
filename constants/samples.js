@@ -3,7 +3,7 @@ import * as img from '../public/sample-images/index.js'
 export const samples = [
     {
         title: "L2 switching on Swivel Finance",
-        previewCopy: "To expand to other chains, our existing app required an intuitive design for switching between networks to interact with more markets.",
+        previewCopy: "To expand to other chains, our existing app required an intuitive menu design for switching between networks to interact with more markets.",
         bodyCopy: `
 ##### The Situation
 Live already Ethereum Mainnet, we know that to capitalize on more markets and enjoy much lower transaction costs, we need to get users on to more L2s. Previously not included in the UI, we needed an interface that will make it intuitive and unmistakable for users to switch between networks and devnets within an increasingly crowded top-nav space.
@@ -15,39 +15,31 @@ Without introducing an all-new selection component, we played with approaches to
         link: 'swiv-l2',
         images: [
             {
-                src: img.l2Selector,
-                alt: "L2 switching on Swivel Finance"
-            },
-            {
-                src: img.l2Selector2,
-                alt: "L2 switching on Swivel Finance"
+                src: img.l2Selector4,
+                alt: "Open view showing difference depending on current network"
             },
             {
                 src: img.l2Selector3,
-                alt: "L2 switching on Swivel Finance"
+                alt: "Interaction focus states for mouse and keyboard navigation"
             },
             {
-                src: img.l2Selector4,
-                alt: "L2 switching on Swivel Finance"
+                src: img.l2Selector2,
+                alt: "Full app context view on Ethereum Mainnet"
             },
             {
-                src: img.l2Selector5,
-                alt: "L2 switching on Swivel Finance"
-            },
-            {
-                src: img.l2Selector6,
-                alt: "L2 switching on Swivel Finance"
+                src: img.l2Selector,
+                alt: "Full app context view on Arbitrum"
             },
             {
                 src: img.l2Selector7,
-                alt: "L2 switching on Swivel Finance"
+                alt: "Large Display view on Arbitrum"
             },
         ],
         tags: ['web3', 'UXUI', 'Figma']
     },
     {
         title: "Multi-Market selector on Swivel Finance",
-        previewCopy: "Expanding an initial design to facilitate an expanding selection of markets.",
+        previewCopy: "Our initial market selector design was poorly equipped to facilitate an expanding selection of markets, and needed design revisions.",
         bodyCopy: `
 ##### The Situation
 The existing UI for browsing active markets in Swivel is suitable only for a handful of markets. But what would happen when we have several, or even dozens or hundreds of markets? We needed a way to make it easy for users to filter and find the markets they want to interact with.
@@ -59,81 +51,86 @@ We prevented the headache of needing to reimagine the broader UI to accomodate a
         thumbnail: img.prevMarket,
         alt: "",
         link: 'swiv-multi-market',
-        tags: ['web3', 'UXUI', 'Figma']
+        tags: ['web3', 'UXUI', 'Figma'],
+        images: [
+            {
+                src: img.marketSelect,
+                alt: "Design iterations for multi market selector on Swivel Finance"
+            },
+            {
+                src: img.marketSelect2,
+                alt: "Final design implemented in live app"
+            },
+        ]
     },
     {
         title: "Orderbook Swivel Finance",
-        previewCopy: "Swivel's novel on/off chain orderbook allows users to manage several posituations, a complex structure to represent in an informative and helpful way.",
+        previewCopy: "Swivel's novel on/off chain orderbook allows users to place any number limit orders, leading to a design challenge to balance complexity and simplicity.",
         bodyCopy: `
 ##### The Situation
-Swivel's novel on/off chain orderbook allows users to manage several posituations, a complex structure to represent in an informative and helpful way.
+Perhaps the most critical and differentiating features of Swivel is its use of a novel orderbook solution, allowing for the better rates and capital efficiency over competing protocols that rely upon AMMs. But with many possible order types, the complexity of the order grew rapidly. 
 ##### The Solution
-A simple interface that allows users to lend and borrow without having to understand the underlying derivative contracts.
-##### The Result
-A simple interface that allows users to lend and borrow without having to understand the underlying derivative contracts.
+By designing easily recognizable visual heuristics alongside careful consideration of our Domain Driven Language, not to mention a powerful state-machine based front end, we managed to create a delightfully reactive table view that can display all of a user's possible trades and key datapoints at a glance.
         `,
         thumbnail: img.prevOrders,
         alt: "",
         link: 'swiv-orderbook',
-        tags: ['web3', 'UXUI', 'Figma']
-    },
-    {
-        title: "Transactions on Illuminate",
-        previewCopy: "Complex derivative contracts are abstracted away for a very simple interface for retail users to lend without fuss.",
-        bodyCopy: `
-##### The Situation
-Retail users are not *familiar* with the complex derivative contracts that make up the Illuminate protocol.
-##### The Solution
-Abstract away the complexity and present a simple interface for retail users to lend without fuss.
-##### The Result
-A simple interface that allows users to lend and borrow without having to understand the underlying derivative contracts.   
-        `,
-        thumbnail: img.prevIlluminate,
-        alt: "",
-        link: 'illuminate-txn',
-        tags: ['web3', 'UXUI', 'Figma']
-    },
-    {
-        title: "Orderbook Swivel Finance",
-        previewCopy: "lorem ipsum",
-        bodyCopy: `
-##### The Situation
-Swivel's novel on/off chain orderbook allows users to manage several posituations, a complex structure to represent in an informative and helpful way.
-##### The Solution
-A simple interface that allows users to lend and borrow without having to understand the underlying derivative contracts.
-##### The Result
-A simple interface that allows users to lend and borrow without having to understand the underlying derivative contracts.
-        `,
-        thumbnail: img.prevIlluminate,
-        alt: "",
-        link: "swiv-orderbook",
-        tags: ['web3', 'UXUI', 'Figma']
+        tags: ['web3', 'UXUI', 'Figma'],
+        images: [
+            {
+                src: img.orderbook1,
+                alt: "Design variations for various order states on Swivel Finance"
+            },
+            {
+                src: img.orderbook2,
+                alt: "Transaction history states on Swivel Finance"
+            },
+        ]
     },
     {
         title: "Transaction UI on Illuminate",
-        previewCopy: "Make it easy for users to interact with complex DeFi derivatives.",
+        previewCopy: "Complex derivative contract interactions are abstracted enough to present a simple interface for retail users to lend without fuss.",
         bodyCopy: `
 ##### The Situation
-Setting out to develop a new DeFi lending protocol, we knew that above all esle we wanted the UI to be extremely simple and easy to use, ready for a retail user base. With the inherent complexity of DeFi and the derivative nature of the product, abstracting away the complexity and presenting a simple interface offered brand new challenges.
+While seasoned DeFi users might well understand the progression of financial derivatives Illuminate relies upon, retail users can be quickly confused by the complex derivative contracts that make up the Illuminate protocol. And even well versed traders benefit from a succinct and clear interface with just enough details to accurately represent transactions.
 ##### The Solution
-In a Figma-fever lasting a few months, I iterated over dozens of designs, beginning with low fidelity mocks and wireframes, user workflow stories, and many conversations about language abstractions that align with our Domain Driven Language already budding in our codebase.
+Through a series of design iterations based upon competitor analysis, test-user input, and coinciding development of the product's domain language, we were able to distill the complexity of the transactions into a simple, intuitive interface that allows users to lend without having to confront the complexity of the underlying derivative contracts.
+
 I progressed our UI designs towards interactive prototypes of high-fidelity designs and staged numerous demos and user interviews with members of our Discord community, investor partners, and other DeFi users. Gathering feedback and iterating on the designs, I worked closely with our front-end lead dev to ensure the designs were feasible and scalable.
 ##### The Result
 Our live product has been received well, with numerous users commenting on the simplicity of the UI and the ease of use, not too mention good lookin' 😘. We have a long way to go, but we're off to a great start.
 ##### Why I Bring It Up
 I saw our design process for a brand new product from the core idea - expressed in Solidity code and financial derivative theses - to a fully operable UI. Because of my knowledge and experience in Front End Web development, I was able to keep the design spec within realistic bounds so that moving them to code production was a smooth process. And because my FE dev counterpart is an absolute pro, we continued to uncover and address emergent UX and design issues as we built out the product.
         `,
-        thumbnail: img.prevIlluminate,
+        thumbnail: img.illTxn3,
         alt: "",
-        link: "illuminate-txn",
-        tags: ['web3', 'UXUI', 'Figma']
+        link: 'illuminate-txn',
+        tags: ['web3', 'UXUI', 'Figma'],
+        images: [
+            {
+                src: img.illTxn1,
+                alt: "Step 1: Selecting an asset to lend."
+            },
+            {
+                src: img.illTxn2,
+                alt: "Step 2: slecting an active market to lend into."
+            },
+            {
+                src: img.illTxn3,
+                alt: "Step 3: Entering an amount and reviewing the transaction."
+            },
+            {
+                src: img.illTxn4,
+                alt: "Step 3.5: Illuminate is all about aggregating for the best rate, and this bit of UI shows how well we did!"
+            },
+        ]
     },
     {
         title: "Momentum Web Components",
         previewCopy: "Framework agnostic collection of Web-Component based UI elements used by Cisco Systems Inc. to build enterprise platform GUIs.",
         bodyCopy: `
 ##### The Situation
-The Webex family of products developed by Cisco Systems Inc. uses a design system called Momentum UI to establish a cohesive visual language for related products, however the varying product teams had their own developement approaches, resulting in a bloated codebase that repeated the UI library in React, Angular, and Vue. The widening gaps of quality and difficulty of upkeep and ongoing development of the UI library was . . . a problem. Especially once work bagan on a new product that allows microservices to be built independently and deployed in one master dashboard. 
+The Webex family of products developed by Cisco Systems Inc. uses a design system called [Momentum UI](https://momentum.design/) to establish a cohesive visual language for related products, however the varying product teams had their own developement approaches, resulting in a bloated codebase that repeated the UI library in React, Angular, and Vue. The widening gaps of quality and difficulty of upkeep and ongoing development of the UI library was . . . a problem. Especially once work bagan on a new product that allows microservices to be built independently and deployed in one master dashboard. 
 ##### The Solution
 What was needed was a new approach that could operate within any FE dev environment, and be consumed in projects regardless of chosen framework. Utilizing a light-weight library of helper classes called Lit, we built a broadened refresh of the Momentum UI system as a Web Component library. My team worked closely with the design team to groom new atomic and molecular UI elements to add to the library, while re-engineering exising components to be Web Components.
 I personally tackled a number of complex components, and went deeeeep into the CSSOM and wizardy of the Shadow DOM to find a scalable solution to deploying a UI elements a la cart, _without_ a boatload of dependencies and a barge of unused CSS.
@@ -142,10 +139,16 @@ Through a lot of exploration and thesis validation, we built and simultaneously 
 ##### Why I Bring It Up
 This was relatively early in my developer career, and the task set for me was large and complex, requiring some still nascent technology and skills that are not as well documented. I approached the task undaunted by new or unfamiliar technologies, learned a great deal, and made a valuable contribution to the project's success.
         `,
-        thumbnail: img.prevIlluminate,
+        thumbnail: img.momentum1,
         alt: "",
         link: "momentum-ui",
-        tags: ['UIKit', 'UXUI', 'Web Components', 'Enterprise', 'CSS']
+        tags: ['UIKit', 'UXUI', 'Web Components', 'Enterprise', 'CSS'],
+        images: [
+            {
+                src: img.momentum2,
+                alt: "Momentum is a complete library of UI elements, from atomic to molecular, that can be used to build a wide variety of interfaces."
+            },
+        ]
     },
     {
         title: "Illuminate Landing Page",
@@ -157,40 +160,25 @@ Illuminate protocol needed a ground-up landing page to promote the protocol and 
 Starting with design cues from the UI (that I also designed) and an evolving brand aesthetic, I built the page from the ground up, communicating the protocol's value proposition and mechanics through animations and graphics built using Figma and Adobe tools. Like a fully fledged web project, I had a lot of conversations with internal stakeholders and outside parties to push the content and design towards higher impact. After a series of design revisions and mocks I coded the page using HTML, CSS, and Javascript, relying on Web Components for reusable elements. [Illuminate.finance](https://illuminate.finance)
 ##### The Result
 A sexy, screen-responsive landing page that draws visitors into our unique protocol, its features, and possible use cases.
+##### Why I Bring It Up
+This was another project that made use of my full stack of skills, from design to development. Not only did I spearhead all of the graphic elements and coding of the site, but I lead the conversations with stakeholders in marketing and business development to make sure the final result met clear stated goals.
         `,
-        thumbnail: img.prevIlluminate,
+        thumbnail: img.illLanding1,
         alt: "",
         link: "ill-landing",
-        tags: ['web3', 'Web Design', 'Figma', 'Web Components', 'Marketing', 'CSS']
+        tags: ['web3', 'Web Design', 'Figma', 'Web Components', 'Marketing', 'CSS'],
+        images: [
+            {
+                src: img.illLanding1,
+                alt: "Above the fold on the Illuminate landing page."
+            },
+            {
+                src: img.illLanding2,
+                alt: "Samples of sectioning and graphics design."
+            },
+        ]
     },
-    {
-        title: "Shadowpattern.com",
-        previewCopy: "An editable band homepage that allows all members to add and update information about upcoming shows.",
-        bodyCopy: `
-##### The Situation
-You always gotta have a sweet wevsite for your band so people can get info about upcoming shows, listen to music, and see images of live performances and neat poster art. But managing updates for the site becomes too much of a one-person job. 
-##### The Solution
-I redid the site and added a Supabase backend to a NextJS frontend to allow all band members to add and update information about upcoming shows and add new poster images.
-##### The Result
-I finally got the bass player off of my back about making site changes, and he texts me a lot less frequently! 😎
-        `,
-        thumbnail: img.prevIlluminate,
-        alt: "",
-        link: "band-site",
-        tags: ['Web Design', 'NextJS', 'Marketing', 'Supabase', 'CSS']
-    },
-    {
-        title: "Poster Designs",
-        previewCopy: "Captivating, creative visuals for print and web to promote live music events.",
-        bodyCopy: `
-##### The Situation
-Outside of the professional worls of product development I enjoy creative projects playing music, writing songs, and doing illustrations. As the most graphic-designerly member of whatever band I'm currently in, I get a lot of opportunities to whip up posters for upcoming shows. Here's a selection of posters to show some of my more playful and creative works.
-        `,
-        thumbnail: img.prevIlluminate,
-        alt: "",
-        link: "posters",
-        tags: ['Design', 'Marketing', 'Photoshop', 'Illustrator', 'Generative AI']
-    },
+
     {
         title: "Brand Assets and Social Media",
         previewCopy: "Materials for business development and marketing teams that enforce branding and messaging for product offerings",
@@ -205,7 +193,12 @@ The primary benefit of my branding efforts was to draw our team and our public v
         thumbnail: img.prevSocials,
         alt: "",
         link: "branding",
-        tags: ['Design', 'Marketing', 'Photoshop', 'Illustrator', 'Figma']
+        tags: ['Design', 'Marketing', 'Photoshop', 'Illustrator', 'Figma'],
+        images: [
+            {
+                src: img.l2Selector,
+                alt: "L2 switching on Swivel Finance"
+            },]
     },
     {
         title: "NFTs and POAPs",
@@ -278,5 +271,43 @@ Mainly because it shows that I can switch hats and take on a new role when neede
         alt: "",
         link: "storyboarding",
         tags: ['Design', 'Marketing', 'Photoshop', 'Illustrator', 'Figma']
+    },
+    {
+        title: "Shadowpattern.com",
+        previewCopy: "An editable band homepage that allows all members to add and update information about upcoming shows.",
+        bodyCopy: `
+##### The Situation
+You always gotta have a sweet wevsite for your band so people can get info about upcoming shows, listen to music, and see images of live performances and neat poster art. But managing updates for the site becomes too much of a one-person job. 
+##### The Solution
+I redid the site and added a Supabase backend to a NextJS frontend to allow all band members to add and update information about upcoming shows and add new poster images.
+##### The Result
+I finally got the bass player off of my back about making site changes, and he texts me a lot less frequently! 😎
+        `,
+        thumbnail: img.prevIlluminate,
+        alt: "",
+        link: "band-site",
+        tags: ['Web Design', 'NextJS', 'Marketing', 'Supabase', 'CSS'],
+        images: [
+            {
+                src: img.l2Selector,
+                alt: "L2 switching on Swivel Finance"
+            },]
+    },
+    {
+        title: "Poster Designs",
+        previewCopy: "Captivating, creative visuals for print and web to promote live music events.",
+        bodyCopy: `
+##### The Situation
+Outside of the professional worls of product development I enjoy creative projects playing music, writing songs, and doing illustrations. As the most graphic-designerly member of whatever band I'm currently in, I get a lot of opportunities to whip up posters for upcoming shows. Here's a selection of posters to show some of my more playful and creative works.
+        `,
+        thumbnail: img.prevIlluminate,
+        alt: "",
+        link: "posters",
+        tags: ['Design', 'Marketing', 'Photoshop', 'Illustrator', 'Generative AI'],
+        images: [
+            {
+                src: img.l2Selector,
+                alt: "L2 switching on Swivel Finance"
+            },]
     },
 ]

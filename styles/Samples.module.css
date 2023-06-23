@@ -44,6 +44,15 @@
     padding: 1.5rem;
     border-radius: 1rem;
     transition: all 200ms;
+
+}
+.preview a {
+    text-decoration: underline;
+    transition: all 200ms;
+}
+.preview a:hover {
+    text-decoration: none;
+    color: var(--theme-yellow);
 }
 
 .preview:hover {
