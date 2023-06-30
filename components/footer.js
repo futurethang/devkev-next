@@ -20,7 +20,7 @@ function Footer() {
             <nav>
                 <Link href={'/samples'}>Work Samples</Link>
                 <Link href={'/blog'}>Blog</Link>
-                <Link href={'#'}>Cool Stuff</Link>
+                <Link href={'/cool-stuff'}>Cool Stuff</Link>
                 {/* <Link href={'#'}>SkunkWorks</Link> */}
             </nav>
             <div className='copyright'>

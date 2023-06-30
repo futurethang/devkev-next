@@ -1,5 +1,4 @@
-import React from 'react'
-import { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 import Head from 'next/head'
 import { useRouter } from 'next/router';
@@ -10,19 +9,46 @@ import styles from '@/styles/Home.module.css'
 import sampleStyles from '@/styles/Samples.module.css'
 
 export default function Sample() {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const router = useRouter();
   const sample = router.query.sample;
+  const modalRef = useRef();  // New ref for the modal
 
   // Find the right sample from the samples array
   const sampleItem = samples.find(s => s.link === sample);
 
   if (!sampleItem) {
-    return <div>laoding...</div>
+    return <div>Loading...</div>
   }
 
-  console.log(sampleItem.thumbnail.src)
+  const nextImage = () => {
+    setSelectedIndex((selectedIndex + 1) % sampleItem.images.length);
+  };
+
+  const prevImage = () => {
+    setSelectedIndex((selectedIndex - 1 + sampleItem.images.length) % sampleItem.images.length);
+  };
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'Escape' && showModal) setShowModal(false);
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedIndex]);
+
+  const handleOverlayClick = (e) => {
+    if (e.target === modalRef.current) {
+      setShowModal(false);
+    }
+  };
 
   return (
     <>
@@ -35,28 +61,22 @@ export default function Sample() {
         </nav>
         <div className={sampleStyles.preview}>
           <h2>{sampleItem.title}</h2>
-          {/* <div className={sampleStyles.imgwrap}> */}
-          {/* <img src={sampleItem.thumbnail.src} alt={sampleItem.title} loading='lazy' /> */}
-          {/* </div> */}
           <ReactMarkdown>{sampleItem.bodyCopy}</ReactMarkdown>
           <div className={sampleStyles.images}>
             {sampleItem.images.map((image, index) => {
-              console.log(image.src.src)
               return (
-                // <div key={index} className={sampleStyles.imgwrap}>
                 <img src={image.src.src} alt={image.alt} key={`image-${index}`} loading='lazy' onClick={() => {
-                  setSelectedImage(image);
+                  setSelectedIndex(index);
                   setShowModal(true);
                 }} />
-                // </div>
               )
             })}
-
           </div>
         </div>
       </main>
       {showModal &&
         <div
+          ref={modalRef} 
           style={{
             position: 'fixed',
             top: 0,
@@ -71,13 +91,16 @@ export default function Sample() {
             gap: '1rem',
             zIndex: 1000
           }}
-          onClick={() => setShowModal(false)}
+          onClick={handleOverlayClick} 
         >
-          <img src={selectedImage.src.src} alt="Selected" style={{ maxWidth: '90%', maxHeight: '90%' }} />
-          <caption>{selectedImage.alt}</caption>
+          <button onClick={prevImage} style={{position: 'absolute', left: '5%'}}>⬅️</button>
+          <img src={sampleItem.images[selectedIndex].src.src} alt="Selected" style={{ maxWidth: '90%', maxHeight: '90%' }} />
+          <caption>{sampleItem.images[selectedIndex].alt}</caption>
+          <button onClick={nextImage} style={{position: 'absolute', right: '5%'}}>➡️</button>
+          <button onClick={() => setShowModal(false)} style={{position: 'absolute', right: '5%', top: '5%'}}>❌</button>  {/* Add close button here */}
         </div>
       }
       <Footer />
     </>
   )
-}
+} 

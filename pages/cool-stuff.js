@@ -26,10 +26,10 @@ export default function Blog() {
     return (
         <>
             <Head>
-                <title>Blog</title>
+                <title>Cool Stuff</title>
             </Head>
             <main className={styles.main} >
-                <h1>Blog</h1>
+                <h1>Cool Stuff</h1>
                 <nav>
                     <Link href={'/'}>👈 Back</Link>
                 </nav>
