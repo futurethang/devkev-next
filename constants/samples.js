@@ -201,22 +201,6 @@ The primary benefit of my branding efforts was to draw our team and our public v
             },]
     },
     {
-        title: "NFTs and POAPs",
-        previewCopy: "Digital collectables for community engagement and rewards programs that align with product and marketing goals.",
-        bodyCopy: `
-##### The Situation
-The Web3 community is all about the collectables. They drive engagement and are really neat to collect. We frequently use them to reward community members for participating in our town hall meetings, and it's a great way to attract engagement at trade shows.
-##### The Solution
-Make a POAP ya dingus! POAPs have a specific format which I accomplished with Adobe tools, but more importantly they need to have a thematic thread connecting them, and the _have_ to look cool 😎.
-##### Why I Bring It Up
-Just another neat design flex I enjoy doing alongside my deeper Product and Dev responsibilities. 
-        `,
-        thumbnail: img.prevIlluminate,
-        alt: "",
-        link: "nft-poap",
-        tags: ['web3', 'Marketing', 'Photoshop', 'Illustrator', 'Figma']
-    },
-    {
         title: "Trade Show Materials",
         previewCopy: "From concepts through to event success, graphics, logistics and cost-saving for visually engaging environment and merchandise items.",
         bodyCopy: `
@@ -270,7 +254,17 @@ Mainly because it shows that I can switch hats and take on a new role when neede
         thumbnail: img.prevStory,
         alt: "",
         link: "storyboarding",
-        tags: ['Design', 'Marketing', 'Photoshop', 'Illustrator', 'Figma']
+        tags: ['Design', 'Marketing', 'Photoshop', 'Illustrator', 'Figma'],
+        images: [
+            {
+                src: img.storyBoard1,
+                alt: "Wireframe stages for a new market announcement"
+            },
+            {
+                src: img.storyBoard2,
+                alt: "Higher fidelity wireframe stages for a new product update announcement"
+            },
+        ]
     },
     {
         title: "Shadowpattern.com",
