@@ -15,6 +15,14 @@ export default function Sample() {
   const sample = router.query.sample;
   const modalRef = useRef();  // New ref for the modal
 
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [selectedIndex]);
+
   // Find the right sample from the samples array
   const sampleItem = samples.find(s => s.link === sample);
 
@@ -35,14 +43,7 @@ export default function Sample() {
     if (e.key === 'ArrowLeft') prevImage();
     if (e.key === 'Escape' && showModal) setShowModal(false);
   };
-  
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
 
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [selectedIndex]);
 
   const handleOverlayClick = (e) => {
     if (e.target === modalRef.current) {
