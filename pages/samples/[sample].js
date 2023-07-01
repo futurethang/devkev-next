@@ -38,7 +38,7 @@ export default function Sample() {
     setSelectedIndex((selectedIndex - 1 + sampleItem.images.length) % sampleItem.images.length);
   };
 
-  const handleKeyDown = (e) => {
+  function handleKeyDown(e) {
     if (e.key === 'ArrowRight') nextImage();
     if (e.key === 'ArrowLeft') prevImage();
     if (e.key === 'Escape' && showModal) setShowModal(false);
@@ -94,11 +94,11 @@ export default function Sample() {
           }}
           onClick={handleOverlayClick}
         >
-          <button onClick={prevImage} style={{ position: 'absolute', left: '5%' }}>⬅️</button>
+          <button className={sampleStyles.galleryButton} onClick={prevImage} style={{ position: 'absolute', left: '5%' }}>⬅️</button>
           <img src={sampleItem.images[selectedIndex].src.src} alt="Selected" style={{ maxWidth: '90%', maxHeight: '90%' }} />
           <caption>{sampleItem.images[selectedIndex].alt}</caption>
-          <button onClick={nextImage} style={{ position: 'absolute', right: '5%' }}>➡️</button>
-          <button onClick={() => setShowModal(false)} style={{ position: 'absolute', right: '5%', top: '5%' }}>❌</button>  {/* Add close button here */}
+          <button className={sampleStyles.galleryButton} onClick={nextImage} style={{ position: 'absolute', right: '5%' }}>➡️</button>
+          <button className={sampleStyles.galleryButton} onClick={() => setShowModal(false)} style={{ position: 'absolute', right: '5%', top: '5%' }}>❌</button>  {/* Add close button here */}
         </div>
       }
       <Footer />
