@@ -4,7 +4,9 @@ import Head from 'next/head'
 import { useRouter } from 'next/router';
 import { samples } from '../../constants/samples';
 import Link from 'next/link';
+import Image from 'next/image';
 import Footer from '../../components/footer'
+import * as ui from '../../public/UI';
 import styles from '@/styles/Home.module.css'
 import sampleStyles from '@/styles/Samples.module.css'
 
@@ -94,11 +96,11 @@ export default function Sample() {
           }}
           onClick={handleOverlayClick}
         >
-          <button className={sampleStyles.galleryButton} onClick={prevImage} style={{ position: 'absolute', left: '5%' }}>⬅️</button>
+          <button className={sampleStyles.galleryButton} onClick={prevImage} style={{ position: 'absolute', left: '5%', transform: 'rotate(180deg) scale(1.8)' }}><Image src={ui.chevron}/></button>
           <img src={sampleItem.images[selectedIndex].src.src} alt="Selected" style={{ maxWidth: '90%', maxHeight: '90%' }} />
           <caption>{sampleItem.images[selectedIndex].alt}</caption>
-          <button className={sampleStyles.galleryButton} onClick={nextImage} style={{ position: 'absolute', right: '5%' }}>➡️</button>
-          <button className={sampleStyles.galleryButton} onClick={() => setShowModal(false)} style={{ position: 'absolute', right: '5%', top: '5%' }}>❌</button>  {/* Add close button here */}
+          <button className={sampleStyles.galleryButton} onClick={nextImage} style={{ position: 'absolute', right: '5%', transform: 'scale(1.8)'  }}><Image src={ui.chevron}/></button>
+          <button className={sampleStyles.galleryButton} onClick={() => setShowModal(false)} style={{ position: 'absolute', right: '5%', top: '5%'}}><Image src={ui.close}/></button>  {/* Add close button here */}
         </div>
       }
       <Footer />
