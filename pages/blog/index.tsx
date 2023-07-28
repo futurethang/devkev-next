@@ -1,5 +1,6 @@
 // pages/index.js
 import { createClient } from "next-sanity";
+import { getSanityClient } from "@/cms-utils/sanity-util";
 
 interface Post {
   _createdAt: string,
@@ -50,26 +51,9 @@ export default function IndexPage({ posts }: Props) {
   );
 }
 
-const client = createClient({
-  projectId: "rkukjvpf",
-  dataset: "production",
-  apiVersion: "2022-03-25",
-  useCdn: false
-});
-
 export async function getStaticProps() {
-  // const pets = [
-  //   {
-  //     _createdAt: "2022-03-08T09:28:00Z",
-  //     _id: "1f69c53d-418a-452f-849a-e92466bb9c75",
-  //     _rev: "xnBg0xhUDzo561jnWODd5e",
-  //     _type: "pet",
-  //     _updatedAt: "2022-03-08T09:28:00Z",
-  //     name: "Capybara"
-  //   }
-  // ];
 
-  const posts = await client.fetch(`*[_type == "post"]`);
+  const posts = await getSanityClient()
 
   return {
     props: {
