@@ -5,8 +5,12 @@ export async function getArtworks() {
 
   return client.fetch(
     groq`
-    *[_type == "posts" && "Artwork" in categories[]->slug.current] {
-      ...,
+    *[_type == "post" && references('e8c8597a-b53b-4afc-b50b-de5f3b527f04')] {
+      title,
+      author,
+      slug,
+      body,
+      mainImage,
       categories[] -> {
         title,
         slug
