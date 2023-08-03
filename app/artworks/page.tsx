@@ -3,8 +3,7 @@ import Link from 'next/link';
 import Footer from "@/components/footer";
 import BlogList from "@/components/blogList";
 import styles from '@/styles/Home.module.css'
-import { getSanityClient } from "@/cms-utils/sanity-util";
-import { PortableText } from '@portabletext/react'
+import { getArtworks } from '@/cms-utils/sanity-blog-posts copy';
 
 interface Post {
     _createdAt: string,
@@ -21,16 +20,16 @@ interface Post {
 
 export default async function Blog() {
 
-    const data = await getSanityClient()
-    console.log(data.posts)
+    const data = await getArtworks()
+    console.log("ART", data.posts)
 
     return (
         <>
             <Head>
-                <title>Blog</title>
+                <title>Arts</title>
             </Head>
             <main className={styles.main} >
-                <h1>Blog</h1>
+                <h1>Arts</h1>
                 <nav>
                     <Link href={'/'}>👈 Back</Link>
                 </nav>
