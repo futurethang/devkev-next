@@ -1,21 +1,19 @@
-import React, { useEffect, useState, useRef } from 'react';
+'use client'
+import React, { useEffect, useState, useRef, SyntheticEvent } from 'react';
 import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
 import Head from 'next/head'
-import { useRouter } from 'next/router';
-import { samples } from '../../constants/samples';
+import { samples } from '@/constants/samples';
 import Link from 'next/link';
 import Image from 'next/image';
-import Footer from '../../components/footer'
-import * as ui from '../../public/UI';
+import Footer from '@/components/footer'
+import * as ui from '@/public/UI';
 import styles from '@/styles/Home.module.css'
 import sampleStyles from '@/styles/Samples.module.css'
 
-export default function Sample() {
-  const [selectedIndex, setSelectedIndex] = useState(null);
+export default function Sample({ params }: { params: { slug: string } }) {
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const [showModal, setShowModal] = useState(false);
-  const router = useRouter();
-  const sample = router.query.sample;
-  const modalRef = useRef();  // New ref for the modal
+  const modalRef = useRef<HTMLDivElement>(null);  
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
@@ -25,8 +23,7 @@ export default function Sample() {
     };
   }, [selectedIndex]);
 
-  // Find the right sample from the samples array
-  const sampleItem = samples.find(s => s.link === sample);
+  const sampleItem = samples.find(s => s.link === params.slug);
 
   if (!sampleItem) {
     return <div>Loading...</div>
@@ -40,14 +37,14 @@ export default function Sample() {
     setSelectedIndex((selectedIndex - 1 + sampleItem.images.length) % sampleItem.images.length);
   };
 
-  function handleKeyDown(e) {
+  function handleKeyDown(e: KeyboardEvent) {
     if (e.key === 'ArrowRight') nextImage();
     if (e.key === 'ArrowLeft') prevImage();
     if (e.key === 'Escape' && showModal) setShowModal(false);
   };
 
 
-  const handleOverlayClick = (e) => {
+  const handleOverlayClick = (e: SyntheticEvent) => {
     if (e.target === modalRef.current) {
       setShowModal(false);
     }
@@ -94,13 +91,13 @@ export default function Sample() {
             gap: '1rem',
             zIndex: 1000
           }}
-          onClick={handleOverlayClick}
+          onClick={(e) => handleOverlayClick(e)}
         >
-          <button className={sampleStyles.galleryButton} onClick={prevImage} style={{ position: 'absolute', left: '5%', transform: 'rotate(180deg) scale(1.8)' }}><Image src={ui.chevron}/></button>
+          <button className={sampleStyles.galleryButton} onClick={prevImage} style={{ position: 'absolute', left: '5%', transform: 'rotate(180deg) scale(1.8)' }}><Image alt="nav-left" src={ui.chevron} /></button>
           <img src={sampleItem.images[selectedIndex].src.src} alt="Selected" style={{ maxWidth: '90%', maxHeight: '90%' }} />
           <caption>{sampleItem.images[selectedIndex].alt}</caption>
-          <button className={sampleStyles.galleryButton} onClick={nextImage} style={{ position: 'absolute', right: '5%', transform: 'scale(1.8)'  }}><Image src={ui.chevron}/></button>
-          <button className={sampleStyles.galleryButton} onClick={() => setShowModal(false)} style={{ position: 'absolute', right: '5%', top: '5%'}}><Image src={ui.close}/></button>  {/* Add close button here */}
+          <button className={sampleStyles.galleryButton} onClick={nextImage} style={{ position: 'absolute', right: '5%', transform: 'scale(1.8)' }}><Image alt="nav-close" src={ui.chevron} /></button>
+          <button className={sampleStyles.galleryButton} onClick={() => setShowModal(false)} style={{ position: 'absolute', right: '5%', top: '5%' }}><Image alt="nav-right" src={ui.close} /></button>  {/* Add close button here */}
         </div>
       }
       <Footer />

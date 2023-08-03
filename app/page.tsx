@@ -3,10 +3,7 @@ import TechIcons from '../components/techIcons'
 import Footer from '../components/footer'
 import Nav from '../components/nav'
 import Marquee from '../components/marquee';
-import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
-
-const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
