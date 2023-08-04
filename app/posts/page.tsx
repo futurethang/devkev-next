@@ -4,7 +4,6 @@ import Footer from "@/components/footer";
 import BlogList from "@/components/blogList";
 import styles from '@/styles/Home.module.css'
 import { getSanityClient } from "@/cms-utils/sanity-util";
-import { PortableText } from '@portabletext/react'
 
 interface Post {
     _createdAt: string,

@@ -6,7 +6,6 @@ import ClientSideRoute from '@/components/clientSideRoute'
 
 export default function BlogList(props) {
   const { posts } = props
-  // console.log("ASS", props.posts[0].schemaType)
 
   return (
     <>

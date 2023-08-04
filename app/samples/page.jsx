@@ -9,12 +9,6 @@ import { samples } from '../../constants/samples'
 
 function Samples() {
 
-    const renderSample = (sample, i) => {
-        return (
-            <SamplePreview sample={sample} key={`sample-${i}`} />
-        )
-    }
-
     return (
         <>
             <Head>
@@ -30,7 +24,7 @@ function Samples() {
                     <section className={style.sampleSection} >
                         {samples.map((sample, i) => {
                             return (
-                                renderSample(sample, i)
+                                <SamplePreview sample={sample} key={`sample-${i}`} />
                             )
                         })}
                     </section>
