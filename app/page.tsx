@@ -1,8 +1,8 @@
 import Head from 'next/head'
-import TechIcons from '../components/techIcons'
-import Footer from '../components/footer'
-import Nav from '../components/nav'
-import Marquee from '../components/marquee';
+import TechIcons from '../components/TechIcons'
+import Footer from '../components/Footer'
+import Nav from '../components/Nav'
+import Marquee from '../components/Marquee';
 import styles from '@/styles/Home.module.css'
 
 export default function Home() {

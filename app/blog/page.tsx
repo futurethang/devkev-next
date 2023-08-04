@@ -3,28 +3,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import urlFor from '@/cms-utils/urlFor';
 import ClientSideRoute from '@/components/clientSideRoute';
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 import styles from '@/styles/Home.module.css'
 import { getBlogPosts } from '@/cms-utils/sanity-blog-posts';
 
-interface Post {
-    _createdAt: string,
-    _id: string,
-    _rev: string,
-    _type: string,
-    _updatedAt: string,
-    title: string,
-    body: any,
-    mainImage: any,
-    slug: any,
-    categories: any,
-}
-
 export default async function Blog() {
 
-    const data = await getBlogPosts()
-    console.log(data.posts)
-    const posts = data
+    const posts = await getBlogPosts()
 
     return (
         <>

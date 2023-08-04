@@ -1,22 +1,9 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 import BlogList from "@/components/blogList";
 import styles from '@/styles/Home.module.css'
 import { getSanityClient } from "@/cms-utils/sanity-util";
-
-interface Post {
-    _createdAt: string,
-    _id: string,
-    _rev: string,
-    _type: string,
-    _updatedAt: string,
-    title: string,
-    body: any,
-    mainImage: any,
-    slug: any,
-    categories: any,
-}
 
 export default async function Blog() {
 

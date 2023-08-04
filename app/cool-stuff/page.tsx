@@ -1,7 +1,6 @@
-import { useState, useEffect } from "react";
 import Head from 'next/head';
 import Link from 'next/link';
-import Footer from "@/components/footer";
+import Footer from "@/components/Footer";
 import styles from '@/styles/Home.module.css'
 import { getSanityClient } from "@/cms-utils/sanity-util";
 
