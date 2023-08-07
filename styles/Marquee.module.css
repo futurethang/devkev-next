@@ -1,9 +1,7 @@
 .marquee {
   overflow: hidden;
   white-space: nowrap;
-  width: 43%;
   height: 2rem;
-  position: relative;
 }
 
 .marquee__content {

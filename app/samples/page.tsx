@@ -8,6 +8,7 @@ import Footer from '../../components/Footer';
 import styles from '@/styles/Home.module.css'
 import style from '@/styles/Samples.module.css'
 import { getSamplePosts } from '@/cms-utils/sanity-sample-posts';
+import { h1Style, h3Style, linkStyles, backLinkStyle } from '@/styles/tailwindStyles';
 
 async function Samples() {
 
@@ -20,17 +21,14 @@ async function Samples() {
                 <title>Work Samples</title>
             </Head>
             <main className={styles.main}>
-                <h1 style={{ fontSize: '4rem', margin: '1rem 0' }}>Work Samples</h1>
-                <nav>
-                    <Link href={'/'}>👈 Back</Link>
-                </nav>
+                <h1 className={h1Style}>Work Samples</h1>
                 <div>
                     <section className={style.sampleSection} >
                         <div className='grid grid-cols-1 md:grid-cols-1 gap-10 gap-y-16 p-8 bg-slate-800 rounded-lg'>
                             {posts.map((post: any) => (
-                                <ClientSideRoute key={post._id} route={`/samples-CMS/${post.slug.current}`}>
+                                <ClientSideRoute key={post._id} route={`/samples/${post.slug.current}`}>
                                     <div className='flex flex-col group cursor-pointer' >
-                                        <h3>{post?.title && post.title}</h3>
+                                        <h3 className={h3Style}>{post?.title && post.title}</h3>
                                         <p>{post.description}</p>
                                         {post.mainImage && (
                                             <div className='relative w-full h-80 drop-shadow-xl group-hover:scale-105 transition-transform duration-200 ease-out'>
@@ -48,6 +46,9 @@ async function Samples() {
                         </div>
                     </section>
                 </div>
+                <nav className='mt-6'>
+                    <Link className={backLinkStyle} href={'/'}>👈 Back</Link>
+                </nav>
             </main>
             <Footer />
         </>

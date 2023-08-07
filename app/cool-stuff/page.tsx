@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Footer from "@/components/Footer";
 import styles from '@/styles/Home.module.css'
 import { getSanityClient } from "@/cms-utils/sanity-util";
+import { h1Style, h3Style, linkStyles, backLinkStyle } from '@/styles/tailwindStyles';
 
 interface Post {
   _createdAt: string,
@@ -11,10 +12,6 @@ interface Post {
   _type: string,
   _updatedAt: string,
   title: string,
-}
-
-interface Props {
-  posts: Post[];
 }
 
 export default async function Blog() {
@@ -27,25 +24,23 @@ export default async function Blog() {
         <title>Cool Stuff</title>
       </Head>
       <main className={styles.main} >
-        <h1>Cool Stuff</h1>
-        <nav>
-          <Link href={'/'}>👈 Back</Link>
-        </nav>
-        <h2>🚧 Under Construction 🚧</h2>
+        <h1 className={h1Style}>Cool Stuff</h1>
+
         <p>I've got more creativity in me than I can use up at work, so here's some of the spill-over.</p>
-        <p>
-          Look for links to the projects I've worked on, from music to art and gardening, and dabblin's galore.
-        </p>
-        <h3>Links</h3>
+        <h3 className={h3Style}>Making Music with these Bands:</h3>
         <ul>
           <li>
-            <a href="https://www.shadowpattern.com" target="_blank">Shadow Pattern</a>
+            <a className={linkStyles} href="https://www.shadowpattern.com" target="_blank">Shadow Pattern</a>
+          </li>
+          <li>
+            <a className={linkStyles} href="http://theholyalimonies.band/" target="_blank">The Holy Alimonies</a>
           </li>
         </ul>
-        <hr />
-        <br />
-        <h3>Creative Catalog</h3>
+        <h3 className={h3Style}>Making Artwork For the Fun of It:</h3>
         <p>Just a super browsable gallery of artworks</p>
+        <nav className='mt-6'>
+          <Link className={backLinkStyle} href={'/'}>👈 Back</Link>
+        </nav>
       </main>
       <Footer />
     </>
