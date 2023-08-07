@@ -40,7 +40,7 @@ export default async function Blog() {
           </li>
         </ul>
         <h3 className={h3Style}>Making Artwork For the Fun of It:</h3>
-        <p>Just a super browsable gallery of artworks to build right here</p>
+        <p>Coming Soon: a super browsable gallery of artworks to build right here</p>
         <nav className='mt-6'>
           <Link className={backLinkStyle} href={'/'}>👈 Back</Link>
         </nav>

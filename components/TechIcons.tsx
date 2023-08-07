@@ -26,13 +26,9 @@ export default function TechIcons() {
     }
   }
 
-  function titleCase(str: string): string {
+  function titleCase(str: string) {
     if (!str) return ''
-    const strArr = str.toLowerCase().split(' ');
-    for (var i = 0; i < str.length; i++) {
-      strArr[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
-    }
-    return strArr.join(' ');
+    return str.toLowerCase().replace(/(^|\s)\S/g, (match) => match.toUpperCase());
   }
 
   return (
