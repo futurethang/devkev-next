@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
-import ClientSideRoute from '@/components/clientSideRoute';
+import ClientSideRoute from '@/components/ClientSideRoute';
 import urlFor from '@/cms-utils/urlFor';
 import Footer from '../../components/Footer';
 import styles from '@/styles/Home.module.css'

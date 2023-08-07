@@ -73,13 +73,6 @@ export default function Home() {
         </section>
 
         <section>
-          <h3 className={h3Style}>Technology Toolkit</h3>
-          <p>
-            I believe in big picture product thinking over specific tools, and have an undaunted attitude towards learning and adopting whatever knowledge, skills or toolkits are the best for the job.
-          </p>
-          <p>
-            That said, here are some of the technologies I've had the privilege of getting the most familiar with over the course of my work experience.
-          </p>
           <TechIcons />
         </section>
 

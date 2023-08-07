@@ -35,9 +35,12 @@ export default async function Blog() {
           <li>
             <a className={linkStyles} href="http://theholyalimonies.band/" target="_blank">The Holy Alimonies</a>
           </li>
+          <li>
+            <a className={linkStyles} href="https://waistcoatfling.bandcamp.com/album/no-awful-oblivion" target="_blank">Waistcoat Fling</a>
+          </li>
         </ul>
         <h3 className={h3Style}>Making Artwork For the Fun of It:</h3>
-        <p>Just a super browsable gallery of artworks</p>
+        <p>Just a super browsable gallery of artworks to build right here</p>
         <nav className='mt-6'>
           <Link className={backLinkStyle} href={'/'}>👈 Back</Link>
         </nav>
