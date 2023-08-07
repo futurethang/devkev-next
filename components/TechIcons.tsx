@@ -5,12 +5,12 @@ import style from '../styles/TechIcons.module.css'
 import * as img from '../public/icons/index.js'
 import { h3Style } from '@/styles/tailwindStyles'
 
-export default function TechIcons(icon) {
+export default function TechIcons() {
   const [devLabel, setDevLabel] = useState('')
   const [designLabel, setDesignLabel] = useState('')
   const [aiLabel, setAiLabel] = useState('')
 
-  const onHover = (e, section) => {
+  const onHover = (e: any, section: string) => {
     switch (section) {
       case 'dev':
         setDevLabel(titleCase(e.target.alt))
@@ -26,13 +26,13 @@ export default function TechIcons(icon) {
     }
   }
 
-  function titleCase(str) {
-    if (!str) return
-    str = str.toLowerCase().split(' ');
+  function titleCase(str: string): string {
+    if (!str) return ''
+    const strArr = str.toLowerCase().split(' ');
     for (var i = 0; i < str.length; i++) {
-      str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+      strArr[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
     }
-    return str.join(' ');
+    return strArr.join(' ');
   }
 
   return (
