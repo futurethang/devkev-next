@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import Footer from "@/components/Footer";
 import styles from '@/styles/Home.module.css'
+import { backLinkStyle } from '@/styles/tailwindStyles';
 
 export default function RootLayout({
     children,
@@ -14,10 +15,10 @@ export default function RootLayout({
                 <title>Blog</title>
             </Head>
             <main className={styles.main} >
-                <nav>
-                    <Link href={'/blog'}>👈 Back</Link>
-                </nav>
                 {children}
+                <nav>
+                    <Link className={backLinkStyle} href={'/blog'}>👈 Back</Link>
+                </nav>
             </main>
             <Footer />
         </>

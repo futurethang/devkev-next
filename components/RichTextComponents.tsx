@@ -1,5 +1,6 @@
 import Image from "next/image";
 import urlFor from "@/cms-utils/urlFor";
+import { h3Style } from "@/styles/tailwindStyles";
 
 const myPortableTextComponents = {
   types: {
@@ -18,7 +19,7 @@ const myPortableTextComponents = {
   },
 
   block: {
-    h4: ({ children }: any) => <h4 className="text-2xl font-bold text-yellow-400">{children}</h4>,
+    h4: ({ children }: any) => <h4 className={h3Style}>{children}</h4>,
   },
 
   marks: {

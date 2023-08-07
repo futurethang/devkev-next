@@ -5,6 +5,7 @@ import { groq } from 'next-sanity'
 import React from 'react'
 import { PortableText } from '@portabletext/react'
 import myPortableTextComponents from '@/components/RichTextComponents'
+import { h1Style } from '@/styles/tailwindStyles'
 
 type Props = {
   params: {
@@ -23,8 +24,6 @@ export default async function Post({ params: { slug } }: Props) {
   `;
 
   const post = await client.fetch(query, { slug });
-
-  console.log("POST", post)
 
   return (
     <article className='px-10 pb-8'>
@@ -46,7 +45,7 @@ export default async function Post({ params: { slug } }: Props) {
       <section>
         <div>
           <div>
-            <h1 className='text-4xl font-bold text-yellow-400'>
+            <h1 className={h1Style}>
               {post.title}
             </h1>
             <p>

@@ -1,6 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
-import suitcase from '../public/icons/suitcase.svg'
 import { backLinkStyle } from '@/styles/tailwindStyles';
 
 function Nav() {
