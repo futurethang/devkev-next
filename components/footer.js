@@ -10,9 +10,9 @@ function Footer() {
                     <h3>Kevin Hyde</h3>
                 </Link>
                 <SocialIcon bgColor='#ffff00' style={{ height: '1.75rem', width: '1.75rem' }} target="_blank" url="mailto:kphyde@gmail.com" />
-                <SocialIcon bgColor='#ffff00' style={{ height: '1.75rem', width: '1.75rem' }} target="_blank" url="https://t.me/futurethang" />
                 <SocialIcon bgColor='#ffff00' style={{ height: '1.75rem', width: '1.75rem' }} target="_blank" url="https://github.com/futurethang" />
                 <SocialIcon bgColor='#ffff00' style={{ height: '1.75rem', width: '1.75rem' }} target="_blank" url="https://www.linkedin.com/in/kevin-hyde-fullstack/" />
+                <SocialIcon bgColor='#ffff00' style={{ height: '1.75rem', width: '1.75rem' }} target="_blank" url="https://t.me/futurethang" />
             </div>
             <nav>
                 <Link href={'/samples'}>Work Samples</Link>

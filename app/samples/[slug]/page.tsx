@@ -1,106 +1,67 @@
-'use client'
-import React, { useEffect, useState, useRef, SyntheticEvent } from 'react';
-import { ReactMarkdown } from 'react-markdown/lib/react-markdown';
-import Head from 'next/head'
-import { samples } from '@/constants/samples';
-import Link from 'next/link';
-import Image from 'next/image';
-import Footer from '@/components/Footer'
-import * as ui from '@/public/UI';
-import styles from '@/styles/Home.module.css'
-import sampleStyles from '@/styles/Samples.module.css'
+import { client } from '@/cms-utils/sanity-client'
+import urlFor from '@/cms-utils/urlFor'
+import Image from 'next/image'
+import { groq } from 'next-sanity'
+import React from 'react'
+import { PortableText } from '@portabletext/react'
+import myPortableTextComponents from '@/components/RichTextComponents'
 
-export default function Sample({ params }: { params: { slug: string } }) {
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [showModal, setShowModal] = useState(false);
-  const modalRef = useRef<HTMLDivElement>(null);  
-
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [selectedIndex]);
-
-  const sampleItem = samples.find(s => s.link === params.slug);
-
-  if (!sampleItem) {
-    return <div>Loading...</div>
+type Props = {
+  params: {
+    slug: string
   }
+}
 
-  const nextImage = () => {
-    setSelectedIndex((selectedIndex + 1) % sampleItem.images.length);
-  };
+export default async function Post({ params: { slug } }: Props) {
 
-  const prevImage = () => {
-    setSelectedIndex((selectedIndex - 1 + sampleItem.images.length) % sampleItem.images.length);
-  };
-
-  function handleKeyDown(e: KeyboardEvent) {
-    if (e.key === 'ArrowRight') nextImage();
-    if (e.key === 'ArrowLeft') prevImage();
-    if (e.key === 'Escape' && showModal) setShowModal(false);
-  };
-
-
-  const handleOverlayClick = (e: SyntheticEvent) => {
-    if (e.target === modalRef.current) {
-      setShowModal(false);
+  const query = groq`
+    *[_type == "post" && slug.current == $slug][0]{
+      ...,
+      author->,
+      categories[]->
     }
-  };
+  `;
+
+  const post = await client.fetch(query, { slug });
+
+  console.log("POST", post)
 
   return (
-    <>
-      <Head>
-        <title>{sampleItem.title}</title>
-      </Head>
-      <main className={styles.main}>
-        <nav>
-          <Link href={'/samples'}>👈 Back</Link>
-        </nav>
-        <div className={sampleStyles.preview}>
-          <h2>{sampleItem.title}</h2>
-          <ReactMarkdown>{sampleItem.bodyCopy}</ReactMarkdown>
-          <div className={sampleStyles.images}>
-            {sampleItem.images.map((image, index) => {
-              return (
-                <img src={image.src.src} alt={image.alt} key={`image-${index}`} loading='lazy' onClick={() => {
-                  setSelectedIndex(index);
-                  setShowModal(true);
-                }} />
-              )
-            })}
+    <article className='px-10 pb-8'>
+      <section className='space-y-2'>
+        <div className='flex flex-col md:flex-row justify-between'>
+          <div className='relative h-64 w-full'>
+            <Image
+              className='object-contain object-center shadow-lg rounded align-middle border-none'
+              src={urlFor(post.mainImage).url()}
+              alt={post.author.name}
+              fill
+              priority
+            >
+            </Image>
           </div>
         </div>
-      </main>
-      {showModal &&
-        <div
-          ref={modalRef}
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(0, 0, 0, 0.8)',
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '1rem',
-            zIndex: 1000
-          }}
-          onClick={(e) => handleOverlayClick(e)}
-        >
-          <button className={sampleStyles.galleryButton} onClick={prevImage} style={{ position: 'absolute', left: '5%', transform: 'rotate(180deg) scale(1.8)' }}><Image alt="nav-left" src={ui.chevron} /></button>
-          <img src={sampleItem.images[selectedIndex].src.src} alt="Selected" style={{ maxWidth: '90%', maxHeight: '90%' }} />
-          <caption>{sampleItem.images[selectedIndex].alt}</caption>
-          <button className={sampleStyles.galleryButton} onClick={nextImage} style={{ position: 'absolute', right: '5%', transform: 'scale(1.8)' }}><Image alt="nav-close" src={ui.chevron} /></button>
-          <button className={sampleStyles.galleryButton} onClick={() => setShowModal(false)} style={{ position: 'absolute', right: '5%', top: '5%' }}><Image alt="nav-right" src={ui.close} /></button>  {/* Add close button here */}
+      </section>
+
+      <section>
+        <div>
+          <div>
+            <h1 className='text-4xl font-bold text-yellow-400'>
+              {post.title}
+            </h1>
+            <p>
+              {new Date(post._createdAt).toLocaleDateString('en-US', {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric',
+              })}
+            </p>
+          </div>
         </div>
-      }
-      <Footer />
-    </>
+      </section>
+
+      <PortableText value={post.body} components={myPortableTextComponents} />
+
+    </article>
   )
-} 
+}

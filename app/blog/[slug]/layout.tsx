@@ -15,7 +15,7 @@ export default function RootLayout({
             </Head>
             <main className={styles.main} >
                 <nav>
-                    <Link href={'/'}>👈 Back</Link>
+                    <Link href={'/blog'}>👈 Back</Link>
                 </nav>
                 {children}
             </main>
