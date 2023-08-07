@@ -4,16 +4,16 @@
     background-color: #333;
 }
 
-.footer nav {
+/* .footer nav {
     gap: 0.5rem;
     display: flex;
     flex-direction: column;
     margin-bottom: var(--bottom-margin-med);
-}
+} */
 
-.footer nav a:hover {
+/* .footer nav a:hover {
     color: #FECC5B;
-}
+} */
 
 .connect {
     display: inline-flex;

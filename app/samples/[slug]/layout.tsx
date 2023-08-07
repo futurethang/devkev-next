@@ -17,7 +17,7 @@ export default function RootLayout({
             <main className={styles.main} >
                 {children}
                 <nav>
-                    <Link className={backLinkStyle} href={'/blog'}>👈 Back</Link>
+                    <Link className={backLinkStyle} href={'/samples'}>👈 Back</Link>
                 </nav>
             </main>
             <Footer />

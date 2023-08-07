@@ -1,16 +1,25 @@
 import Image from "next/image";
-import Link from "next/link";
 import urlFor from "@/cms-utils/urlFor";
+import { h3Style } from "@/styles/tailwindStyles";
 
 const myPortableTextComponents = {
   types: {
-    image: ({ value }: any) => <img src={value.imageUrl} />,
-    callToAction: ({ value, isInline }: any) =>
-      isInline ? (
-        <a href={value.url}>{value.text}</a>
-      ) : (
-        <div className="callToAction">{value.text}</div>
-      ),
+    image: ({ value }: any) => {
+      return (
+        <div className="relative h-64 w-full m-10 mx-auto">
+          <Image
+            className="object-contain object-left shadow-lg rounded align-middle border-none"
+            src={urlFor(value).url()}
+            alt="Blog Image"
+            fill
+          />
+        </div>
+      )
+    },
+  },
+
+  block: {
+    h4: ({ children }: any) => <h4 className={h3Style}>{children}</h4>,
   },
 
   marks: {

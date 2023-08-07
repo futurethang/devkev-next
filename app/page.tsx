@@ -1,9 +1,10 @@
 import Head from 'next/head'
-import TechIcons from '../components/techIcons'
-import Footer from '../components/footer'
-import Nav from '../components/nav'
-import Marquee from '../components/marquee';
+import TechIcons from '../components/TechIcons'
+import Footer from '../components/Footer'
+import Nav from '../components/Nav'
+import Marquee from '../components/Marquee';
 import styles from '@/styles/Home.module.css'
+import { h1Style, h3Style } from '@/styles/tailwindStyles';
 
 export default function Home() {
   return (
@@ -16,8 +17,8 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <div className={styles.description}>
-          <h1><span className='kern'>K</span>evin Hyde</h1>
-          <h2><Marquee>developer / designer / product nerd / developer advocate / UX researcher / avid reader / polyglot / prompt engineer</Marquee></h2>
+          <h1 className={h1Style}><span className='kern'>K</span>evin Hyde</h1>
+          <h2 className='my-4 w-full md:w-1/2'><Marquee>developer / designer / product nerd / developer advocate / UX researcher / avid reader / polyglot / prompt engineer</Marquee></h2>
           <p>
             Building a great product invariably presents those sticky spots where <b>What's Possible!™️</b> butts heads with <b>&lt;whats-possible&gt;</b></p>
           <p>
@@ -26,7 +27,7 @@ export default function Home() {
         </div>
         <Nav />
         <section>
-          <h3 className='section-header'>Professional Experience</h3>
+          <h3 className={h3Style}>Professional Experience</h3>
           <details>
             <summary><h4 className='job-title'>DefiHedge Corp.</h4></summary>
             <div className="summary-content">
@@ -62,7 +63,7 @@ export default function Home() {
           </details>
         </section>
         <section>
-          <h3 className='section-header'>What Do I Do?</h3>
+          <h3 className={h3Style}>What Do I Do?</h3>
           <h4 className='hat'>Front End Development</h4>
           <h4 className='hat'>Interface & Experience Design</h4>
           <h4 className='hat'>Product Direction</h4>
@@ -72,13 +73,6 @@ export default function Home() {
         </section>
 
         <section>
-          <h3 className='section-header'>Technology Toolkit</h3>
-          <p>
-            I believe in big picture product thinking over specific tools, and have an undaunted attitude towards learning and adopting whatever knowledge, skills or toolkits are the best for the job.
-          </p>
-          <p>
-            That said, here are some of the technologies I've had the privilege of getting the most familiar with over the course of my work experience.
-          </p>
           <TechIcons />
         </section>
 

@@ -7,7 +7,7 @@ import { client } from "./sanity-client";
 export async function getBlogPosts() {
 
   return client.fetch(
-    groq`*[_type == "post"]{
+    groq`*[_type == "post" && references('67d6d041-f7f9-48d2-a56e-747c29b917b3')]{
       _id,
       _createdAt,
       slug,
