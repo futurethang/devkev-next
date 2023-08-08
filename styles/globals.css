@@ -149,7 +149,6 @@ body:before {
 
 main {
   padding: var(--bottom-margin-big);
-  max-width: 68ch;
   height: auto;
   background: var(--main-background);
   margin: 1rem auto;

@@ -1,12 +1,44 @@
+"use client"
 import Link from 'next/link';
-import { backLinkStyle } from '@/styles/tailwindStyles';
+import { usePathname } from 'next/navigation';
+import { backLinkStyle, h3Style, homeLinkStyle, navTitleStyle } from '@/styles/tailwindStyles';
 
-function Nav() {
+const Nav = ({ includeTitle = false, isHomePage = false }) => {
+  const currentPath = usePathname();
+
+  let links = [
+    { path: '/samples', label: 'Work Samples' },
+    { path: '/blog', label: 'Blog' },
+    { path: '/creative-catalog', label: 'Neat Stuff' },
+  ];
+
+  switch (currentPath) {
+    case '/samples':
+      links = links.filter(link => link.path !== '/samples');
+      break;
+    case '/blog':
+      links = links.filter(link => link.path !== '/blog');
+      break;
+    case '/creative-catalog':
+      links = links.filter(link => link.path !== '/creative-catalog');
+      break;
+    default:
+      break;
+  }
+
   return (
-    <nav className='flex flex-row gap-6'>
-      <Link className={backLinkStyle} href={'/samples'}>Work Samples 👉</Link>
-      <Link className={backLinkStyle} href={'/blog'}>Blog</Link>
-      <Link className={backLinkStyle} href={'/creative-catalog'}>Neat Stuff</Link>
+    <nav className={`flex ${isHomePage ? `flex-col sm:flex-row` : `flex-row`} gap-6`}>
+      {includeTitle ?
+        (<Link key="home" href={"/"}>
+          <h1 className={`${navTitleStyle} sm:hidden`}>KH</h1>
+          <h1 className={`${navTitleStyle} hidden sm:flex`}>Kevin Hyde</h1>
+        </Link>)
+        :
+        null}
+      {links.map(link => (
+        <Link className={isHomePage ? homeLinkStyle : backLinkStyle} key={link.path} href={link.path}>{link.label}</Link>
+      ))}
+
     </nav>
   );
 }
