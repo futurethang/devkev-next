@@ -16,7 +16,7 @@ export default async function Blog() {
                 <title>Blog</title>
             </Head>
             <div className={`my-2 mx-auto p-2 ${mainWidthStyles} bg-slate-900 rounded-xl`}>
-                <Nav />
+                <Nav includeTitle/>
             </div>
             <main className={mainWidthStyles} >
                 <h1 className={h1Style}>Kev Blog</h1>

@@ -16,7 +16,7 @@ export default function RootLayout({
                 <title>Blog</title>
             </Head>
             <div className={`my-2 mx-auto p-2 ${mainWidthStyles} bg-slate-900 rounded-xl`}>
-                <Nav />
+                <Nav includeTitle/>
             </div>
             <main className={mainWidthStyles} >
                 {children}
