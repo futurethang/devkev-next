@@ -3,24 +3,26 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
 import ClientSideRoute from '@/components/ClientSideRoute';
+import Nav from '@/components/Nav';
 import urlFor from '@/cms-utils/urlFor';
 import Footer from '../../components/Footer';
-import styles from '@/styles/Home.module.css'
 import style from '@/styles/Samples.module.css'
 import { getSamplePosts } from '@/cms-utils/sanity-sample-posts';
-import { h1Style, h3Style, linkStyles, backLinkStyle } from '@/styles/tailwindStyles';
+import { h1Style, h3Style, linkStyles, backLinkStyle, mainWidthStyles } from '@/styles/tailwindStyles';
 
 async function Samples() {
 
     const posts = await getSamplePosts()
-    console.log("Samples", posts)
 
     return (
         <>
             <Head>
                 <title>Work Samples</title>
             </Head>
-            <main className={styles.main}>
+            <div className={`my-2 mx-auto p-2 ${mainWidthStyles} bg-slate-900 rounded-xl`}>
+                <Nav />
+            </div>
+            <main className={mainWidthStyles}>
                 <h1 className={h1Style}>Work Samples</h1>
                 <div>
                     <section className={style.sampleSection} >
@@ -46,9 +48,6 @@ async function Samples() {
                         </div>
                     </section>
                 </div>
-                <nav className='mt-6'>
-                    <Link className={backLinkStyle} href={'/'}>👈 Back</Link>
-                </nav>
             </main>
             <Footer />
         </>

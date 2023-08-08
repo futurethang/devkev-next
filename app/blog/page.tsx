@@ -2,9 +2,9 @@ import Head from 'next/head';
 import Link from 'next/link';
 import ClientSideRoute from '@/components/ClientSideRoute';
 import Footer from "@/components/Footer";
-import styles from '@/styles/Home.module.css'
 import { getBlogPosts } from '@/cms-utils/sanity-blog-posts';
-import { h1Style, h3Style, linkStyles, backLinkStyle } from '@/styles/tailwindStyles';
+import { h1Style, h3Style, mainWidthStyles, backLinkStyle } from '@/styles/tailwindStyles';
+import Nav from '@/components/Nav';
 
 export default async function Blog() {
 
@@ -15,7 +15,10 @@ export default async function Blog() {
             <Head>
                 <title>Blog</title>
             </Head>
-            <main className={styles.main} >
+            <div className={`my-2 mx-auto p-2 ${mainWidthStyles} bg-slate-900 rounded-xl`}>
+                <Nav />
+            </div>
+            <main className={mainWidthStyles} >
                 <h1 className={h1Style}>Kev Blog</h1>
                 {posts.length > 0 && (
                     <div className='grid grid-cols-1 px-4 gap-10 gap-y-16 pb-24'>
@@ -38,9 +41,6 @@ export default async function Blog() {
                     </div>
                 )}
                 {posts.length == 0 && <p>No posts to show</p>}
-                <nav className='mt-6'>
-                    <Link className={backLinkStyle} href={'/'}>👈 Back</Link>
-                </nav>
             </main>
             <Footer />
         </>

@@ -15,7 +15,7 @@ function Footer() {
                 <SocialIcon bgColor='#fde047' style={{ height: '1.75rem', width: '1.75rem' }} target="_blank" url="https://www.linkedin.com/in/kevin-hyde-fullstack/" />
                 <SocialIcon bgColor='#fde047' style={{ height: '1.75rem', width: '1.75rem' }} target="_blank" url="https://t.me/futurethang" />
             </div>
-            <Nav />
+            <Nav inFooter />
             <div className='text-sm mt-6 w-full text-center text-slate-500'>
                 ©2023 Kevin Hyde
             </div>

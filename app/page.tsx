@@ -4,7 +4,7 @@ import Footer from '../components/Footer'
 import Nav from '../components/Nav'
 import Marquee from '../components/Marquee';
 import styles from '@/styles/Home.module.css'
-import { h1Style, h3Style } from '@/styles/tailwindStyles';
+import { h1Style, h3Style, mainWidthStyles } from '@/styles/tailwindStyles';
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
+      <main className={mainWidthStyles}>
         <div className={styles.description}>
           <h1 className={h1Style}><span className='kern'>K</span>evin Hyde</h1>
           <h2 className='my-4 w-full md:w-1/2'><Marquee>developer / designer / product nerd / developer advocate / UX researcher / avid reader / polyglot / prompt engineer</Marquee></h2>
