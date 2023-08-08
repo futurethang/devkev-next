@@ -24,8 +24,6 @@ export default async function Post({ params: { slug } }: Props) {
 
   const post = await client.fetch(query, { slug });
 
-  console.log("POST", post)
-
   return (
     <article className='px-10 pb-8'>
       <section className='space-y-2'>

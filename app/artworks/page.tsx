@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import Footer from "@/components/Footer";
-import styles from '@/styles/Home.module.css'
 import { getArtworks } from '@/cms-utils/sanity-art-posts';
+import { mainWidthStyles } from '@/styles/tailwindStyles';
 
 export default async function Blog() {
 
@@ -13,7 +13,7 @@ export default async function Blog() {
             <Head>
                 <title>Arts</title>
             </Head>
-            <main className={styles.main} >
+            <main className={mainWidthStyles} >
                 <h1>Arts</h1>
                 <nav>
                     <Link href={'/'}>👈 Back</Link>
