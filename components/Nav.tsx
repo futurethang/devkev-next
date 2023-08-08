@@ -1,9 +1,9 @@
 "use client"
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { backLinkStyle, h3Style, navTitleStyle } from '@/styles/tailwindStyles';
+import { backLinkStyle, h3Style, homeLinkStyle, navTitleStyle } from '@/styles/tailwindStyles';
 
-const Nav = ({ includeTitle = false }) => {
+const Nav = ({ includeTitle = false, isHomePage = false }) => {
   const currentPath = usePathname();
 
   let links = [
@@ -36,7 +36,7 @@ const Nav = ({ includeTitle = false }) => {
         :
         null}
       {links.map(link => (
-        <Link className={backLinkStyle} key={link.path} href={link.path}>{link.label}</Link>
+        <Link className={isHomePage ? homeLinkStyle : backLinkStyle} key={link.path} href={link.path}>{link.label}</Link>
       ))}
 
     </nav>

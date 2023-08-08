@@ -4,7 +4,8 @@ import Footer from '../components/Footer'
 import Nav from '../components/Nav'
 import Marquee from '../components/Marquee';
 import styles from '@/styles/Home.module.css'
-import { h1Style, h3Style, mainWidthStyles } from '@/styles/tailwindStyles';
+import { backLinkStyle, detailTitleStyle, h1Style, h3Style, mainWidthStyles } from '@/styles/tailwindStyles';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -25,11 +26,11 @@ export default function Home() {
             Whether you're looking for a developer that 'speaks designer' or a designer that 'speaks developer', we'll have plenty to talk about together.
           </p>
         </div>
-        <Nav />
+        <Nav isHomePage />
         <section>
           <h3 className={h3Style}>Professional Experience</h3>
           <details>
-            <summary><h4 className='job-title'>DefiHedge Corp.</h4></summary>
+            <summary><h4 className={detailTitleStyle}>DefiHedge Corp.</h4></summary>
             <div className="summary-content">
               <p>DefiHedge engineers EVM finance protocols to expand the fixed-rate lending and borrowing ecosystem of DeFi.</p>
               <p>
@@ -39,7 +40,7 @@ export default function Home() {
             </div>
           </details>
           <details>
-            <summary><h4 className='job-title'>Cisco Systems Inc.</h4></summary>
+            <summary><h4 className={detailTitleStyle}>Cisco Systems Inc.</h4></summary>
             <div className="summary-content">
               <p>I was part of a new product incubator within Cisco's Webex team prototyping greenfield enterprise solutions, designing and engineering innovative UX/UI for rapid iteration.</p>
               <p>
@@ -48,7 +49,7 @@ export default function Home() {
             </div>
           </details>
           <details>
-            <summary><h4 className='job-title'>University of WA</h4></summary>
+            <summary><h4 className={detailTitleStyle}>University of WA</h4></summary>
             <div className="sumary-content">
               <p>I lead the introductory course for UW's JavaScript Full Stack curriculum, introducing adult students to the fundamentals of JavaScript and developing for the browser.</p>
               <p>I prep course materials, lead lectures, encourage best practices and provide mentorship for career-readiness.
@@ -56,11 +57,12 @@ export default function Home() {
             </div>
           </details>
           <details>
-            <summary><h4 className='job-title'>Meeting Tomorrow</h4></summary>
+            <summary><h4 className={detailTitleStyle}>Meeting Tomorrow</h4></summary>
             <p>Meeting Tomorrow is a Chicago startup that provides AV and Technology rental services worldwide.</p>
             <p>In my tenure I contributed across nearly every aspect of the business, from customer sales and support to internal resources, product development, vendor and warehouse logistics, marketing, and analytics.
             </p>
           </details>
+          <Link className='block w-fit py-4 px-6 mt-4 text-bold hover:text-white bg-blue-700 hover:bg-blue-500 rounded-lg transition-all' key="resume" href='/html/resume.html'>See Resume 📄</Link>
         </section>
         <section>
           <h3 className={h3Style}>What Do I Do?</h3>
