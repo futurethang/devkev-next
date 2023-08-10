@@ -25,7 +25,7 @@ export default async function Post({ params: { slug } }: Props) {
   const post = await client.fetch(query, { slug });
 
   return (
-    <article className='px-10 pb-8'>
+    <article>
       <section className='space-y-2'>
         <div className='flex flex-col md:flex-row justify-between'>
           <div className='relative h-64 w-full'>
