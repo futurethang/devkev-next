@@ -12,8 +12,10 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <GoogleAnalytics />
-        {children}
-        </body>
+        <div className="flex flex-col min-h-screen">
+            {children}
+        </div>
+      </body>
     </html>
   )
 }

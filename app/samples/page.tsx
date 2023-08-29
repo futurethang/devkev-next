@@ -1,6 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-import Link from 'next/link';
 import Image from 'next/image';
 import ClientSideRoute from '@/components/ClientSideRoute';
 import Nav from '@/components/Nav';
@@ -8,7 +7,14 @@ import urlFor from '@/cms-utils/urlFor';
 import Footer from '../../components/Footer';
 import style from '@/styles/Samples.module.css'
 import { getSamplePosts } from '@/cms-utils/sanity-sample-posts';
-import { h1Style, h3Style, linkStyles, backLinkStyle, mainWidthStyles } from '@/styles/tailwindStyles';
+import { h1Style, h3Style, mainWidthStyles } from '@/styles/tailwindStyles';
+import { Metadata } from 'next';
+
+
+export const metadata: Metadata = {
+    title: 'Work Samples',
+    description: 'Work Samples for Kevin Hyde',
+}
 
 async function Samples() {
 

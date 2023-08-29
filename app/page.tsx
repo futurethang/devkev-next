@@ -1,21 +1,20 @@
-import Head from 'next/head'
 import TechIcons from '../components/TechIcons'
 import Footer from '../components/Footer'
 import Nav from '../components/Nav'
 import Marquee from '../components/Marquee';
 import styles from '@/styles/Home.module.css'
-import { backLinkStyle, detailTitleStyle, h1Style, h3Style, mainWidthStyles } from '@/styles/tailwindStyles';
+import { detailTitleStyle, h1Style, h3Style, mainWidthStyles } from '@/styles/tailwindStyles';
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Kevin Hyde',
+  description: 'Professional Portfolio site for Kevin Hyde',
+}
 
 export default function Home() {
   return (
     <>
-      <Head>
-        <title>Kevin Hyde</title>
-        <meta name="description" content="Professional Portfolio site for Kevin Hyde" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <main className={mainWidthStyles}>
         <div className={styles.description}>
           <h1 className={h1Style}><span className='kern'>K</span>evin Hyde</h1>
