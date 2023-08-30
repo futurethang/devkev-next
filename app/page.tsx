@@ -25,10 +25,12 @@ export default function Home() {
             Whether you're looking for a developer that 'speaks designer' or a designer that 'speaks developer', we'll have plenty to talk about together.
           </p>
         </div>
+        <Link className='block w-fit py-4 px-6 my-8 text-bold hover:text-white bg-blue-700 hover:bg-blue-500 rounded-lg transition-all' key="resume" href='/html/resume.html'>Resume 📄</Link>
         <Nav isHomePage />
+
         <section>
-          <h3 className={h3Style}>Professional Experience</h3>
-          <details>
+          {/* <h3 className={h3Style}>Professional Experience</h3> */}
+          {/* <details>
             <summary><h4 className={detailTitleStyle}>DefiHedge Corp.</h4></summary>
             <div className="summary-content">
               <p>DefiHedge engineers EVM finance protocols to expand the fixed-rate lending and borrowing ecosystem of DeFi.</p>
@@ -60,17 +62,15 @@ export default function Home() {
             <p>Meeting Tomorrow is a Chicago startup that provides AV and Technology rental services worldwide.</p>
             <p>In my tenure I contributed across nearly every aspect of the business, from customer sales and support to internal resources, product development, vendor and warehouse logistics, marketing, and analytics.
             </p>
-          </details>
-          <Link className='block w-fit py-4 px-6 mt-4 text-bold hover:text-white bg-blue-700 hover:bg-blue-500 rounded-lg transition-all' key="resume" href='/html/resume.html'>See Resume 📄</Link>
+          </details> */}
         </section>
         <section>
           <h3 className={h3Style}>What Do I Do?</h3>
-          <h4 className='hat'>Front End Development</h4>
+          <h4 className='hat'>Product Design</h4>
           <h4 className='hat'>Interface & Experience Design</h4>
-          <h4 className='hat'>Product Direction</h4>
-          <h4 className='hat'>Project Management</h4>
-          <h4 className='hat'>Market & User Research</h4>
-          <h4 className='hat'>Et Cetera</h4>
+          <h4 className='hat'>UX Engineering</h4>
+          <h4 className='hat'>Front End Development</h4>
+          <h4 className='hat'>Team Leadership</h4>
         </section>
 
         <section>

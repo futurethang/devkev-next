@@ -10,12 +10,12 @@
 }
 
 .iconGroup > * {
-    width: 4rem;
-    height: 4rem;
+    width: 3rem;
+    height: 3rem;
     filter: brightness(.8);
     transition: all 200ms;
 }
-.iconGroup > *:hover {
+.iconGroup > *:hover, .iconGroup > *:focus {
     /* filter: saturate(0.2); */
     filter: brightness(1.4);
 }
