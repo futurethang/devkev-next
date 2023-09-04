@@ -12,7 +12,7 @@ const TECH_BLURBS: Record<string, string> = {
   'Web Components': 'Let\'s get native! I\'ve done my share of building product and UI kits with Web components, and vanilla JS never lets me down. I\'m excited to see the standard grow in the future, and will always keep them close at hand for the right projects.',
   'Figma': 'Even though I\'ve stuck with Adobe for 20+ years, you just can\'t beat Figma for collaboration and quick design iteration. The Plugins, workflow, and community are second to none.',
   'Adobe Creative Suite': 'For raw design power, nothing can match Adobe\'s Creative Suite. I reach into this suite often to refine vectors and typography, perfect raster graphics, and create awesome animations.',
-  'OpenAI': 'We have our pick of LLMs to build with, but I appreciate OpenAI\'s commitment to open source and their quality docs and regular feature additions. My API of choice . . . for now.',
+  'OpenAI': 'We have our pick of LLMs to build with, but I appreciate OpenAI\'s commitment to quality docs and regular feature additions. My API of choice . . . for now.',
   'LangChain': 'The arguments are far from settled on the integration layers of building with LLMs, but LangChain is a great option for getting rolling on interesting LLM integration ideas, and continues to add new leverage for builders.',
   'Midjourney': 'Again, there\'re plenty to pick from in the image generation space, but Midjourney\'s params and amazing quality makes it my default for rapid idea generation, whether churning out product concepts or fanciful artwork for creative projects.',
 }
