@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { groq } from 'next-sanity'
 import React from 'react'
 import { PortableText } from '@portabletext/react'
-import myPortableTextComponents from '@/components/RichTextComponents'
+import myPortableTextComponents2 from '@/components/RichTextComponents2'
 import { h1Style } from '@/styles/tailwindStyles'
 
 type Props = {
@@ -26,7 +26,7 @@ export default async function Post({ params: { slug } }: Props) {
   const post = await client.fetch(query, { slug });
 
   return (
-    <article>
+    <article id="sample-page">
       <section className='space-y-2'>
         <div className='flex flex-col md:flex-row justify-between'>
           <div className='relative h-64 w-full'>
@@ -59,7 +59,7 @@ export default async function Post({ params: { slug } }: Props) {
         </div>
       </section>
 
-      <PortableText value={post.body} components={myPortableTextComponents} />
+      <PortableText value={post.body} components={myPortableTextComponents2} />
 
     </article>
   )

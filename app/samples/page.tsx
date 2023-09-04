@@ -23,7 +23,6 @@ async function Samples() {
     return (
         <>
             <div className="flex-1">
-
                 <div className={`my-2 mx-auto p-2 ${mainWidthStyles} bg-slate-900 rounded-xl`}>
                     <Nav includeTitle />
                 </div>
