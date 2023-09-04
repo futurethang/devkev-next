@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Modal from 'react-modal';
 
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
-Modal.setAppElement('#sample-page');
+Modal.setAppElement('#app_root');
 
 Modal.defaultStyles = {
   overlay: {

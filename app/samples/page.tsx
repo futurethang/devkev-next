@@ -1,7 +1,7 @@
 import React from 'react';
-import Head from 'next/head';
 import Image from 'next/image';
 import ClientSideRoute from '@/components/ClientSideRoute';
+import Link from 'next/link';
 import Nav from '@/components/Nav';
 import urlFor from '@/cms-utils/urlFor';
 import Footer from '../../components/Footer';
@@ -32,7 +32,7 @@ async function Samples() {
                         <section className={style.sampleSection} >
                             <div className='grid grid-cols-1 gap-10 gap-y-16 '>
                                 {posts.map((post: any) => (
-                                    <ClientSideRoute key={post._id} route={`/samples/${post.slug.current}`}>
+                                    <Link key={post._id} href={`/samples/${post.slug.current}`}>
                                         <div className='flex flex-col group cursor-pointer' >
                                             <h3 className={h3Style}>{post?.title && post.title}</h3>
                                             <p>{post.description}</p>
@@ -47,7 +47,7 @@ async function Samples() {
                                                 </div>
                                             )}
                                         </div>
-                                    </ClientSideRoute>
+                                    </Link>
                                 ))}
                             </div>
                         </section>
