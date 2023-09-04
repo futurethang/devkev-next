@@ -48,13 +48,13 @@ export default async function Post({ params: { slug } }: Props) {
             <h1 className={h1Style}>
               {post.title}
             </h1>
-            <p>
+            {/* <p>
               {new Date(post._createdAt).toLocaleDateString('en-US', {
                 month: 'long',
                 day: 'numeric',
                 year: 'numeric',
               })}
-            </p>
+            </p> */}
           </div>
         </div>
       </section>
