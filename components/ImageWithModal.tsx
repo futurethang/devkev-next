@@ -24,9 +24,9 @@ Modal.defaultStyles = {
     bottom: '40px',
     overflow: 'none',
     WebkitOverflowScrolling: 'touch',
-    borderRadius: '4px',
+    // borderRadius: '4px',
     outline: 'none',
-    padding: '20px'
+    // padding: '20px'
   }
 }
 
@@ -61,10 +61,11 @@ export const ImageWithModal = ({ src }: any) => {
         </div>
         <div className='relative object-fit w-full h-full'>
           <Image
-            className="object-contain object-left rounded align-middle border-none"
+            className="object-contain rounded align-middle border-none absolute inset-0"
             src={src}
             alt="Blog Image"
             fill
+            onClick={closeModal}
           />
         </div>
       </Modal>
