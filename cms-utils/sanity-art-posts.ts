@@ -11,10 +11,7 @@ export async function getArtworks() {
       slug,
       body,
       mainImage,
-      categories[] -> {
-        title,
-        slug
-      },
+      categories,
     }`
   )
 }

@@ -1,9 +1,10 @@
-import Head from 'next/head';
-import Link from 'next/link';
 import Footer from "@/components/Footer";
-import { getSanityClient } from "@/cms-utils/sanity-util";
+import { getArtworks } from '@/cms-utils/sanity-art-posts';
 import { h1Style, h3Style, linkStyles, backLinkStyle, mainWidthStyles } from '@/styles/tailwindStyles';
 import Nav from '@/components/Nav';
+import Link from 'next/link';
+import Image from "next/image";
+import urlFor from '@/cms-utils/urlFor';
 import { Metadata } from 'next';
 
 interface Post {
@@ -22,7 +23,8 @@ export const metadata: Metadata = {
 
 export default async function Blog() {
 
-  const posts: Post[] = await getSanityClient()
+  const posts = await getArtworks()
+  console.log(posts)
 
   return (
     <>
@@ -45,9 +47,27 @@ export default async function Blog() {
             <li>
               <a className={linkStyles} href="https://waistcoatfling.bandcamp.com/album/no-awful-oblivion" target="_blank">Waistcoat Fling</a>
             </li>
+            <li>
+              <a className={linkStyles} href="https://futurethang.github.io/Cretins-Site/" target="_blank">Cretins</a>
+            </li>
           </ul>
-          <h3 className={h3Style}>Making Artwork For the Fun of It:</h3>
-          <p>Coming Soon: a super browsable gallery of artworks to build right here</p>
+          <h3 className={h3Style}>Artworks:</h3>
+          <div className='grid grid-cols-2 gap-4 md:grid-cols-3' >
+            {posts.map((post: any) => (
+              <Link key={post._id} href={`/samples/${post.slug.current}`}>
+                {post.mainImage && (
+                <div className='p-24 relative drop-shadow-xl hover:scale-105 transition-transform duration-200 ease-out rounded-md'>
+                    <Image
+                      className='object-cover rounded-md'
+                      src={urlFor(post.mainImage).url()}
+                      alt={post.mainImage.alt || "portfolio item preview"}
+                      fill
+                    />
+                  </div>
+                )}
+              </Link>
+            ))}
+          </div>
         </main>
       </div>
       <Footer />
