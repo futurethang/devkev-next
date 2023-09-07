@@ -33,7 +33,7 @@ export default async function Blog() {
           <Nav includeTitle />
         </div>
         <main className={mainWidthStyles} >
-          <h1 className={h1Style}>Cool Stuff</h1>
+          <h1 className={h1Style}>Neat Stuff</h1>
 
           <p>I've got more creativity in me than I can use up at work, so here's some of the spill-over.</p>
           <h3 className={h3Style}>Making Music with these Bands:</h3>
@@ -54,7 +54,7 @@ export default async function Blog() {
           <h3 className={h3Style}>Artworks:</h3>
           <div className='grid grid-cols-2 gap-4 md:grid-cols-3' >
             {posts.map((post: any) => (
-              <Link key={post._id} href={`/samples/${post.slug.current}`}>
+              <Link key={post._id} href={`/creative-catalog/${post.slug.current}`}>
                 {post.mainImage && (
                 <div className='p-24 relative drop-shadow-xl hover:scale-105 transition-transform duration-200 ease-out rounded-md'>
                     <Image
