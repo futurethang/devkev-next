@@ -24,7 +24,6 @@ export const metadata: Metadata = {
 export default async function Blog() {
 
   const posts = await getArtworks()
-  console.log(posts)
 
   return (
     <>
@@ -52,11 +51,12 @@ export default async function Blog() {
             </li>
           </ul>
           <h3 className={h3Style}>Artworks:</h3>
+          <p className="lg:w-10/12">There's always fun in dabbling. Here's some fun stuff I've made using Photoshop, Illustrator, Fresco, Procreate, and animation tools.</p>
           <div className='grid grid-cols-2 gap-4 md:grid-cols-3' >
             {posts.map((post: any) => (
               <Link key={post._id} href={`/creative-catalog/${post.slug.current}`}>
                 {post.mainImage && (
-                <div className='p-24 relative drop-shadow-xl hover:scale-105 transition-transform duration-200 ease-out rounded-md'>
+                  <div className='p-24 relative drop-shadow-xl hover:scale-105 transition-transform duration-200 ease-out rounded-md'>
                     <Image
                       className='object-cover rounded-md'
                       src={urlFor(post.mainImage).url()}

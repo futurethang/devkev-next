@@ -21,7 +21,7 @@ export default function RootLayout({
             <main className={mainWidthStyles} >
                 {children}
                 <nav>
-                    <Link className={backLinkStyle} href={'/samples'}>👈 Back</Link>
+                    <Link className={backLinkStyle} href={'/creative-catalog'}>👈 Back</Link>
                 </nav>
             </main>
             <Footer />
