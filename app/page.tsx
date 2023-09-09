@@ -3,16 +3,54 @@ import Footer from '../components/Footer'
 import Nav from '../components/Nav'
 import Marquee from '../components/Marquee';
 import styles from '@/styles/Home.module.css'
-import { detailTitleStyle, h1Style, h3Style, mainWidthStyles } from '@/styles/tailwindStyles';
+import { h1Style, h3Style, mainWidthStyles } from '@/styles/tailwindStyles';
 import Link from 'next/link';
 import { Metadata } from 'next';
+import { getReadingList } from '@/cms-utils/sanity-reading-list';
 
 export const metadata: Metadata = {
   title: 'Kevin Hyde',
   description: 'Professional Portfolio site for Kevin Hyde',
 }
 
-export default function Home() {
+export default async function Home() {
+  const features = await getReadingList();
+
+  type Article = {
+    _createdAt: string;
+    title: string;
+    link: string | null;
+    previewImage: any;
+    shortSummary: string | null;
+    detailedSummary: string | null;
+    tags: string[];
+    featured: boolean | null;
+    _id: string;
+};
+
+const getFeaturedArticles = (data: Article[]): Record<string, Article | undefined> => {
+    const requiredTags = ['Development', 'Design', 'AI'];
+    const results: Record<string, Article | undefined> = {};
+
+    requiredTags.forEach(tag => {
+        const filteredArticles = data
+            .filter(article => article.tags.includes(tag) && article.featured === true)
+            .sort((a, b) => (new Date(b._createdAt).getTime() - new Date(a._createdAt).getTime()));
+
+        if (filteredArticles.length > 0) {
+            results[tag] = filteredArticles[0];
+        }
+    });
+
+    return results;
+};
+
+const data: Article[] = features;
+
+const articles = getFeaturedArticles(data);
+console.log(articles);
+
+
   return (
     <>
       <main className={mainWidthStyles}>
@@ -29,42 +67,6 @@ export default function Home() {
         <Nav isHomePage />
 
         <section>
-          {/* <h3 className={h3Style}>Professional Experience</h3> */}
-          {/* <details>
-            <summary><h4 className={detailTitleStyle}>DefiHedge Corp.</h4></summary>
-            <div className="summary-content">
-              <p>DefiHedge engineers EVM finance protocols to expand the fixed-rate lending and borrowing ecosystem of DeFi.</p>
-              <p>
-                In this startup team I put all my hats to use, mixing product management with project leadership, designing UX for novel applications, front end engineering, and across-the-board support for all operations.
-              </p>
-              <p>At DefiHedge, I put my full range of skills to use as a designer, developer, product manager, and project leader. With a focus on expanding the DeFi ecosystem, I designed innovative UX and front-end engineering solutions for our finance protocols.</p>
-            </div>
-          </details>
-          <details>
-            <summary><h4 className={detailTitleStyle}>Cisco Systems Inc.</h4></summary>
-            <div className="summary-content">
-              <p>I was part of a new product incubator within Cisco's Webex team prototyping greenfield enterprise solutions, designing and engineering innovative UX/UI for rapid iteration.</p>
-              <p>
-                We relied upon Cisco's Momentum component library, where I played a core role re-engineering it as a Web Component based system for framework agnostic development.
-              </p>
-            </div>
-          </details>
-          <details>
-            <summary><h4 className={detailTitleStyle}>University of WA</h4></summary>
-            <div className="sumary-content">
-              <p>I lead the introductory course for UW's JavaScript Full Stack curriculum, introducing adult students to the fundamentals of JavaScript and developing for the browser.</p>
-              <p>I prep course materials, lead lectures, encourage best practices and provide mentorship for career-readiness.
-              </p>
-            </div>
-          </details>
-          <details>
-            <summary><h4 className={detailTitleStyle}>Meeting Tomorrow</h4></summary>
-            <p>Meeting Tomorrow is a Chicago startup that provides AV and Technology rental services worldwide.</p>
-            <p>In my tenure I contributed across nearly every aspect of the business, from customer sales and support to internal resources, product development, vendor and warehouse logistics, marketing, and analytics.
-            </p>
-          </details> */}
-        </section>
-        <section>
           <h3 className={h3Style}>What Do I Do?</h3>
           <h4 className='hat'>Product Design</h4>
           <h4 className='hat'>Interface & Experience Design</h4>
@@ -74,7 +76,7 @@ export default function Home() {
         </section>
 
         <section>
-          <TechIcons />
+          <TechIcons featuredArticles={articles} />
         </section>
 
       </main>

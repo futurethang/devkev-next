@@ -4,6 +4,7 @@ import Image from 'next/image'
 import style from '../styles/TechIcons.module.css'
 import * as img from '../public/icons/index.js'
 import { h3Style } from '@/styles/tailwindStyles'
+import { getReadingList } from '@/cms-utils/sanity-reading-list'
 
 const TECH_BLURBS: Record<string, string> = {
   'Typescript': 'So what if it\'s pain sometimes? It\'s worth it as soon as you scale beyond a few shared components and more than one developer.',
@@ -17,9 +18,17 @@ const TECH_BLURBS: Record<string, string> = {
   'Midjourney': 'Again, there\'re plenty to pick from in the image generation space, but Midjourney\'s params and amazing quality makes it my default for rapid idea generation, whether churning out product concepts or fanciful artwork for creative projects.',
 }
 
-export default function TechIcons() {
+export default function TechIcons({ featuredArticles }) {
   const [blurb, setBlurb] = useState('')
   const [blurbTitle, setBlurbTitle] = useState('')
+
+  const { Development, Design, AI } = featuredArticles;
+  console.log(Development);
+
+  // const features = await getReadingList();
+  // filter by domain && Latest || featured
+  // should have unique GROQ that narrows for me
+  // rather than a full query of all articles and then filtering
 
   const onHover = (e: any) => {
     const value = e.target!.alt as string;
@@ -30,24 +39,33 @@ export default function TechIcons() {
   return (
     <div className="grid grid-cols-2">
       <div>
-        <h3 className={h3Style}>Dev Tools:</h3>
+        <h3 className={h3Style}>Development</h3>
         <div className={style.iconGroup} onMouseOver={e => onHover(e)} onFocus={e => onHover(e)}>
           <Image src={img.typescript} alt='Typescript' tabIndex={0} />
           <Image src={img.node} alt='Node' tabIndex={0} />
           <Image src={img.react} alt='React' tabIndex={0} />
           <Image src={img.webcomponents} alt='Web Components' tabIndex={0} />
         </div>
-        <h3 className={h3Style}>Design Tools:</h3>
+        <h2>What I'm Reading</h2>
+        {Development.title}
+        <h3 className={h3Style}>Design</h3>
         <div className={style.iconGroup} onMouseOver={e => onHover(e)} onFocus={e => onHover(e)}>
           <Image src={img.figma} alt='Figma' tabIndex={0} />
           <Image src={img.creativesuite} alt='Adobe Creative Suite' tabIndex={0} />
         </div>
-        <h3 className={h3Style}>AI Tools:</h3>
+        <h2>What I'm Reading</h2>
+
+        {Design.title}
+
+        <h3 className={h3Style}>AI</h3>
         <div className={style.iconGroup} onMouseOver={e => onHover(e)} onFocus={e => onHover(e)}>
           <Image src={img.openai} alt='OpenAI' tabIndex={0} />
           <Image src={img.langchain} alt='LangChain' tabIndex={0} />
           <Image src={img.midjourney} alt='Midjourney' tabIndex={0} />
         </div>
+        <h2>What I'm Reading</h2>
+
+        {AI.title}
       </div>
       <div>
         <h3 className={`${h3Style} text-2xl invisible`}>Why This Tool?</h3>
