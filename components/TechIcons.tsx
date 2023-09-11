@@ -18,17 +18,11 @@ const TECH_BLURBS: Record<string, string> = {
   'Midjourney': 'Again, there\'re plenty to pick from in the image generation space, but Midjourney\'s params and amazing quality makes it my default for rapid idea generation, whether churning out product concepts or fanciful artwork for creative projects.',
 }
 
-export default function TechIcons({ featuredArticles }) {
+export default function TechIcons({ featuredArticles }: any) {
   const [blurb, setBlurb] = useState('')
   const [blurbTitle, setBlurbTitle] = useState('')
 
   const { Development, Design, AI } = featuredArticles;
-  console.log(Development);
-
-  // const features = await getReadingList();
-  // filter by domain && Latest || featured
-  // should have unique GROQ that narrows for me
-  // rather than a full query of all articles and then filtering
 
   const onHover = (e: any) => {
     const value = e.target!.alt as string;

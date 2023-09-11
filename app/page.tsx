@@ -46,11 +46,7 @@ export default async function Home() {
     return results;
   };
 
-  const data: Article[] = features;
-
-  const articles = getFeaturedArticles(data);
-  console.log(articles);
-
+  const articles = getFeaturedArticles(features);
 
   return (
     <>
