@@ -4,7 +4,7 @@ import Image from 'next/image'
 import style from '../styles/TechIcons.module.css'
 import * as img from '../public/icons/index.js'
 import { h3Style } from '@/styles/tailwindStyles'
-import { getReadingList } from '@/cms-utils/sanity-reading-list'
+import Link from 'next/link'
 
 const TECH_BLURBS: Record<string, string> = {
   'Typescript': 'So what if it\'s pain sometimes? It\'s worth it as soon as you scale beyond a few shared components and more than one developer.',
@@ -37,7 +37,7 @@ export default function TechIcons({ featuredArticles }) {
   }
 
   return (
-    <div className="grid grid-cols-2">
+    <div className="grid grid-cols-2 gap-2">
       <div>
         <h3 className={h3Style}>Development</h3>
         <div className={style.iconGroup} onMouseOver={e => onHover(e)} onFocus={e => onHover(e)}>
@@ -46,16 +46,13 @@ export default function TechIcons({ featuredArticles }) {
           <Image src={img.react} alt='React' tabIndex={0} />
           <Image src={img.webcomponents} alt='Web Components' tabIndex={0} />
         </div>
-        <h2>What I'm Reading</h2>
-        {Development.title}
+
         <h3 className={h3Style}>Design</h3>
         <div className={style.iconGroup} onMouseOver={e => onHover(e)} onFocus={e => onHover(e)}>
           <Image src={img.figma} alt='Figma' tabIndex={0} />
           <Image src={img.creativesuite} alt='Adobe Creative Suite' tabIndex={0} />
         </div>
-        <h2>What I'm Reading</h2>
 
-        {Design.title}
 
         <h3 className={h3Style}>AI</h3>
         <div className={style.iconGroup} onMouseOver={e => onHover(e)} onFocus={e => onHover(e)}>
@@ -63,9 +60,18 @@ export default function TechIcons({ featuredArticles }) {
           <Image src={img.langchain} alt='LangChain' tabIndex={0} />
           <Image src={img.midjourney} alt='Midjourney' tabIndex={0} />
         </div>
-        <h2>What I'm Reading</h2>
-
-        {AI.title}
+        <Link href={AI.link} target='blank' className='flex flex-col jusitfy-start items-start my-3 font-bold py-2 px-4 w-fit text-blue-300 bg-slate-800 hover:bg-slate-700 transition-all 400 rounded-lg'>
+          <h4 className='mt-2 mb-2 text-yellow-300'>🧠 Currently Reading</h4>
+          {AI.title}
+        </Link>
+        <Link href={Development.link} target='blank' className='flex flex-col jusitfy-start items-start my-3 font-bold py-2 px-4 w-fit text-blue-300 bg-slate-800 hover:bg-slate-700 transition-all 400 rounded-lg'>
+          <h4 className='mt-2 mb-2 text-yellow-300'>🧠 Currently Reading</h4>
+          {Development.title}
+        </Link>
+        <Link href={Design.link} target='blank' className='flex flex-col jusitfy-start items-start my-3 font-bold py-2 px-4 w-fit text-blue-300 bg-slate-800 hover:bg-slate-700 transition-all 400 rounded-lg'>
+          <h4 className='mt-2 mb-2 text-yellow-300'>🧠 Currently Reading</h4>
+          {Design.title}
+        </Link>
       </div>
       <div>
         <h3 className={`${h3Style} text-2xl invisible`}>Why This Tool?</h3>

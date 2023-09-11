@@ -56,7 +56,7 @@ export default async function Blog() {
             {posts.map((post: any) => (
               <Link key={post._id} href={`/creative-catalog/${post.slug.current}`}>
                 {post.mainImage && (
-                  <div className='p-24 relative drop-shadow-xl hover:scale-105 transition-transform duration-200 ease-out rounded-md'>
+                  <div className='p-12 md:p-24 relative drop-shadow-xl hover:scale-105 transition-transform duration-200 ease-out rounded-md'>
                     <Image
                       className='object-cover rounded-md'
                       src={urlFor(post.mainImage).url()}
