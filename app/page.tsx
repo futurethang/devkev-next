@@ -13,42 +13,43 @@ export const metadata: Metadata = {
   description: 'Professional Portfolio site for Kevin Hyde',
 }
 
+export type Article = {
+  _createdAt: string;
+  title: string;
+  link: string | null;
+  previewImage: any;
+  shortSummary: string | null;
+  detailedSummary: string | null;
+  tags: string[];
+  featured: boolean | null;
+  _id: string;
+};
+
 export default async function Home() {
   const features = await getReadingList();
 
-  type Article = {
-    _createdAt: string;
-    title: string;
-    link: string | null;
-    previewImage: any;
-    shortSummary: string | null;
-    detailedSummary: string | null;
-    tags: string[];
-    featured: boolean | null;
-    _id: string;
-};
 
-const getFeaturedArticles = (data: Article[]): Record<string, Article | undefined> => {
+  const getFeaturedArticles = (data: Article[]): Record<string, Article | undefined> => {
     const requiredTags = ['Development', 'Design', 'AI'];
     const results: Record<string, Article | undefined> = {};
 
     requiredTags.forEach(tag => {
-        const filteredArticles = data
-            .filter(article => article.tags.includes(tag) && article.featured === true)
-            .sort((a, b) => (new Date(b._createdAt).getTime() - new Date(a._createdAt).getTime()));
+      const filteredArticles = data
+        .filter(article => article.tags.includes(tag) && article.featured === true)
+        .sort((a, b) => (new Date(b._createdAt).getTime() - new Date(a._createdAt).getTime()));
 
-        if (filteredArticles.length > 0) {
-            results[tag] = filteredArticles[0];
-        }
+      if (filteredArticles.length > 0) {
+        results[tag] = filteredArticles[0];
+      }
     });
 
     return results;
-};
+  };
 
-const data: Article[] = features;
+  const data: Article[] = features;
 
-const articles = getFeaturedArticles(data);
-console.log(articles);
+  const articles = getFeaturedArticles(data);
+  console.log(articles);
 
 
   return (
@@ -63,11 +64,11 @@ console.log(articles);
             Whether you're looking for a developer that 'speaks designer' or a designer that 'speaks developer', we'll have plenty to talk about together.
           </p>
         </div>
-        <Link className='block w-fit py-4 px-6 my-8 text-bold hover:text-white bg-blue-700 hover:bg-blue-500 rounded-lg transition-all' key="resume" href='/html/resume.html'>Resume 📄</Link>
         <Nav isHomePage />
+        <Link className='block w-fit py-4 px-6 my-8 text-bold hover:text-white bg-blue-700 hover:bg-blue-500 rounded-lg transition-all' key="resume" href='/html/resume.html'>Resume 📄</Link>
 
         <section>
-          <h3 className={h3Style}>What Do I Do?</h3>
+          <h3 className={h3Style}>Professional Experience</h3>
           <h4 className='hat'>Product Design</h4>
           <h4 className='hat'>Interface & Experience Design</h4>
           <h4 className='hat'>UX Engineering</h4>

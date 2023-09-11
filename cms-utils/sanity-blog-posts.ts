@@ -17,6 +17,7 @@ export async function getBlogPosts() {
       body,
       image,
       mainImage,
+      description,
       categories,
       }
     `
