@@ -8,7 +8,8 @@ const Nav = ({ includeTitle = false, isHomePage = false }) => {
 
   let links = [
     { path: '/samples', label: 'Work Samples' },
-    { path: '/blog', label: 'Blog' },
+    { path: '/reading', label: 'Reading' },
+    { path: '/blog', label: 'Writing' },
     { path: '/creative-catalog', label: 'Neat Stuff' },
   ];
 

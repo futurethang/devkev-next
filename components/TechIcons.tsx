@@ -4,6 +4,7 @@ import Image from 'next/image'
 import style from '../styles/TechIcons.module.css'
 import * as img from '../public/icons/index.js'
 import { h3Style } from '@/styles/tailwindStyles'
+import Link from 'next/link'
 
 const TECH_BLURBS: Record<string, string> = {
   'Typescript': 'So what if it\'s pain sometimes? It\'s worth it as soon as you scale beyond a few shared components and more than one developer.',
@@ -17,9 +18,11 @@ const TECH_BLURBS: Record<string, string> = {
   'Midjourney': 'Again, there\'re plenty to pick from in the image generation space, but Midjourney\'s params and amazing quality makes it my default for rapid idea generation, whether churning out product concepts or fanciful artwork for creative projects.',
 }
 
-export default function TechIcons() {
+export default function TechIcons({ featuredArticles }: any) {
   const [blurb, setBlurb] = useState('')
   const [blurbTitle, setBlurbTitle] = useState('')
+
+  const { Development, Design, AI } = featuredArticles;
 
   const onHover = (e: any) => {
     const value = e.target!.alt as string;
@@ -28,33 +31,51 @@ export default function TechIcons() {
   }
 
   return (
-    <div className="grid grid-cols-2">
-      <div>
-        <h3 className={h3Style}>Dev Tools:</h3>
-        <div className={style.iconGroup} onMouseOver={e => onHover(e)} onFocus={e => onHover(e)}>
-          <Image src={img.typescript} alt='Typescript' tabIndex={0} />
-          <Image src={img.node} alt='Node' tabIndex={0} />
-          <Image src={img.react} alt='React' tabIndex={0} />
-          <Image src={img.webcomponents} alt='Web Components' tabIndex={0} />
+    <>
+      <h3 className={h3Style}>Currently Reading</h3>
+      <div className='flex flex-col sm:flex-row justify-start gap-0 sm:gap-4'>
+        <Link href={AI.link} target='blank' className='my-3 font-bold py-4 px-8 w-fit text-yellow-300 bg-slate-800 hover:bg-slate-700 transition-all 400 rounded-lg'>
+          AI: <span className='text-blue-300'>{AI.title}</span>  ➹
+        </Link>
+        <Link href={Development.link} target='blank' className='my-3 font-bold py-4 px-8 w-fit text-yellow-300 bg-slate-800 hover:bg-slate-700 transition-all 400 rounded-lg'>
+          Development: <span className='text-blue-300'>{Development.title}</span>  ➹
+        </Link>
+        <Link href={Design.link} target='blank' className='my-3 font-bold py-4 px-8 w-fit text-yellow-300 bg-slate-800 hover:bg-slate-700 transition-all 400 rounded-lg'>
+          Design: <span className='text-blue-300'>{Design.title}</span>  ➹
+        </Link>
+      </div>
+      <div className="grid grid-cols-2 gap-2">
+        <div>
+          <h3 className={h3Style}>Development</h3>
+          <div className={style.iconGroup} onMouseOver={e => onHover(e)} onFocus={e => onHover(e)}>
+            <Image src={img.typescript} alt='Typescript' tabIndex={0} />
+            <Image src={img.node} alt='Node' tabIndex={0} />
+            <Image src={img.react} alt='React' tabIndex={0} />
+            <Image src={img.webcomponents} alt='Web Components' tabIndex={0} />
+          </div>
+
+          <h3 className={h3Style}>Design</h3>
+          <div className={style.iconGroup} onMouseOver={e => onHover(e)} onFocus={e => onHover(e)}>
+            <Image src={img.figma} alt='Figma' tabIndex={0} />
+            <Image src={img.creativesuite} alt='Adobe Creative Suite' tabIndex={0} />
+          </div>
+
+
+          <h3 className={h3Style}>AI</h3>
+          <div className={style.iconGroup} onMouseOver={e => onHover(e)} onFocus={e => onHover(e)}>
+            <Image src={img.openai} alt='OpenAI' tabIndex={0} />
+            <Image src={img.langchain} alt='LangChain' tabIndex={0} />
+            <Image src={img.midjourney} alt='Midjourney' tabIndex={0} />
+          </div>
+
         </div>
-        <h3 className={h3Style}>Design Tools:</h3>
-        <div className={style.iconGroup} onMouseOver={e => onHover(e)} onFocus={e => onHover(e)}>
-          <Image src={img.figma} alt='Figma' tabIndex={0} />
-          <Image src={img.creativesuite} alt='Adobe Creative Suite' tabIndex={0} />
-        </div>
-        <h3 className={h3Style}>AI Tools:</h3>
-        <div className={style.iconGroup} onMouseOver={e => onHover(e)} onFocus={e => onHover(e)}>
-          <Image src={img.openai} alt='OpenAI' tabIndex={0} />
-          <Image src={img.langchain} alt='LangChain' tabIndex={0} />
-          <Image src={img.midjourney} alt='Midjourney' tabIndex={0} />
+        <div>
+          <h3 className={`${h3Style} text-2xl invisible`}>Why This Tool?</h3>
+          <h3>{blurbTitle}</h3>
+          <p>{blurb}</p>
         </div>
       </div>
-      <div>
-        <h3 className={`${h3Style} text-2xl invisible`}>Why This Tool?</h3>
-        <h3>{blurbTitle}</h3>
-        <p>{blurb}</p>
-      </div>
-    </div>
+    </>
   )
 }
 

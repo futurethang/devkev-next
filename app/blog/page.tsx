@@ -1,11 +1,11 @@
-import Head from 'next/head';
 import Link from 'next/link';
-import ClientSideRoute from '@/components/ClientSideRoute';
 import Footer from "@/components/Footer";
+import Image from 'next/image';
 import { getBlogPosts } from '@/cms-utils/sanity-blog-posts';
 import { h1Style, h3Style, mainWidthStyles, backLinkStyle } from '@/styles/tailwindStyles';
 import Nav from '@/components/Nav';
 import { Metadata } from 'next';
+import urlFor from '@/cms-utils/urlFor';
 
 export const metadata: Metadata = {
     title: 'Blog',
@@ -24,23 +24,33 @@ export default async function Blog() {
                     <Nav includeTitle />
                 </div>
                 <main className={mainWidthStyles} >
-                    <h1 className={h1Style}>Kev Blog</h1>
+                    <h1 className={h1Style}>Writing List</h1>
+                    <p>I sometimes write about code, design, and other things.</p>
                     {posts.length > 0 && (
-                        <div className='grid grid-cols-1 px-4 gap-10 gap-y-16 pb-24'>
+                        <div className='grid grid-cols-1 gap-4 pb-24'>
                             {posts.map((post: any) => {
-                                const inputDate = new Date(post?._createdAt);
-                                const formattedDate = new Intl.DateTimeFormat("en-US", {
-                                    month: "long",
-                                    day: "numeric",
-                                    year: "numeric"
-                                }).format(inputDate);
+                                const { mainImage } = post
+
                                 return (
-                                    <ClientSideRoute key={post._id} route={`/blog/${post.slug.current}`}>
-                                        <div className='flex flex-col group cursor-pointer hover:scale-105 transition-all' >
-                                            <h3 className={h3Style}>{post?.title && post.title}</h3>
-                                            <span>{formattedDate} 👉</span>
+                                    <Link href={`/blog/${post.slug.current}`} key={post._id} className="flex flex-start gap-8 items-start bg-slate-700 p-4 shadow-md rounded-sm">
+                                        <div>
+                                            {mainImage && (
+                                                <div className='p-2 md:p-6 bg-slate-800 rounded-lg relative w-40 h-40 drop-shadow-xl'>
+                                                    <Image
+                                                        className='object-contain object-center rounded-md'
+                                                        src={urlFor(mainImage).url()}
+                                                        alt={mainImage.alt || "blog main image"}
+                                                        fill
+                                                    />
+                                                </div>
+                                            )}
+
                                         </div>
-                                    </ClientSideRoute>
+                                        <div>
+                                            <h3 className={`${h3Style} mt-0 mb-2`}>{post.title}</h3>
+                                            <p className="mb-2">{post.description}</p>
+                                        </div>
+                                    </Link>
                                 )
                             })}
                         </div>
