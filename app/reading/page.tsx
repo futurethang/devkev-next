@@ -35,7 +35,7 @@ export default async function Blog() {
                                     <Link href={link ? link : ""} key={index} className="flex flex-start gap-8 items-start bg-slate-700 p-4 shadow-md rounded-sm">
                                         <div>
                                             {previewImage && (
-                                                <div className='p-2 md:p-6 bg-slate-800 rounded-lg relative w-40 h-40 drop-shadow-xl'>
+                                                <div className='p-2 md:p-6 bg-slate-800 rounded-lg relative w-10 h-10 sm:w-40 sm:h-40 drop-shadow-xl'>
                                                     <Image
                                                         className='object-contain object-center rounded-md'
                                                         src={urlFor(previewImage).url()}

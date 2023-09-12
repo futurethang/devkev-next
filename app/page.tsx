@@ -52,7 +52,7 @@ export default async function Home() {
     <>
       <main className={mainWidthStyles}>
         <div className={styles.description}>
-          <h1 className={h1Style}><span className='kern'>K</span>evin Hyde</h1>
+          <h1 className={h1Style}><span className='kern mr-1 sm:mr-0'>K</span>evin Hyde</h1>
           <h2 className='my-4 w-full md:w-1/2'><Marquee>developer / designer / product nerd / developer advocate / UX researcher / avid reader / polyglot / prompt engineer</Marquee></h2>
           <p>
             Building a great product invariably presents those sticky spots where <b>What's Possible!™️</b> butts heads with <b>&lt;whats-possible&gt;</b></p>

@@ -46,12 +46,12 @@ export default async function Blog() {
             <li>
               <a className={linkStyles} href="https://waistcoatfling.bandcamp.com/album/no-awful-oblivion" target="_blank">Waistcoat Fling</a>
             </li>
-            <li>
-              <a className={linkStyles} href="https://futurethang.github.io/Cretins-Site/" target="_blank">Cretins</a>
-            </li>
           </ul>
-          <h3 className={h3Style}>Artworks:</h3>
+          <h3 className={h3Style}>Sketches & Gifs:</h3>
           <p className="lg:w-10/12">There's always fun in dabbling. Here's some fun stuff I've made using Photoshop, Illustrator, Fresco, Procreate, and animation tools.</p>
+          <Link href="https://futurethang.github.io/Cretins-Site/" target='blank' className='block my-3 font-bold py-4 px-8 w-fit text-yellow-300 bg-slate-800 hover:bg-slate-700 transition-all 400 rounded-lg'>
+            <span className='text-blue-300'>Cretins</span>  ➹
+          </Link>
           <div className='grid grid-cols-2 gap-4 md:grid-cols-3' >
             {posts.map((post: any) => (
               <Link key={post._id} href={`/creative-catalog/${post.slug.current}`}>

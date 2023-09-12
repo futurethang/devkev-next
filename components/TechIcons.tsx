@@ -44,7 +44,7 @@ export default function TechIcons({ featuredArticles }: any) {
           Design: <span className='text-blue-300'>{Design.title}</span>  ➹
         </Link>
       </div>
-      <div className="grid grid-cols-2 gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         <div>
           <h3 className={h3Style}>Development</h3>
           <div className={style.iconGroup} onMouseOver={e => onHover(e)} onFocus={e => onHover(e)}>

@@ -13,25 +13,12 @@ const Nav = ({ includeTitle = false, isHomePage = false }) => {
     { path: '/creative-catalog', label: 'Neat Stuff' },
   ];
 
-  switch (currentPath) {
-    case '/samples':
-      links = links.filter(link => link.path !== '/samples');
-      break;
-    case '/blog':
-      links = links.filter(link => link.path !== '/blog');
-      break;
-    case '/creative-catalog':
-      links = links.filter(link => link.path !== '/creative-catalog');
-      break;
-    default:
-      break;
-  }
 
   return (
-    <nav className={`flex ${isHomePage ? `flex-col sm:flex-row` : `flex-row`} gap-6`}>
+    <nav className={`flex flex-col sm:flex-row ${isHomePage ? `flex-col sm:flex-row` : `flex-row`} gap-0 sm:gap-6`}>
       {includeTitle ?
         (<Link key="home" href={"/"}>
-          <h1 className={`${navTitleStyle} sm:hidden`}>KH</h1>
+          <h1 className={`${navTitleStyle} sm:hidden`}>Kevin Hyde</h1>
           <h1 className={`${navTitleStyle} hidden sm:flex`}>Kevin Hyde</h1>
         </Link>)
         :
