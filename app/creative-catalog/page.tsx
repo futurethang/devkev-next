@@ -17,7 +17,7 @@ interface Post {
 }
 
 export const metadata: Metadata = {
-  title: 'Neat Stuff',
+  title: 'Fun',
   description: 'Some neat things made by Kevin Hyde',
 }
 
@@ -32,7 +32,7 @@ export default async function Blog() {
           <Nav includeTitle />
         </div>
         <main className={mainWidthStyles} >
-          <h1 className={h1Style}>Neat Stuff</h1>
+          <h1 className={h1Style}>Fun</h1>
 
           <p>I've got more creativity in me than I can use up at work, so here's some of the spill-over.</p>
           <h3 className={h3Style}>Making Music with these Bands:</h3>

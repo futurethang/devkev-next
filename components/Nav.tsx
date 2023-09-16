@@ -10,7 +10,7 @@ const Nav = ({ includeTitle = false, isHomePage = false }) => {
     { path: '/samples', label: 'Work Samples' },
     { path: '/reading', label: 'Reading' },
     { path: '/blog', label: 'Writing' },
-    { path: '/creative-catalog', label: 'Neat Stuff' },
+    { path: '/creative-catalog', label: 'Fun' },
   ];
 
 

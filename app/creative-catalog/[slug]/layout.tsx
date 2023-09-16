@@ -13,7 +13,7 @@ export default function RootLayout({
     return (
         <>
             <Head>
-                <title>Neat Stuff</title>
+                <title>Fun</title>
             </Head>
             <div className={`my-2 mx-auto p-2 ${mainWidthStyles} bg-slate-900 rounded-xl`}>
                 <Nav includeTitle />
