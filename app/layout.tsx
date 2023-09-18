@@ -25,11 +25,11 @@ export default function RootLayout({
               animate="pageAnimate"
               exit="pageExit"
               transition={{
-                duration: 0.5,
+                duration: 0.75,
               }}
               variants={{
                 pageInitial: {
-                  opacity: 0.4,
+                  opacity: 0.8,
                 },
                 pageAnimate: {
                   opacity: 1,

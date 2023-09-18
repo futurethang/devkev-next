@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from "next/image";
 import urlFor from '@/cms-utils/urlFor';
 import { Metadata } from 'next';
+import ArtGrid from "./ArtGrid";
 
 interface Post {
   _createdAt: string,
@@ -16,6 +17,19 @@ interface Post {
   title: string,
 }
 
+const transformPostImage = (posts: any) => {
+  return posts.map((post: { mainImage: { asset: any; }; }) => {
+    if (post.mainImage && post.mainImage.asset) {
+      return {
+        ...post,
+        mainImage: urlFor(post.mainImage).url()
+      };
+    }
+    return post; // Return unchanged post if no mainImage to transform
+  });
+};
+
+
 export const metadata: Metadata = {
   title: 'Fun',
   description: 'Some neat things made by Kevin Hyde',
@@ -24,6 +38,8 @@ export const metadata: Metadata = {
 export default async function Blog() {
 
   const posts = await getArtworks()
+
+  const transformedPosts = transformPostImage(posts)
 
   return (
     <>
@@ -52,22 +68,7 @@ export default async function Blog() {
           <Link href="https://futurethang.github.io/Cretins-Site/" target='blank' className='block my-3 font-bold py-4 px-8 w-fit text-yellow-300 bg-slate-800 hover:bg-slate-700 transition-all 400 rounded-lg'>
             <span className='text-blue-300'>Cretins</span>  ➹
           </Link>
-          <div className='grid grid-cols-2 gap-4 md:grid-cols-3' >
-            {posts.map((post: any) => (
-              <Link key={post._id} href={`/creative-catalog/${post.slug.current}`}>
-                {post.mainImage && (
-                  <div className='p-12 md:p-24 relative drop-shadow-xl hover:scale-105 transition-transform duration-200 ease-out rounded-md'>
-                    <Image
-                      className='object-cover rounded-md'
-                      src={urlFor(post.mainImage).url()}
-                      alt={post.mainImage.alt || "portfolio item preview"}
-                      fill
-                    />
-                  </div>
-                )}
-              </Link>
-            ))}
-          </div>
+          <ArtGrid posts={transformedPosts} />
         </main>
       </div>
       <Footer />
