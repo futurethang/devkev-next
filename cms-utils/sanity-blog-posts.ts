@@ -5,7 +5,6 @@ import { client } from "./sanity-client";
 
 // AKA getSanityPosts(), getSanityArt(), getSanityPortfolio()
 export async function getBlogPosts() {
-
   return client.fetch(
     groq`*[_type == "post" && references('67d6d041-f7f9-48d2-a56e-747c29b917b3')]{
       _id,
@@ -21,5 +20,5 @@ export async function getBlogPosts() {
       categories,
       }
     `
-  )
+  );
 }

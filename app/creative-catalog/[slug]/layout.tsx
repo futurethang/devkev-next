@@ -1,30 +1,34 @@
-import Head from 'next/head'
-import Link from 'next/link'
+import Head from "next/head";
+import Link from "next/link";
 import Footer from "@/components/Footer";
-import styles from '@/styles/Home.module.css'
-import { backLinkStyle, mainWidthStyles } from '@/styles/tailwindStyles';
-import Nav from '@/components/Nav';
+import styles from "@/styles/Home.module.css";
+import { backLinkStyle, mainWidthStyles } from "@/styles/tailwindStyles";
+import Nav from "@/components/Nav";
 
 export default function RootLayout({
-    children,
+  children,
 }: {
-    children: React.ReactNode
+  children: React.ReactNode;
 }) {
-    return (
-        <>
-            <Head>
-                <title>Neat Stuff</title>
-            </Head>
-            <div className={`my-2 mx-auto p-2 ${mainWidthStyles} bg-slate-900 rounded-xl`}>
-                <Nav includeTitle />
-            </div>
-            <main className={mainWidthStyles} >
-                {children}
-                <nav>
-                    <Link className={backLinkStyle} href={'/creative-catalog'}>👈 Back</Link>
-                </nav>
-            </main>
-            <Footer />
-        </>
-    )
+  return (
+    <>
+      <Head>
+        <title>Neat Stuff</title>
+      </Head>
+      <div
+        className={`my-2 mx-auto p-2 ${mainWidthStyles} bg-slate-900 rounded-xl`}
+      >
+        <Nav includeTitle />
+      </div>
+      <main className={mainWidthStyles}>
+        {children}
+        <nav>
+          <Link className={backLinkStyle} href={"/creative-catalog"}>
+            👈 Back
+          </Link>
+        </nav>
+      </main>
+      <Footer />
+    </>
+  );
 }

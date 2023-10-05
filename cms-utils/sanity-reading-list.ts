@@ -5,7 +5,6 @@ import { client } from "./sanity-client";
 
 // AKA getSanityPosts(), getSanityArt(), getSanityPortfolio()
 export async function getReadingList() {
-
   return client.fetch(
     groq`*[_type == "readingListEntry"]{
       _id,
@@ -19,5 +18,5 @@ export async function getReadingList() {
       featured
       }
     `
-  )
+  );
 }
