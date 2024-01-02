@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import GoogleAnalytics from "./Analytics";
+import { roboto, roboto_mono } from "./fonts";
 
 export default function RootLayout({
   // Layouts must accept a children prop.
@@ -9,7 +10,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${roboto.variable} ${roboto_mono.className}`}>
       <body>
         <GoogleAnalytics />
         <div className="flex flex-col min-h-screen" id="app_root">

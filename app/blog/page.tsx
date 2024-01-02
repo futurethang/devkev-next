@@ -29,7 +29,7 @@ export default async function Blog() {
           <Nav includeTitle />
         </div>
         <main className={mainWidthStyles}>
-          <h1 className={h1Style}>Writing List</h1>
+          <h1 className={h1Style}>Blog Articles</h1>
           <p>I sometimes write about code, design, and other things.</p>
           {posts.length > 0 && (
             <div className="grid grid-cols-1 gap-4 pb-24">
