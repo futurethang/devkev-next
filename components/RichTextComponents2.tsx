@@ -1,7 +1,7 @@
 import Image from "next/image";
 import urlFor from "@/cms-utils/urlFor";
 import { ImageWithModal } from "./ImageWithModal";
-import { h3Style } from "@/styles/tailwindStyles";
+import { h2Style, h3Style } from "@/styles/tailwindStyles";
 
 const myPortableTextComponents2 = {
   types: {
@@ -13,6 +13,7 @@ const myPortableTextComponents2 = {
   },
 
   block: {
+    h2: ({ children }: any) => <h2 className={h2Style}>{children}</h2>,
     h4: ({ children }: any) => <h4 className={h3Style}>{children}</h4>,
   },
 

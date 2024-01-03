@@ -34,7 +34,7 @@ export default async function Blog() {
     <>
       <div className="flex-1">
         <div
-          className={`my-2 mx-auto p-2 ${mainWidthStyles} bg-slate-900 rounded-xl`}
+          className={`my-2 mx-auto p-2 ${mainWidthStyles} bg-[#0c1a1f] rounded-xl`}
         >
           <Nav includeTitle />
         </div>
