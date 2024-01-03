@@ -82,10 +82,10 @@ export default async function Home() {
 
         <section>
           <h3 className={h3Style}>Ask me about . . .</h3>
-          <h4 className="font-mono">Product Design</h4>
-          <h4 className="font-mono">Interface & Experience Design</h4>
           <h4 className="font-mono">Full Stack Development</h4>
+          <h4 className="font-mono">Interface & Experience Design</h4>
           <h4 className="font-mono">Team Leadership</h4>
+          <h4 className="font-mono">Product Design</h4>
         </section>
 
         <Link
