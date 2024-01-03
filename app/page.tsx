@@ -57,16 +57,17 @@ export default async function Home() {
   return (
     <>
       <main className={mainWidthStyles}>
+        <div className="flex flex-col sm:flex-row sm:gap-4 w-full justify-start items-center mb-2">
+          <h1 className={`${h1Style}`}>Kevin Hyde</h1>
+          <Nav isHomePage />
+        </div>
         <div className={styles.description}>
-          <h1 className={h1Style}>
-            <span className="kern mr-1 sm:mr-0">K</span>evin Hyde
-          </h1>
-          <h2 className="my-4 w-full md:w-1/2">
+          {/* <h2 className="my-4 w-full md:w-full">
             <Marquee>
               developer / designer / product nerd / developer advocate / UX
               researcher / avid reader / polyglot / prompt engineer
             </Marquee>
-          </h2>
+          </h2> */}
           <p>
             Building a great product invariably presents those sticky spots
             where <b>What's Possible!™️</b> butts heads with{" "}
@@ -78,7 +79,15 @@ export default async function Home() {
             together.
           </p>
         </div>
-        <Nav isHomePage />
+
+        <section>
+          <h3 className={h3Style}>Ask me about . . .</h3>
+          <h4 className="font-mono">Product Design</h4>
+          <h4 className="font-mono">Interface & Experience Design</h4>
+          <h4 className="font-mono">Full Stack Development</h4>
+          <h4 className="font-mono">Team Leadership</h4>
+        </section>
+
         <Link
           className="block w-fit py-4 px-6 my-8 text-bold hover:text-white bg-blue-700 hover:bg-blue-500 rounded-lg transition-all"
           key="resume"
@@ -86,15 +95,6 @@ export default async function Home() {
         >
           Resume 📄
         </Link>
-
-        <section>
-          <h3 className={h3Style}>Professional Experience</h3>
-          <h4 className="hat">Product Design</h4>
-          <h4 className="hat">Interface & Experience Design</h4>
-          <h4 className="hat">UX Engineering</h4>
-          <h4 className="hat">Front End Development</h4>
-          <h4 className="hat">Team Leadership</h4>
-        </section>
 
         <section>
           <TechIcons featuredArticles={articles} />
