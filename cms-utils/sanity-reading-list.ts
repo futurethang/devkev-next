@@ -6,7 +6,7 @@ import { client } from "./sanity-client";
 // AKA getSanityPosts(), getSanityArt(), getSanityPortfolio()
 export async function getReadingList() {
   return client.fetch(
-    groq`*[_type == "readingListEntry"]{
+    groq`*[_type == "readingListEntry"]  | order(_createdAt desc) {
       _id,
       _createdAt,
       title,
