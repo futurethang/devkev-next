@@ -57,14 +57,17 @@ export default async function Home() {
   return (
     <>
       <main className={mainWidthStyles}>
+        <div className="flex flex-col sm:flex-row sm:gap-4 w-full justify-start items-center mb-2">
+          <h1 className={`${h1Style}`}>Kevin Hyde</h1>
+          <Nav isHomePage />
+        </div>
         <div className={styles.description}>
-          <h1 className={h1Style}>Kevin Hyde</h1>
-          <h2 className="my-4 w-full md:w-1/2">
+          {/* <h2 className="my-4 w-full md:w-full">
             <Marquee>
               developer / designer / product nerd / developer advocate / UX
               researcher / avid reader / polyglot / prompt engineer
             </Marquee>
-          </h2>
+          </h2> */}
           <p>
             Building a great product invariably presents those sticky spots
             where <b>What's Possible!™️</b> butts heads with{" "}
@@ -76,7 +79,6 @@ export default async function Home() {
             together.
           </p>
         </div>
-        <Nav isHomePage />
 
         <section>
           <h3 className={h3Style}>Ask me about . . .</h3>
