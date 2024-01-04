@@ -29,7 +29,12 @@ const myPortableTextComponents = {
         ? "noreferrer noopener"
         : undefined;
       return (
-        <a href={value.href} rel={rel}>
+        <a
+          href={value.href}
+          rel={rel}
+          target="_blank"
+          className="underline text-blue-300"
+        >
           {children}
         </a>
       );
