@@ -165,3 +165,11 @@ details[open] > summary:after {
 .kern {
   letter-spacing: -5px;
 }
+
+.group:hover .summary-short {
+  max-height: 0;
+}
+
+.group:hover .summary-detailed {
+  max-height: 20rem; /* Adjust as needed, should be enough to contain the detailed summary */
+}

@@ -34,8 +34,13 @@ export default async function Blog() {
           {posts.length > 0 && (
             <div className="flex flex-col gap-4 pb-24">
               {posts.map((post: Article, index: number) => {
-                const { link, tags, featured, shortSummary, previewImage } =
-                  post;
+                const {
+                  link,
+                  tags,
+                  detailedSummary,
+                  shortSummary,
+                  previewImage,
+                } = post;
                 return (
                   <Link
                     href={link ? link : ""}
@@ -54,17 +59,28 @@ export default async function Blog() {
                         </div>
                       )}
                     </div>
-                    <div>
+                    <div className="group hover:scale-[1.01] transition-all duration-500 ease-in-out">
                       <h3 className={`${h3Style} mt-0 mb-2`}>{post.title}</h3>
-                      <p className="mb-2">{shortSummary}</p>
-                      <div>
+                      <div
+                        className="summary-short opacity-100 overflow-hidden group-hover:hidden group-hover:opacity-0 transition-all duration-500 ease-in-out"
+                        style={{ maxHeight: "4rem" /* Adjust as needed */ }}
+                      >
+                        <p className="mb-2">{shortSummary}</p>
+                      </div>
+                      <div
+                        className="summary-detailed opacity-0 hidden group-hover:block group-hover:opacity-100 overflow-hidden transition-all duration-500 ease-in-out"
+                        style={{ maxHeight: "60rem" }}
+                      >
+                        <p className="mb-2">{detailedSummary}</p>
+                      </div>
+                      <div className="flex gap-2">
                         {tags.map((tag, index) => {
                           return (
                             <span
                               key={index}
                               className="p-1 px-2 bg-slate-400 text-slate-900 text-xs rounded-md"
                             >
-                              {tag}
+                              #{tag}
                             </span>
                           );
                         })}
