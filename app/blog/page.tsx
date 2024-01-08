@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import Image from "next/image";
-import { getBlogPosts } from "@/cms-utils/sanity-blog-posts";
+import { getBlogPosts } from "@/cms-utils/sanity-posts-list";
 import {
   h1Style,
   h3Style,

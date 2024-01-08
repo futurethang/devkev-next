@@ -6,53 +6,57 @@ import styles from "@/styles/Home.module.css";
 import { h1Style, h3Style, mainWidthStyles } from "@/styles/tailwindStyles";
 import Link from "next/link";
 import { Metadata } from "next";
-import { getReadingList } from "@/cms-utils/sanity-reading-list";
+import { getArticleList } from "@/cms-utils/sanity-posts-list";
 
 export const metadata: Metadata = {
   title: "Kevin Hyde",
   description: "Professional Portfolio site for Kevin Hyde",
 };
 
+type Tag = {
+  [key: string]: string;
+};
+
 export type Article = {
   _createdAt: string;
   title: string;
   link: string | null;
-  previewImage: any;
+  mainImage: any;
   shortSummary: string | null;
   detailedSummary: string | null;
-  tags: string[];
+  tags: Tag[];
   featured: boolean | null;
   _id: string;
 };
 
 export default async function Home() {
-  const features = await getReadingList();
+  // const features = await getArticleList();
 
-  const getFeaturedArticles = (
-    data: Article[]
-  ): Record<string, Article | undefined> => {
-    const requiredTags = ["Development", "Design", "AI"];
-    const results: Record<string, Article | undefined> = {};
+  // const getFeaturedArticles = (
+  //   data: Article[]
+  // ): Record<string, Article | undefined> => {
+  //   const requiredTags = ["Development", "Design", "AI"];
+  //   const results: Record<string, Article | undefined> = {};
 
-    requiredTags.forEach((tag) => {
-      const filteredArticles = data
-        .filter(
-          (article) => article.tags.includes(tag) && article.featured === true
-        )
-        .sort(
-          (a, b) =>
-            new Date(b._createdAt).getTime() - new Date(a._createdAt).getTime()
-        );
+  //   requiredTags.forEach((tag) => {
+  //     const filteredArticles = data
+  //       .filter(
+  //         (article) => article.tags.includes(tag) && article.featured === true
+  //       )
+  //       .sort(
+  //         (a, b) =>
+  //           new Date(b._createdAt).getTime() - new Date(a._createdAt).getTime()
+  //       );
 
-      if (filteredArticles.length > 0) {
-        results[tag] = filteredArticles[0];
-      }
-    });
+  //     if (filteredArticles.length > 0) {
+  //       results[tag] = filteredArticles[0];
+  //     }
+  //   });
 
-    return results;
-  };
+  //   return results;
+  // };
 
-  const articles = getFeaturedArticles(features);
+  // const articles = getFeaturedArticles(features);
 
   return (
     <>
@@ -96,9 +100,9 @@ export default async function Home() {
           Resume 📄
         </Link>
 
-        <section>
+        {/* <section>
           <TechIcons featuredArticles={articles} />
-        </section>
+        </section> */}
       </main>
       <Footer />
     </>
