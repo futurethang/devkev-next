@@ -9,10 +9,13 @@ import {
   h1Style,
   h2Style,
   cardh3Style,
+  h3Style,
+  h4Style,
 } from "@/styles/tailwindStyles";
 import { Article } from "../page";
 import urlFor from "@/cms-utils/urlFor";
 import Link from "next/link";
+import { format, parseISO } from "date-fns";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -36,10 +39,33 @@ export default async function Blog() {
           <p>
             Books and articles I've read, and any thoughts they left me with.
           </p>
-          <h2 className={h2Style}>Articles</h2>
+          <h2 className={h2Style}>Recent Articles</h2>
           <Cards posts={articles} />
-          <h2 className={h2Style}>Books</h2>
+          <h2 className={h2Style}>Recent Books</h2>
           <Cards posts={books} />
+          <h3 className={h3Style}>Past Readings</h3>
+          <ul>
+            {articles.map((article: Article, index: number) => {
+              return (
+                <li
+                  key={index}
+                  className="group flex flex-col flex-start justify-start items-start mb-1"
+                >
+                  <h4
+                    className={`${h4Style} group-hover:text-blue-400 transition-colors ease-out duration-300`}
+                  >
+                    {article.title}
+                  </h4>
+                  <span className="mb-2">
+                    {format(parseISO(article._createdAt), "MMM d yyyy")}
+                  </span>
+                  <span>
+                    <Tags tags={article.tags} />
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
         </main>
       </div>
       <Footer />
@@ -93,6 +119,23 @@ const Cards = ({ posts }) => {
               })}
             </div>
           </div>
+        );
+      })}
+    </div>
+  );
+};
+
+const Tags = ({ tags }) => {
+  return (
+    <div className="flex gap-2 grow">
+      {tags.map((tag, index) => {
+        return (
+          <span
+            key={index}
+            className="p-1 px-2 bg-slate-400 text-slate-900 text-xs rounded-md self-end"
+          >
+            {tag.title}
+          </span>
         );
       })}
     </div>

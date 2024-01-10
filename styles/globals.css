@@ -115,10 +115,6 @@ section {
   margin-bottom: var(--bottom-margin-big);
 }
 
-p:last-child {
-  margin-bottom: var(--bottom-margin-big);
-}
-
 a {
   color: inherit;
   text-decoration: none;
