@@ -17,47 +17,20 @@ type Tag = {
   [key: string]: string;
 };
 
-export type Article = {
+export type Post = {
   _createdAt: string;
+  publishedAt: string;
   title: string;
   link: string | null;
   mainImage: any;
-  shortSummary: string | null;
-  detailedSummary: string | null;
+  description: string | null;
+  body: string | null;
   tags: Tag[];
   featured: boolean | null;
   _id: string;
 };
 
 export default async function Home() {
-  // const features = await getArticleList();
-
-  // const getFeaturedArticles = (
-  //   data: Article[]
-  // ): Record<string, Article | undefined> => {
-  //   const requiredTags = ["Development", "Design", "AI"];
-  //   const results: Record<string, Article | undefined> = {};
-
-  //   requiredTags.forEach((tag) => {
-  //     const filteredArticles = data
-  //       .filter(
-  //         (article) => article.tags.includes(tag) && article.featured === true
-  //       )
-  //       .sort(
-  //         (a, b) =>
-  //           new Date(b._createdAt).getTime() - new Date(a._createdAt).getTime()
-  //       );
-
-  //     if (filteredArticles.length > 0) {
-  //       results[tag] = filteredArticles[0];
-  //     }
-  //   });
-
-  //   return results;
-  // };
-
-  // const articles = getFeaturedArticles(features);
-
   return (
     <>
       <main className={mainWidthStyles}>
@@ -79,17 +52,16 @@ export default async function Home() {
           </p>
           <p>
             Whether you're looking for a developer that 'speaks designer' or a
-            designer that 'speaks developer', we'll have plenty to talk about
-            together.
+            designer that 'speaks developer', we'll have plenty to talk about.
           </p>
         </div>
 
         <section>
           <h3 className={h3Style}>Ask me about . . .</h3>
           <h4 className="font-mono">Full Stack Development</h4>
-          <h4 className="font-mono">Interface & Experience Design</h4>
-          <h4 className="font-mono">Team Leadership</h4>
+          <h4 className="font-mono">UX & UI Design</h4>
           <h4 className="font-mono">Product Design</h4>
+          <h4 className="font-mono">Team Leadership</h4>
         </section>
 
         <Link
@@ -100,9 +72,9 @@ export default async function Home() {
           Resume 📄
         </Link>
 
-        {/* <section>
-          <TechIcons featuredArticles={articles} />
-        </section> */}
+        <section>
+          <TechIcons />
+        </section>
       </main>
       <Footer />
     </>

@@ -3,7 +3,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
   backLinkStyle,
-  h3Style,
   homeLinkStyle,
   navTitleStyle,
 } from "@/styles/tailwindStyles";
@@ -12,7 +11,7 @@ const Nav = ({ includeTitle = false, isHomePage = false }) => {
   const currentPath = usePathname();
 
   let links = [
-    { path: "/samples", label: "Samples" },
+    { path: "/samples", label: "Work" },
     { path: "/reading", label: "Reading" },
     { path: "/blog", label: "Blog" },
     { path: "/creative-catalog", label: "Creative" },

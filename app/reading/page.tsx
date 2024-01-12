@@ -12,7 +12,7 @@ import {
   h3Style,
   h4Style,
 } from "@/styles/tailwindStyles";
-import { Article } from "../page";
+import { Post } from "../page";
 import urlFor from "@/cms-utils/urlFor";
 import Link from "next/link";
 import { format, parseISO } from "date-fns";
@@ -24,7 +24,12 @@ export const metadata: Metadata = {
 
 export default async function Blog() {
   const articles = await getArticleList();
+  const topArticles = articles.slice(0, 3);
+  const bottomArticles = articles.slice(3);
   const books = await getBookList();
+  const topBooks = books.slice(0, 3);
+  const bottomBooks = topBooks.slice(3);
+  const allPosts = [...bottomArticles, ...bottomBooks];
 
   return (
     <>
@@ -35,33 +40,37 @@ export default async function Blog() {
           <Nav includeTitle />
         </div>
         <main className={mainWidthStyles}>
-          <h1 className={h1Style}>What I'm Reading</h1>
+          <h1 className={h1Style}>Reading</h1>
           <p>
-            Books and articles I've read, and any thoughts they left me with.
+            Here are some books and articles I've enjoyed, and a few notes of my
+            own.
           </p>
           <h2 className={h2Style}>Recent Articles</h2>
-          <Cards posts={articles} />
+          <Cards posts={topArticles} />
           <h2 className={h2Style}>Recent Books</h2>
-          <Cards posts={books} />
-          <h3 className={h3Style}>Past Readings</h3>
+          <Cards posts={topBooks} />
+          <h3 className={h3Style}>Older Posts</h3>
           <ul>
-            {articles.map((article: Article, index: number) => {
+            {allPosts.map((article: Post, index: number) => {
               return (
                 <li
                   key={index}
                   className="group flex flex-col flex-start justify-start items-start mb-1"
                 >
-                  <h4
-                    className={`${h4Style} group-hover:text-blue-400 transition-colors ease-out duration-300`}
-                  >
-                    {article.title}
-                  </h4>
-                  <span className="mb-2">
-                    {format(parseISO(article._createdAt), "MMM d yyyy")}
-                  </span>
-                  <span>
-                    <Tags tags={article.tags} />
-                  </span>
+                  <div className="flex flex-col mb-2">
+                    <h4
+                      className={`${h4Style} mb-0 group-hover:text-blue-400 transition-colors ease-out duration-300`}
+                    >
+                      {article.title}
+                    </h4>
+                    <span className="text-sm text-slate-400">
+                      {`posted ${format(
+                        parseISO(article.publishedAt),
+                        "MMM d yyyy"
+                      )}`}
+                    </span>
+                  </div>
+                  <Tags tags={article.tags} />
                 </li>
               );
             })}
@@ -73,12 +82,12 @@ export default async function Blog() {
   );
 }
 
-const Cards = ({ posts }) => {
+const Cards = ({ posts }: { posts: Post[] }) => {
   return (
-    <div className="grid grid-cols-3 gap-4 pb-8">
-      {posts.map((post: Article, index: number) => {
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pb-8">
+      {posts.map((post: Post, index: number) => {
         const { link, tags, description, body, mainImage } = post;
-        console.log(link);
+        console.log(post.publishedAt);
         return (
           <div
             key={index}
@@ -106,18 +115,10 @@ const Cards = ({ posts }) => {
                 my notes 🗒️
               </Link>
             </div>
-            <div className="flex gap-2 grow">
-              {tags.map((tag, index) => {
-                return (
-                  <span
-                    key={index}
-                    className="p-1 px-2 bg-slate-400 text-slate-900 text-xs rounded-md self-end"
-                  >
-                    {tag.title}
-                  </span>
-                );
-              })}
-            </div>
+            <Tags tags={tags} />
+            <span className="text-sm text-slate-400">
+              {`posted ${format(parseISO(post.publishedAt), "MMM d yyyy")}`}
+            </span>
           </div>
         );
       })}
@@ -125,14 +126,14 @@ const Cards = ({ posts }) => {
   );
 };
 
-const Tags = ({ tags }) => {
+const Tags = ({ tags }: { tags: Post["tags"] }) => {
   return (
     <div className="flex gap-2 grow">
-      {tags.map((tag, index) => {
+      {tags.map((tag, index: number) => {
         return (
           <span
             key={index}
-            className="p-1 px-2 bg-slate-400 text-slate-900 text-xs rounded-md self-end"
+            className="p-1 px-2 bg-slate-400 text-slate-900 text-xs rounded self-end"
           >
             {tag.title}
           </span>

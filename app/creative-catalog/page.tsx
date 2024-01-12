@@ -39,13 +39,10 @@ export default async function Blog() {
           <Nav includeTitle />
         </div>
         <main className={mainWidthStyles}>
-          <h1 className={h1Style}>Neat Stuff</h1>
+          <h1 className={h1Style}>Creative Hobbies</h1>
 
-          <p>
-            I've got more creativity in me than I can use up at work, so here's
-            some of the spill-over.
-          </p>
-          <h3 className={h3Style}>Making Music with these Bands:</h3>
+          <p>Stay weird, make stuff, repeat.</p>
+          <h3 className={h3Style}>Making Music:</h3>
           <ul>
             <li>
               <a
@@ -75,18 +72,13 @@ export default async function Blog() {
               </a>
             </li>
           </ul>
-          <h3 className={h3Style}>Sketches & Gifs:</h3>
-          <p className="lg:w-10/12">
-            There's always fun in dabbling. Here's some fun stuff I've made
-            using Photoshop, Illustrator, Fresco, Procreate, and animation
-            tools.
-          </p>
+          <h3 className={h3Style}>Digital Art:</h3>
           <Link
             href="https://futurethang.github.io/Cretins-Site/"
             target="blank"
             className="block my-3 font-bold py-4 px-8 w-fit text-yellow-300 bg-slate-800 hover:bg-slate-700 transition-all 400 rounded-lg"
           >
-            <span className="text-blue-300">Cretins</span> ➹
+            <span className="text-blue-300">Cretins: a Drawing Project</span> ➹
           </Link>
           <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
             {posts.map((post: any) => (
