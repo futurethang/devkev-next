@@ -1,13 +1,8 @@
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import Image from "next/image";
-import { getBlogPosts } from "@/cms-utils/sanity-blog-posts";
-import {
-  h1Style,
-  h3Style,
-  mainWidthStyles,
-  backLinkStyle,
-} from "@/styles/tailwindStyles";
+import { getBlogPosts } from "@/cms-utils/sanity-posts-list";
+import { h1Style, h3Style, mainWidthStyles } from "@/styles/tailwindStyles";
 import Nav from "@/components/Nav";
 import { Metadata } from "next";
 import urlFor from "@/cms-utils/urlFor";
@@ -29,7 +24,7 @@ export default async function Blog() {
           <Nav includeTitle />
         </div>
         <main className={mainWidthStyles}>
-          <h1 className={h1Style}>Blog Articles</h1>
+          <h1 className={h1Style}>Blog Posts</h1>
           <p>I sometimes write about code, design, and other things.</p>
           {posts.length > 0 && (
             <div className="grid grid-cols-1 gap-4 pb-24">

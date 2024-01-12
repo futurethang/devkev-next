@@ -26,11 +26,9 @@ const TECH_BLURBS: Record<string, string> = {
     "Again, there're plenty to pick from in the image generation space, but Midjourney's params and amazing quality makes it my default for rapid idea generation, whether churning out product concepts or fanciful artwork for creative projects.",
 };
 
-export default function TechIcons({ featuredArticles }: any) {
+export default function TechIcons() {
   const [blurb, setBlurb] = useState("");
   const [blurbTitle, setBlurbTitle] = useState("");
-
-  const { Development, Design, AI } = featuredArticles;
 
   const onHover = (e: any) => {
     const value = e.target!.alt as string;
@@ -40,34 +38,9 @@ export default function TechIcons({ featuredArticles }: any) {
 
   return (
     <>
-      <h3 className={h3Style}>Currently Reading</h3>
-      <div className="flex flex-col sm:flex-row justify-start gap-0 sm:gap-4">
-        <Link
-          href={AI.link}
-          target="blank"
-          className="my-3 font-bold py-4 px-8 w-fit text-yellow-300 bg-slate-800 hover:bg-slate-700 transition-all 400 rounded-lg"
-        >
-          AI: <span className="text-blue-300">{AI.title}</span> ➹
-        </Link>
-        <Link
-          href={Development.link}
-          target="blank"
-          className="my-3 font-bold py-4 px-8 w-fit text-yellow-300 bg-slate-800 hover:bg-slate-700 transition-all 400 rounded-lg"
-        >
-          Development:{" "}
-          <span className="text-blue-300">{Development.title}</span> ➹
-        </Link>
-        <Link
-          href={Design.link}
-          target="blank"
-          className="my-3 font-bold py-4 px-8 w-fit text-yellow-300 bg-slate-800 hover:bg-slate-700 transition-all 400 rounded-lg"
-        >
-          Design: <span className="text-blue-300">{Design.title}</span> ➹
-        </Link>
-      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
         <div>
-          <h3 className={h3Style}>Development</h3>
+          <h3 className={h3Style}>Dev Tools</h3>
           <div
             className={style.iconGroup}
             onMouseOver={(e) => onHover(e)}
@@ -79,7 +52,7 @@ export default function TechIcons({ featuredArticles }: any) {
             <Image src={img.webcomponents} alt="Web Components" tabIndex={0} />
           </div>
 
-          <h3 className={h3Style}>Design</h3>
+          <h3 className={h3Style}>Design Tools</h3>
           <div
             className={style.iconGroup}
             onMouseOver={(e) => onHover(e)}
@@ -93,7 +66,7 @@ export default function TechIcons({ featuredArticles }: any) {
             />
           </div>
 
-          <h3 className={h3Style}>AI</h3>
+          <h3 className={h3Style}>AI Tools</h3>
           <div
             className={style.iconGroup}
             onMouseOver={(e) => onHover(e)}

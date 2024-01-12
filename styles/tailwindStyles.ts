@@ -1,6 +1,9 @@
 export const h1Style = "sm:mb-6 text-5xl font-black text-yellow-300";
 export const h2Style = "text-4xl font-bold tracking-wide my-6 text-yellow-300";
 export const h3Style = "text-2xl font-bold tracking-wide my-6 text-yellow-300";
+export const h4Style = "text-lg font-bold tracking-wide my-2 text-yellow-300";
+export const cardh3Style =
+  "text-lg font-bold tracking-wide my-6 text-yellow-300";
 export const detailTitleStyle =
   "w-1/2 py-2 px-4 bg-blue-700 radius-sm transition-all";
 export const linkStyles =

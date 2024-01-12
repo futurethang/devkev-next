@@ -1,12 +1,21 @@
 import Footer from "@/components/Footer";
 import Nav from "@/components/Nav";
-import Link from "next/link";
 import Image from "next/image";
 import { Metadata } from "next";
-import { getReadingList } from "@/cms-utils/sanity-reading-list";
-import { mainWidthStyles, h1Style, h3Style } from "@/styles/tailwindStyles";
-import { Article } from "../page";
+import { getArticleList } from "@/cms-utils/sanity-article-list";
+import { getBookList } from "@/cms-utils/sanity-book-list";
+import {
+  mainWidthStyles,
+  h1Style,
+  h2Style,
+  cardh3Style,
+  h3Style,
+  h4Style,
+} from "@/styles/tailwindStyles";
+import { Post } from "../page";
 import urlFor from "@/cms-utils/urlFor";
+import Link from "next/link";
+import { format, parseISO } from "date-fns";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -14,7 +23,13 @@ export const metadata: Metadata = {
 };
 
 export default async function Blog() {
-  const posts = await getReadingList();
+  const articles = await getArticleList();
+  const topArticles = articles.slice(0, 3);
+  const bottomArticles = articles.slice(3);
+  const books = await getBookList();
+  const topBooks = books.slice(0, 3);
+  const bottomBooks = topBooks.slice(3);
+  const allPosts = [...bottomArticles, ...bottomBooks];
 
   return (
     <>
@@ -25,76 +40,105 @@ export default async function Blog() {
           <Nav includeTitle />
         </div>
         <main className={mainWidthStyles}>
-          <h1 className={h1Style}>Reading List</h1>
+          <h1 className={h1Style}>Reading</h1>
           <p>
-            I can't possibly keep up with all the great articles that crop up
-            every week, but here are some of the ones that really resonated with
-            me, and maybe you'll enjoy them too!
+            Here are some books and articles I've enjoyed, and a few notes of my
+            own.
           </p>
-          {posts.length > 0 && (
-            <div className="flex flex-col gap-4 pb-24">
-              {posts.map((post: Article, index: number) => {
-                const {
-                  link,
-                  tags,
-                  detailedSummary,
-                  shortSummary,
-                  previewImage,
-                } = post;
-                return (
-                  <Link
-                    href={link ? link : ""}
-                    key={index}
-                    className="flex flex-start gap-8 items-start bg-slate-700 p-4 shadow-md rounded-sm"
-                  >
-                    <div>
-                      {previewImage && (
-                        <div className="p-2 md:p-6 bg-slate-800 rounded-lg relative w-10 h-10 sm:w-40 sm:h-40 drop-shadow-xl">
-                          <Image
-                            className="object-contain object-center rounded-md"
-                            src={urlFor(previewImage).url()}
-                            alt={previewImage.alt || "portfolio item preview"}
-                            fill
-                          />
-                        </div>
-                      )}
-                    </div>
-                    <div className="group hover:scale-[1.01] transition-all duration-500 ease-in-out">
-                      <h3 className={`${h3Style} mt-0 mb-2`}>{post.title}</h3>
-                      <div
-                        className="summary-short opacity-100 overflow-hidden group-hover:hidden group-hover:opacity-0 transition-all duration-500 ease-in-out"
-                        style={{ maxHeight: "4rem" /* Adjust as needed */ }}
-                      >
-                        <p className="mb-2">{shortSummary}</p>
-                      </div>
-                      <div
-                        className="summary-detailed opacity-0 hidden group-hover:block group-hover:opacity-100 overflow-hidden transition-all duration-500 ease-in-out"
-                        style={{ maxHeight: "60rem" }}
-                      >
-                        <p className="mb-2">{detailedSummary}</p>
-                      </div>
-                      <div className="flex gap-2">
-                        {tags.map((tag, index) => {
-                          return (
-                            <span
-                              key={index}
-                              className="p-1 px-2 bg-slate-400 text-slate-900 text-xs rounded-md"
-                            >
-                              #{tag}
-                            </span>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-          )}
-          {posts.length == 0 && <p>No posts to show</p>}
+          <h2 className={h2Style}>Recent Articles</h2>
+          <Cards posts={topArticles} />
+          <h2 className={h2Style}>Recent Books</h2>
+          <Cards posts={topBooks} />
+          <h3 className={h3Style}>Older Posts</h3>
+          <ul>
+            {allPosts.map((article: Post, index: number) => {
+              return (
+                <li
+                  key={index}
+                  className="group flex flex-col flex-start justify-start items-start mb-1"
+                >
+                  <div className="flex flex-col mb-2">
+                    <h4
+                      className={`${h4Style} mb-0 group-hover:text-blue-400 transition-colors ease-out duration-300`}
+                    >
+                      {article.title}
+                    </h4>
+                    <span className="text-sm text-slate-400">
+                      {`posted ${format(
+                        parseISO(article.publishedAt),
+                        "MMM d yyyy"
+                      )}`}
+                    </span>
+                  </div>
+                  <Tags tags={article.tags} />
+                </li>
+              );
+            })}
+          </ul>
         </main>
       </div>
       <Footer />
     </>
   );
 }
+
+const Cards = ({ posts }: { posts: Post[] }) => {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pb-8">
+      {posts.map((post: Post, index: number) => {
+        const { link, tags, description, body, mainImage } = post;
+        console.log(post.publishedAt);
+        return (
+          <div
+            key={index}
+            className="flex flex-col flex-start gap-2 justify-start items-start bg-slate-700 p-4 shadow-md rounded-md"
+          >
+            {mainImage && (
+              <div className="p-2 md:p-6 bg-slate-800 rounded-lg relative w-10 h-10 sm:w-40 sm:h-40 drop-shadow-xl">
+                <Image
+                  className="object-contain object-center rounded-md"
+                  src={urlFor(mainImage).url()}
+                  alt={mainImage.alt || "portfolio item preview"}
+                  fill
+                />
+              </div>
+            )}
+            <Link href={link ? link : ""} target="_blank">
+              <h3 className={`${cardh3Style} mt-0 mb-2`}>{post.title}</h3>
+            </Link>
+            <p className="text-sm">{description}</p>
+            <div className="flex gap-4 text-xs text-blue-300">
+              <Link href={link ? link : ""} target="_blank">
+                article 🔗
+              </Link>
+              <Link href={link ? link : ""} target="_blank">
+                my notes 🗒️
+              </Link>
+            </div>
+            <Tags tags={tags} />
+            <span className="text-sm text-slate-400">
+              {`posted ${format(parseISO(post.publishedAt), "MMM d yyyy")}`}
+            </span>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
+const Tags = ({ tags }: { tags: Post["tags"] }) => {
+  return (
+    <div className="flex gap-2 grow">
+      {tags.map((tag, index: number) => {
+        return (
+          <span
+            key={index}
+            className="p-1 px-2 bg-slate-400 text-slate-900 text-xs rounded self-end"
+          >
+            {tag.title}
+          </span>
+        );
+      })}
+    </div>
+  );
+};
