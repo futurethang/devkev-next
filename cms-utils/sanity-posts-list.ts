@@ -9,9 +9,10 @@ const lists = {
 
 export async function getAnyList(reference: string) {
   const data = client.fetch(
-    groq`*[_type == "post" && references(${reference})] | order(_createdAt desc) {
+    groq`*[_type == "post" && references(${reference})] | order(publishedAt desc) {
       _id,
       _createdAt,
+      publishedAt,
       slug,
       title,
       author,
@@ -35,9 +36,10 @@ export async function getAnyList(reference: string) {
 
 export async function getBlogPosts() {
   return client.fetch(
-    groq`*[_type == "post" && references('67d6d041-f7f9-48d2-a56e-747c29b917b3')] | order(_createdAt desc) {
+    groq`*[_type == "post" && references('67d6d041-f7f9-48d2-a56e-747c29b917b3')] | order(publishedAt desc) {
       _id,
       _createdAt,
+      publishedAt,
       slug,
       title,
       author,
@@ -47,8 +49,10 @@ export async function getBlogPosts() {
       mainImage,
       description,
       categories,
+      "tags": tags[]->{
+        title
       }
-    `
+    }`
   );
 }
 

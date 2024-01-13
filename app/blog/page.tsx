@@ -6,6 +6,8 @@ import { h1Style, h3Style, mainWidthStyles } from "@/styles/tailwindStyles";
 import Nav from "@/components/Nav";
 import { Metadata } from "next";
 import urlFor from "@/cms-utils/urlFor";
+import { format, parseISO } from "date-fns";
+import { Tags } from "@/components/Tags";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -14,6 +16,7 @@ export const metadata: Metadata = {
 
 export default async function Blog() {
   const posts = await getBlogPosts();
+  console.log(posts);
 
   return (
     <>
@@ -49,9 +52,18 @@ export default async function Blog() {
                         </div>
                       )}
                     </div>
-                    <div>
+                    <div className="flex flex-col h-full">
                       <h3 className={`${h3Style} mt-0 mb-2`}>{post.title}</h3>
                       <p className="mb-2">{post.description}</p>
+                      <span className="text-sm text-slate-400 grow">
+                        {`posted ${format(
+                          parseISO(post.publishedAt),
+                          "MMM d yyyy"
+                        )}`}
+                      </span>
+                      <div className="grow flex justify-end">
+                        {post.tags ? <Tags tags={post.tags} /> : null}
+                      </div>
                     </div>
                   </Link>
                 );
