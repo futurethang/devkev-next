@@ -16,6 +16,7 @@ import { Post } from "../page";
 import urlFor from "@/cms-utils/urlFor";
 import Link from "next/link";
 import { format, parseISO } from "date-fns";
+import { Tags } from "@/components/Tags";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -120,23 +121,6 @@ const Cards = ({ posts }: { posts: Post[] }) => {
               {`posted ${format(parseISO(post.publishedAt), "MMM d yyyy")}`}
             </span>
           </div>
-        );
-      })}
-    </div>
-  );
-};
-
-const Tags = ({ tags }: { tags: Post["tags"] }) => {
-  return (
-    <div className="flex gap-2 grow">
-      {tags.map((tag, index: number) => {
-        return (
-          <span
-            key={index}
-            className="p-1 px-2 bg-slate-400 text-slate-900 text-xs rounded self-end"
-          >
-            {tag.title}
-          </span>
         );
       })}
     </div>
