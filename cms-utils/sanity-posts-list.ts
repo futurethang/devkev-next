@@ -40,6 +40,7 @@ export async function getBlogPosts() {
       _id,
       _createdAt,
       publishedAt,
+
       slug,
       title,
       author,
@@ -53,6 +54,7 @@ export async function getBlogPosts() {
         title
       }
     }`
+
   );
 }
 
