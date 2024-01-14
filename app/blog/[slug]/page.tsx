@@ -14,14 +14,20 @@ type Props = {
 
 export default async function Post({ params: { slug } }: Props) {
   const query = groq`
-    *[_type == "post" && slug.current == $slug][0]{
-      ...,
-      author->,
-      categories[]->
-    }
+  *[_type == "post" && slug.current == $slug][0]{
+    ...,
+    author->,
+    categories[]->
+  }
   `;
 
-  const post = await client.fetch(query, { slug });
+  const post = await client.fetch(query, { slug, next: { revalidate: 10 } });
+
+  // const res = await fetch('https://api.vercel.app/blog', {
+  //   next: { revalidate: 10 },
+  // });
+
+  // const post = await res.json();
 
   return (
     <article>
