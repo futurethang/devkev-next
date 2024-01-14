@@ -53,8 +53,8 @@ export async function getBlogPosts() {
       "tags": tags[]->{
         title
       }
-    }`
-
+    }`,
+    { next: { revalidate: 10 } }
   );
 }
 
