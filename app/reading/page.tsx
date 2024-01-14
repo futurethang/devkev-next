@@ -88,7 +88,6 @@ const Cards = ({ posts }: { posts: Post[] }) => {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pb-8">
       {posts.map((post: Post, index: number) => {
         const { link, tags, description, body, mainImage } = post;
-        console.log(post.publishedAt);
         return (
           <div
             key={index}
