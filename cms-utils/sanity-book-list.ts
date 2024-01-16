@@ -20,7 +20,8 @@ export async function getBookList() {
       "tags": tags[]->{
         title
       }
-    }`
+    }`,
+    { next: { revalidate: 10 } }
   );
   return data;
 }
