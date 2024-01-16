@@ -109,11 +109,11 @@ const Cards = ({ posts }: { posts: Post[] }) => {
             <p className="text-sm">{description}</p>
             <div className="flex gap-4 text-xs text-blue-300">
               <Link href={link ? link : ""} target="_blank">
-                article 🔗
+                article ↗
               </Link>
-              <Link href={link ? link : ""} target="_blank">
+              {/* <Link href={link ? link : ""} target="_blank">
                 my notes 🗒️
-              </Link>
+              </Link> */}
             </div>
             <Tags tags={tags} />
             <span className="text-sm text-slate-400">
