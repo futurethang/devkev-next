@@ -12,6 +12,9 @@ type Props = {
   };
 };
 
+const fallback =
+  "https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg";
+
 export default async function Post({ params: { slug } }: Props) {
   const query = groq`
   *[_type == "post" && slug.current == $slug][0]{
@@ -23,11 +26,7 @@ export default async function Post({ params: { slug } }: Props) {
 
   const post = await client.fetch(query, { slug, next: { revalidate: 10 } });
 
-  // const res = await fetch('https://api.vercel.app/blog', {
-  //   next: { revalidate: 10 },
-  // });
-
-  // const post = await res.json();
+  const imgSrc = post.mainImage ? urlFor(post.mainImage).url() : fallback;
 
   return (
     <article>
@@ -36,7 +35,7 @@ export default async function Post({ params: { slug } }: Props) {
           <div className="relative h-64 w-full">
             <Image
               className="shadow-lg rounded align-middle border-none"
-              src={urlFor(post.mainImage).url()}
+              src={imgSrc}
               alt={post.author.name}
               fill
               objectFit="contain"
