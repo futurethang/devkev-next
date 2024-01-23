@@ -28,6 +28,9 @@ export default async function Post({ params: { slug } }: Props) {
 
   const imgSrc = post.mainImage ? urlFor(post.mainImage).url() : fallback;
 
+  console.log(post);
+  console.log(imgSrc);
+
   return (
     <article>
       <section className="space-y-2">
