@@ -28,8 +28,8 @@ export default async function Post({ params: { slug } }: Props) {
 
   const imgSrc = post.mainImage ? urlFor(post.mainImage).url() : fallback;
 
-  console.log(post);
-  console.log(imgSrc);
+  console.log("post data", post);
+  console.log("image data", imgSrc);
 
   return (
     <article>
@@ -54,7 +54,7 @@ export default async function Post({ params: { slug } }: Props) {
           <div>
             <h1 className="text-4xl font-extrabold">{post.title}</h1>
             <p>
-              {new Date(post._createdAt).toLocaleDateString("en-US", {
+              {new Date(post.publishedAt).toLocaleDateString("en-US", {
                 month: "long",
                 day: "numeric",
                 year: "numeric",
