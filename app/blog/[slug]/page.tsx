@@ -28,9 +28,6 @@ export default async function Post({ params: { slug } }: Props) {
 
   const imgSrc = post.mainImage ? urlFor(post.mainImage).url() : fallback;
 
-  console.log("post data", post);
-  console.log("image data", imgSrc);
-
   return (
     <article>
       <section className="space-y-2">
@@ -42,7 +39,7 @@ export default async function Post({ params: { slug } }: Props) {
               alt={post.author.name}
               fill
               objectFit="contain"
-              objectPosition="center"
+              objectPosition="left"
               priority
             ></Image>
           </div>
@@ -51,20 +48,22 @@ export default async function Post({ params: { slug } }: Props) {
 
       <section>
         <div>
-          <div>
-            <h1 className="text-4xl font-extrabold">{post.title}</h1>
-            <p>
-              {new Date(post.publishedAt).toLocaleDateString("en-US", {
-                month: "long",
-                day: "numeric",
-                year: "numeric",
-              })}
-            </p>
-          </div>
+          <h1 className="text-4xl font-extrabold">{post.title}</h1>
+          <p>
+            {new Date(post.publishedAt).toLocaleDateString("en-US", {
+              month: "long",
+              day: "numeric",
+              year: "numeric",
+            })}
+          </p>
+        </div>
+        <div className="w-full sm:w-9/12 max-w-[70ch]">
+          <PortableText
+            value={post.body}
+            components={myPortableTextComponents}
+          />
         </div>
       </section>
-
-      <PortableText value={post.body} components={myPortableTextComponents} />
     </article>
   );
 }
