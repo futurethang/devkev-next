@@ -27,16 +27,16 @@ export default async function Post({ params: { slug } }: Props) {
   return (
     <article id="sample-page">
       <section className="space-y-2">
-        <div className="flex flex-col md:flex-row justify-between">
-          <div className="relative h-64 w-full">
-            <Image
-              className="object-contain object-center shadow-lg rounded align-middle border-none"
-              src={urlFor(post.mainImage).url()}
-              alt={post.author.name}
-              fill
-              priority
-            ></Image>
-          </div>
+        <div className="flex justify-start relative h-64 w-full">
+          <Image
+            className="shadow-lg rounded align-middle border-none"
+            src={urlFor(post.mainImage).url()}
+            alt={post.author.name}
+            fill
+            objectFit="contain"
+            objectPosition="left"
+            priority
+          ></Image>
         </div>
       </section>
 
@@ -54,8 +54,12 @@ export default async function Post({ params: { slug } }: Props) {
           </div>
         </div>
       </section>
-
-      <PortableText value={post.body} components={myPortableTextComponents2} />
+      <div className="w-full sm:w-9/12 max-w-[70ch]">
+        <PortableText
+          value={post.body}
+          components={myPortableTextComponents2}
+        />
+      </div>
     </article>
   );
 }

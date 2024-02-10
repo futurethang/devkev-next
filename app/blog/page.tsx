@@ -1,13 +1,9 @@
-import Link from "next/link";
 import Footer from "@/components/Footer";
-import Image from "next/image";
 import { getBlogPosts } from "@/cms-utils/sanity-posts-list";
-import { h1Style, h3Style, mainWidthStyles } from "@/styles/tailwindStyles";
+import { h1Style, mainWidthStyles } from "@/styles/tailwindStyles";
 import Nav from "@/components/Nav";
 import { Metadata } from "next";
-import urlFor from "@/cms-utils/urlFor";
-import { format, parseISO } from "date-fns";
-import { Tags } from "@/components/Tags";
+import PostListCard from "@/components/PostListCard";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -33,39 +29,7 @@ export default async function Blog() {
               {posts.map((post: any) => {
                 const { mainImage } = post;
 
-                return (
-                  <Link
-                    href={`/blog/${post.slug.current}`}
-                    key={post._id}
-                    className="flex flex-start gap-8 items-start bg-slate-700 p-4 shadow-md rounded-sm"
-                  >
-                    <div>
-                      {mainImage && (
-                        <div className="p-2 md:p-6 bg-slate-800 rounded-lg relative w-10 h-10 sm:w-40 sm:h-40 drop-shadow-xl">
-                          <Image
-                            className="object-contain object-center rounded-md"
-                            src={urlFor(mainImage).url()}
-                            alt={mainImage.alt || "blog main image"}
-                            fill
-                          />
-                        </div>
-                      )}
-                    </div>
-                    <div className="flex flex-col h-full">
-                      <h3 className={`${h3Style} mt-0 mb-2`}>{post.title}</h3>
-                      <p className="mb-2">{post.description}</p>
-                      <span className="text-sm text-slate-400 grow">
-                        {`posted ${format(
-                          parseISO(post.publishedAt),
-                          "MMM d yyyy"
-                        )}`}
-                      </span>
-                      <div className="grow flex justify-end">
-                        {post.tags ? <Tags tags={post.tags} /> : null}
-                      </div>
-                    </div>
-                  </Link>
-                );
+                return <PostListCard key={post.id} post={post} />;
               })}
             </div>
           )}
