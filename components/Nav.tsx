@@ -12,8 +12,8 @@ const Nav = ({ includeTitle = false, isHomePage = false }) => {
 
   let links = [
     { path: "/samples", label: "Work" },
-    { path: "/reading", label: "Reading" },
     { path: "/blog", label: "Blog" },
+    { path: "/reading", label: "Reading" },
     { path: "/creative-catalog", label: "Creative" },
   ];
 
