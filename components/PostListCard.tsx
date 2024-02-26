@@ -9,7 +9,6 @@ import { Tags } from "@/components/Tags";
 
 export default function PostListCard({ post }: { post: any }) {
   const { mainImage } = post;
-  console.log(post);
   return (
     <Link
       href={`/blog/${post.slug.current}`}
