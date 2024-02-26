@@ -6,6 +6,7 @@ import { faCheck, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import { Listbox, Transition } from "@headlessui/react";
 import { tagIcons } from "../constants/icons";
 import { h4Style } from "@/styles/tailwindStyles";
+import { Project } from "@/cms-utils/notion-projects";
 
 const statusIndicator = (status: string) => {
   switch (status) {
@@ -35,7 +36,7 @@ function getTags(projects: any[]) {
   return tags;
 }
 
-export default function ProjectsList({ projects }) {
+export default function ProjectsList({ projects }: { projects: Project[] }) {
   const [filteredProjects, setFilteredProjects] = useState(projects);
   // list of tags, never changes, just needs to be pulled from the projects
   const [tags, setTags] = useState([]);
@@ -143,7 +144,7 @@ export default function ProjectsList({ projects }) {
       <div className="flex justify-between">
         {projects.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4  ">
-            {projects.map((project: any) => {
+            {projects.map((project: Project) => {
               return (
                 <div
                   key={project.name}
