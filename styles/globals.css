@@ -169,3 +169,15 @@ details[open] > summary:after {
 .group:hover .summary-detailed {
   max-height: 20rem; /* Adjust as needed, should be enough to contain the detailed summary */
 }
+
+.case-study p {
+  font-size: 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@media screen and (min-width: 1280px) {
+  p {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+  }
+}

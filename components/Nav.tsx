@@ -18,7 +18,11 @@ const Nav = ({ includeTitle = false, isHomePage = false }) => {
   ];
 
   return (
-    <nav className={`flex ${isHomePage ? `sm:flex-row` : `flex-row`} gap-4`}>
+    <nav
+      className={`flex ${
+        isHomePage ? `sm:flex-row` : `flex-row`
+      } gap-4 xl:translate-y-5`}
+    >
       {includeTitle ? (
         <Link key="home" href={"/"}>
           <h1 className={`${navTitleStyle} sm:hidden`}>Kevin Hyde</h1>

@@ -2,8 +2,13 @@ import TechIcons from "../components/TechIcons";
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 import Marquee from "../components/Marquee";
-import styles from "@/styles/Home.module.css";
-import { h1Style, h3Style, mainWidthStyles } from "@/styles/tailwindStyles";
+import styles from "@/styles/Home.module.scss";
+import {
+  h1Style,
+  h3Style,
+  homeH4Style,
+  mainWidthStyles,
+} from "@/styles/tailwindStyles";
 import Link from "next/link";
 import { Metadata } from "next";
 import { getArticleList } from "@/cms-utils/sanity-posts-list";
@@ -34,7 +39,7 @@ export default async function Home() {
   return (
     <>
       <main className={mainWidthStyles}>
-        <div className="flex flex-col sm:flex-row sm:gap-4 w-full justify-start items-center mb-2">
+        <div className="flex flex-col sm:flex-row sm:gap-4 xl:gap-8 w-full justify-start items-center mb-2">
           <h1 className={`${h1Style}`}>Kevin Hyde</h1>
           <Nav isHomePage />
         </div>
@@ -58,14 +63,14 @@ export default async function Home() {
 
         <section>
           <h3 className={h3Style}>Ask me about . . .</h3>
-          <h4 className="font-mono">Full Stack Development</h4>
-          <h4 className="font-mono">UX & UI Design</h4>
-          <h4 className="font-mono">Product Design</h4>
-          <h4 className="font-mono">Team Leadership</h4>
+          <h4 className={homeH4Style}>Full Stack Development</h4>
+          <h4 className={homeH4Style}>UX & UI Design</h4>
+          <h4 className={homeH4Style}>Product Design</h4>
+          <h4 className={homeH4Style}>Team Leadership</h4>
         </section>
 
         <Link
-          className="block w-fit py-4 px-6 my-8 text-bold hover:text-white bg-blue-700 hover:bg-blue-500 rounded-lg transition-all"
+          className="block w-fit py-4 px-6 my-8 xl:text-3xl text-bold hover:text-white bg-blue-700 hover:bg-blue-500 rounded-lg transition-all"
           key="resume"
           href="/html/resume_sr_frontend.html"
         >
