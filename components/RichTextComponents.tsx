@@ -1,6 +1,11 @@
 import Image from "next/image";
 import urlFor from "@/cms-utils/urlFor";
-import { h2Style, h3Style, h4Style } from "@/styles/tailwindStyles";
+import {
+  h2Style,
+  h3Style,
+  h4Style,
+  posth4Style,
+} from "@/styles/tailwindStyles";
 
 const myPortableTextComponents = {
   types: {
@@ -21,7 +26,15 @@ const myPortableTextComponents = {
   block: {
     h2: ({ children }: any) => <h2 className={h2Style}>{children}</h2>,
     h3: ({ children }: any) => <h3 className={h3Style}>{children}</h3>,
-    h4: ({ children }: any) => <h4 className={h4Style}>{children}</h4>,
+    h4: ({ children }: any) => (
+      <div className="relative inline-block text-white p-2 pb-0 my-12">
+        <h4 className={`${posth4Style} relative z-10`}>{children}</h4>
+        <span
+          className="absolute top-[20px] left-[20px] h-6 xl:h-12 inset-0 bg-blue-700"
+          style={{ transform: "translate(10px, 10px);" }}
+        ></span>
+      </div>
+    ),
   },
 
   marks: {

@@ -5,6 +5,7 @@ import { groq } from "next-sanity";
 import React from "react";
 import { PortableText } from "@portabletext/react";
 import myPortableTextComponents from "@/components/RichTextComponents";
+import { h2Style, h1Style } from "@/styles/tailwindStyles";
 
 type Props = {
   params: {
@@ -30,6 +31,7 @@ export default async function Post({ params: { slug } }: Props) {
 
   return (
     <article>
+      <h1 className={h1Style}>{post.title}</h1>
       <section className="space-y-2">
         <div className="flex flex-col md:flex-row justify-between">
           <div className="relative h-64 w-full">
@@ -48,14 +50,13 @@ export default async function Post({ params: { slug } }: Props) {
 
       <section>
         <div>
-          <h1 className="text-4xl font-extrabold">{post.title}</h1>
-          <p>
+          {/* <p>
             {new Date(post.publishedAt).toLocaleDateString("en-US", {
               month: "long",
               day: "numeric",
               year: "numeric",
             })}
-          </p>
+          </p> */}
         </div>
         <div className="w-full sm:w-9/12 max-w-[70ch]">
           <PortableText
