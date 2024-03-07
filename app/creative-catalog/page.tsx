@@ -80,7 +80,7 @@ export default async function Blog() {
           >
             <span className="text-blue-300">Cretins: a Drawing Project</span> ➹
           </Link>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-4">
             {posts.map((post: any) => (
               <Link
                 key={post._id}

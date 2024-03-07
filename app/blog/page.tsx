@@ -23,7 +23,6 @@ export default async function Blog() {
         </div>
         <main className={mainWidthStyles}>
           <h1 className={h1Style}>Blog Posts</h1>
-          <p>I sometimes write about code, design, and other things.</p>
           {posts.length > 0 && (
             <div className="grid grid-cols-1 gap-4 pb-24">
               {posts.map((post: any) => {

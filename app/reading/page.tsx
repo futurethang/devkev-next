@@ -41,11 +41,8 @@ export default async function Blog() {
           <Nav includeTitle />
         </div>
         <main className={mainWidthStyles}>
-          <h1 className={h1Style}>Reading</h1>
-          <p>
-            Here are some books and articles I've enjoyed, and a few notes of my
-            own.
-          </p>
+          <h1 className={h1Style}>Reading List</h1>
+
           <h2 className={h2Style}>Recent Articles</h2>
           <Cards posts={topArticles} />
           <h2 className={h2Style}>Recent Books</h2>

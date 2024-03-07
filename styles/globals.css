@@ -169,3 +169,30 @@ details[open] > summary:after {
 .group:hover .summary-detailed {
   max-height: 20rem; /* Adjust as needed, should be enough to contain the detailed summary */
 }
+
+.case-study p {
+  font-size: 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@media screen and (min-width: 1280px) {
+  p {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+  }
+}
+
+.custom-backdrop::after {
+  content: "";
+  position: absolute;
+  top: 10px; /* Adjust these values to control the offset */
+  left: 10px; /* Adjust these values to control the offset */
+  width: calc(
+    100% - 20px
+  ); /* Adjust width and subtract double the left/right offset */
+  height: calc(
+    100% - 20px
+  ); /* Adjust height and subtract double the top/bottom offset */
+  background-color: red;
+  /* z-index: -1; */
+}

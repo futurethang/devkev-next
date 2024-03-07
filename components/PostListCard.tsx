@@ -1,10 +1,8 @@
-import { Post } from "@/app/page";
 import urlFor from "@/cms-utils/urlFor";
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
-import { format, parseISO } from "date-fns";
-import { h1Style, h3Style, mainWidthStyles } from "@/styles/tailwindStyles";
+import { h3Style } from "@/styles/tailwindStyles";
 import { Tags } from "@/components/Tags";
 
 export default function PostListCard({ post }: { post: any }) {
@@ -28,13 +26,10 @@ export default function PostListCard({ post }: { post: any }) {
         )}
       </div>
       <div className="flex flex-col h-full w-full">
-        <h3 className={`${h3Style} mt-0 mb-2`}>{post.title}</h3>
-        <p className="mb-2">{post.description}</p>
+        <h3 className={`${h3Style} mt-0 mb-2 xl:mt-0 xl:mb-4`}>{post.title}</h3>
+        <p className="mb-2 xl:text-xl">{post.description}</p>
         <div className="grow flex justify-end">
           {post.tags ? <Tags tags={post.tags} /> : null}
-          <span className="text-sm text-slate-400 self-end">
-            {`posted ${format(parseISO(post.publishedAt), "MMM d yyyy")}`}
-          </span>
         </div>
       </div>
     </Link>

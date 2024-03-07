@@ -1,0 +1,20 @@
+.description {
+  max-width: 66ch;
+  transition: all 0.3s ease-in-out;
+  p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+  @media (min-width: 1280px) {
+    max-width: 100ch;
+    p {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+  }
+}
+
+.subPage h1 {
+  font-size: var(--font-size-h1);
+  margin-bottom: 2rem;
+}
