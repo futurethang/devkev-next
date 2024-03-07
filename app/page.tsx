@@ -44,12 +44,6 @@ export default async function Home() {
           <Nav isHomePage />
         </div>
         <div className={styles.description}>
-          {/* <h2 className="my-4 w-full md:w-full">
-            <Marquee>
-              developer / designer / product nerd / developer advocate / UX
-              researcher / avid reader / polyglot / prompt engineer
-            </Marquee>
-          </h2> */}
           <p>
             Building a great product invariably presents those sticky spots
             where <b>What's Possible!™️</b> butts heads with{" "}

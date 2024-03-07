@@ -5,7 +5,7 @@ import { groq } from "next-sanity";
 import React from "react";
 import { PortableText } from "@portabletext/react";
 import myPortableTextComponents from "@/components/RichTextComponents";
-import { h2Style, h1Style } from "@/styles/tailwindStyles";
+import { h1Style } from "@/styles/tailwindStyles";
 
 type Props = {
   params: {
