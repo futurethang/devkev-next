@@ -1,4 +1,4 @@
-import "../styles/globals.css";
+import "../styles/globals.scss";
 import GoogleAnalytics from "./Analytics";
 import { roboto, roboto_mono } from "./fonts";
 

@@ -4,12 +4,11 @@ import { mainWidthStyles, posth4Style } from "@/styles/tailwindStyles";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { images } from "@/public/case-study-images/index.js";
-import styles from "@/styles/CaseStudy.module.scss";
 
 const CaseStudyPage = () => {
   const headerStyle = (text: string) => {
     return (
-      <div className="relative inline-block text-white p-2 pb-0 my-12">
+      <div className="relative inline-block w-fit text-white p-2 pb-0 my-12">
         <h4 className={`${posth4Style} relative z-10`}>{text}</h4>
         <span
           className="absolute top-[20px] left-[20px] h-6 xl:h-12 inset-0 bg-blue-700"
@@ -27,52 +26,56 @@ const CaseStudyPage = () => {
         >
           <Nav includeTitle />
         </div>
-        <article className="case-study">
+        <article>
           <h1>Illuminate Finance</h1>
+          <p>A case study of Product development, UX, and UI design</p>
           <section>
             {headerStyle("Introduction")}
-            <p>
-              From 2021 to 2024 I led UX design for a blockchain fintech
-              company. Alongside feature development Swivel Finance, I executed
-              a top to bottom design lifecycle for our new protocol, Illuminate
-              Finance. This is a case study of the products design process,
-              challenges, solutions, and lessons.
-            </p>
-            <div className={styles.imageStack}>
+            <div className="image left">
               <Image
-                src={images.lofi01.src}
-                alt="Momentum"
-                layout="fill"
-                objectFit="contain"
+                src={images.illuminateBanner.src}
+                alt={images.illuminateBanner.alt}
+                width={images.illuminateBanner.width}
+                height={images.illuminateBanner.height}
               />
             </div>
+            <p>
+              From 2021 to 2024 I led UX design for a blockchain fintech
+              company. Alongside feature development for our flagship product
+              <em> Swivel Finance</em>, I executed a design lifecycle from
+              concept to launch for our new protocol,{" "}
+              <em>Illuminate Finance</em>. This is a case study of the product's
+              design process, challenges, solutions, and lessons.
+            </p>
           </section>
-          <section>
+          <section className="split">
             {headerStyle("DeFi's UX Deficiencies")}
-            <p>
-              DeFi is a niche domain, characterized by perpetual innovation and
-              disruption driven by a digital native user base. In our product
-              space of fixed rate lending, the niche is even deeper.
-            </p>
-            <p>
-              White papers and hackathons help create alignment on smart
-              contract mechanisms and the core composability of the derivatives
-              that make fixed rate lending possible, however the similarities
-              end there.
-            </p>
-            <p>
-              The user experience of understanding and lending assets for fixed
-              rate returns is fragmented across dozens of protocols, each with a
-              novel market mechanism, incentive structures, and interface
-              design. Variance in nuance and esoteric language leaves traders
-              confused and frustrated.
-            </p>
-            <p>
-              Getting fixed rates in DeFi right unlocks massive market
-              potential, but misalignment across the space and hectic,
-              confounding UX leaves the premise broken.
-            </p>
-            <div className={styles.imageStack}>
+            <div className="left">
+              <p>
+                DeFi is a niche domain, characterized by perpetual innovation
+                and disruption driven by a digital native user base. In our
+                product space of fixed rate lending, the niche is even deeper.
+              </p>
+              <p>
+                White papers and hackathons help create alignment on smart
+                contract mechanisms and the core composability of the
+                derivatives that make fixed rate lending possible, however the
+                similarities end there.
+              </p>
+              <p>
+                The user experience of understanding and lending assets for
+                fixed rate returns is fragmented across dozens of protocols,
+                each with a novel market mechanism, incentive structures, and
+                interface design. Variance in nuance and esoteric language
+                leaves traders confused and frustrated.
+              </p>
+              <p>
+                Getting fixed rates in DeFi right unlocks massive market
+                potential, but misalignment across the space and hectic,
+                confounding UX leaves the premise broken.
+              </p>
+            </div>
+            <div className="image right">
               <Image
                 src={images.lofi01.src}
                 alt="Momentum"
@@ -118,7 +121,7 @@ const CaseStudyPage = () => {
                 friendly
               </li>
             </ul>
-            <div className={styles.imageStack}>
+            <div className="image">
               <Image
                 src={images.lofi01.src}
                 alt="Momentum"
@@ -168,7 +171,7 @@ const CaseStudyPage = () => {
                 decisions?
               </li>
             </ul>
-            <div className={styles.imageStack}>
+            <div className="image">
               <Image
                 src={images.lofi01.src}
                 alt="Momentum"
@@ -195,7 +198,7 @@ const CaseStudyPage = () => {
               that helped enhance both the overall workflows and domain
               language, but several of the micro-interactions as well.
             </p>
-            <div className={styles.imageStack}>
+            <div className="image">
               <Image
                 src={images.lofi01.src}
                 alt="Momentum"
@@ -248,7 +251,7 @@ const CaseStudyPage = () => {
               implement safe bonus features without detriment to the production
               build.
             </p>
-            <div className={styles.imageStack}>
+            <div className="image">
               <Image
                 src={images.lofi01.src}
                 alt="Momentum"
@@ -306,7 +309,7 @@ const CaseStudyPage = () => {
               </li>
             </ul>
 
-            <div className={styles.imageStack}>
+            <div className="image">
               <Image
                 src={images.lofi01.src}
                 alt="Momentum"
@@ -330,7 +333,7 @@ const CaseStudyPage = () => {
               future deep dives on specific feature problems that I worked on
               while services as head of UX at Illuminate.
             </p>
-            <div className={styles.imageStack}>
+            <div className="image">
               <Image
                 src={images.lofi01.src}
                 alt="Momentum"
