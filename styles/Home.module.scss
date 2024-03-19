@@ -1,15 +1,28 @@
 .description {
-  max-width: 66ch;
+  // max-width: 66ch;
   transition: all 0.3s ease-in-out;
   p {
     font-size: 1rem;
-    line-height: 1.5rem;
+    line-height: 2rem;
+    font-weight: 400;
+  }
+
+  b {
+    font-family: var(--font-roboto);
+    font-weight: 600;
+    color: var(--main-background);
+    background-color: var(--theme-yellow);
+    padding: 0.2rem 0.4rem;
+    white-space: nowrap;
   }
   @media (min-width: 1280px) {
-    max-width: 100ch;
+    b {
+      padding: 0.3rem 0.6rem;
+    }
+    max-width: 120ch;
     p {
-      font-size: 1.5rem;
-      line-height: 2rem;
+      font-size: 2rem;
+      line-height: 3.5rem;
     }
   }
 }

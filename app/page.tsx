@@ -45,15 +45,46 @@ export default async function Home() {
         </div>
         <div className={styles.description}>
           <p>
-            Building a great product invariably presents those sticky spots
-            where <b>What's Possible!™️</b> butts heads with{" "}
-            <b>&lt;whats-possible&gt;</b>
+            I'm a{" "}
+            <b>
+              <Link
+                href={"https://maggieappleton.com/design-engineers"}
+                target="_blank"
+              >
+                Design Engineer
+              </Link>
+            </b>{" "}
+            based in Seattle WA.
           </p>
           <p>
-            Whether you're looking for a developer that 'speaks designer' or a
-            designer that 'speaks developer', we'll have plenty to talk about.
+            I build digital products with experience from{" "}
+            <b>Planning and Research</b> to <b>UX/UI design</b> to{" "}
+            <b>Front End Engineering</b>
+          </p>
+          <p>
+            Whether you're looking for a developer that <b>'speaks designer'</b>{" "}
+            or a designer that <b>'speaks developer'</b>, I help
+            <br />
+            <b>What's Possible!™️</b> get to{" "}
+            <b>
+              <Link
+                href={
+                  "https://github.com/momentum-design/momentum-ui/blob/master/web-components/WEB_COMPONENTS_CRASH_COURSE.md"
+                }
+                target="_blank"
+              >
+                &lt;whats-possible&gt;
+              </Link>
+            </b>
           </p>
         </div>
+        <Link
+          className="block w-fit py-4 px-6 my-8 xl:text-3xl text-bold hover:text-white bg-blue-700 hover:bg-blue-500 rounded-lg transition-all"
+          key="resume"
+          href="/html/resume_sr_frontend.html"
+        >
+          Resume 📄
+        </Link>
 
         <section>
           <h3 className={h3Style}>Ask me about . . .</h3>
@@ -62,14 +93,6 @@ export default async function Home() {
           <h4 className={homeH4Style}>Product Design</h4>
           <h4 className={homeH4Style}>Team Leadership</h4>
         </section>
-
-        <Link
-          className="block w-fit py-4 px-6 my-8 xl:text-3xl text-bold hover:text-white bg-blue-700 hover:bg-blue-500 rounded-lg transition-all"
-          key="resume"
-          href="/html/resume_sr_frontend.html"
-        >
-          Resume 📄
-        </Link>
 
         <section>
           <TechIcons />
