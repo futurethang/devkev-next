@@ -1,9 +1,11 @@
-// "use client";
+"use client";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { mainWidthStyles, posth4Style } from "@/styles/tailwindStyles";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { images } from "@/public/case-study-images/index.js";
+import ScrollCarousel from "@/components/ScrollCarousel";
 
 const CaseStudyPage = () => {
   const headerStyle = (text: string) => {
@@ -31,7 +33,7 @@ const CaseStudyPage = () => {
           <p>A case study of Product development, UX, and UI design</p>
           <section>
             {headerStyle("Introduction")}
-            <div className="image left">
+            <div className="images left">
               <Image
                 src={images.illuminateBanner.src}
                 alt={images.illuminateBanner.alt}
@@ -48,40 +50,57 @@ const CaseStudyPage = () => {
               design process, challenges, solutions, and lessons.
             </p>
           </section>
-          <section className="split">
+          <section>
             {headerStyle("DeFi's UX Deficiencies")}
-            <div className="left">
-              <p>
-                DeFi is a niche domain, characterized by perpetual innovation
-                and disruption driven by a digital native user base. In our
-                product space of fixed rate lending, the niche is even deeper.
-              </p>
-              <p>
-                White papers and hackathons help create alignment on smart
-                contract mechanisms and the core composability of the
-                derivatives that make fixed rate lending possible, however the
-                similarities end there.
-              </p>
-              <p>
-                The user experience of understanding and lending assets for
-                fixed rate returns is fragmented across dozens of protocols,
-                each with a novel market mechanism, incentive structures, and
-                interface design. Variance in nuance and esoteric language
-                leaves traders confused and frustrated.
-              </p>
-              <p>
-                Getting fixed rates in DeFi right unlocks massive market
-                potential, but misalignment across the space and hectic,
-                confounding UX leaves the premise broken.
-              </p>
-            </div>
-            <div className="image right">
-              <Image
-                src={images.lofi01.src}
-                alt="Momentum"
-                layout="fill"
-                objectFit="contain"
-              />
+            <div className="split">
+              <div className="left">
+                <p>
+                  DeFi is a niche domain, characterized by perpetual innovation
+                  and disruption driven by a digital native user base. In our
+                  product space of fixed rate lending, the niche is even deeper.
+                </p>
+                <p>
+                  White papers and hackathons help create alignment on smart
+                  contract mechanisms and the core composability of the
+                  derivatives that make fixed rate lending possible, however the
+                  similarities end there.
+                </p>
+                <p>
+                  The user experience of understanding and lending assets for
+                  fixed rate returns is fragmented across dozens of protocols,
+                  each with a novel market mechanism, incentive structures, and
+                  interface design. Variance in nuance and esoteric language
+                  leaves traders confused and frustrated.
+                </p>
+                <p>
+                  Getting fixed rates in DeFi right unlocks massive market
+                  potential, but misalignment across the space and hectic,
+                  confounding UX leaves the premise broken.
+                </p>
+              </div>
+              <ScrollCarousel>
+                <Image
+                  src={images.defiComplexity01.src}
+                  alt={images.defiComplexity01.alt}
+                  width={images.defiComplexity01.width}
+                  height={images.defiComplexity01.height}
+                  layout="responsive"
+                />
+                <Image
+                  src={images.defiComplexity02.src}
+                  alt={images.defiComplexity02.alt}
+                  width={images.defiComplexity02.width}
+                  height={images.defiComplexity02.height}
+                  layout="responsive"
+                />
+                <Image
+                  src={images.defiComplexity03.src}
+                  alt={images.defiComplexity03.alt}
+                  width={images.defiComplexity03.width}
+                  height={images.defiComplexity03.height}
+                  layout="responsive"
+                />
+              </ScrollCarousel>
             </div>
           </section>
           <section>
