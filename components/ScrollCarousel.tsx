@@ -61,7 +61,10 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
           return <div>{child}</div>;
         })}
       </div>
-      <div className="caption">{children[currentSlide].props.alt}</div>
+      <div className="caption">
+        {/* @ts-ignore */}
+        {(children[currentSlide] as unknown).props.alt}
+      </div>
       <div className="scrollControl">
         <button className="carousel-btn" onClick={() => scrollCarousel(-1)}>
           Previous
