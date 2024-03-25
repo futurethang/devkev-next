@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useRef, useEffect, ReactNode } from "react";
 
 interface CarouselProps {
@@ -56,17 +57,21 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
           }
         }}
       >
-        {React.Children.map(children, (child) => (
-          <div>{child}</div>
-        ))}
+        {React.Children.map(children, (child) => {
+          return <div>{child}</div>;
+        })}
       </div>
-      <div className="caption">This is an image blah blach</div>
+      <div className="caption">{children[currentSlide].props.alt}</div>
       <div className="scrollControl">
-        <button onClick={() => scrollCarousel(-1)}>Previous</button>
-        <div>
+        <button className="carousel-btn" onClick={() => scrollCarousel(-1)}>
+          Previous
+        </button>
+        <div className="carousel-counter">
           {currentSlide + 1} of {numSlides}
         </div>
-        <button onClick={() => scrollCarousel(1)}>Next</button>
+        <button className="carousel-btn" onClick={() => scrollCarousel(1)}>
+          Next
+        </button>
       </div>
     </div>
   );
