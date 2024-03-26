@@ -13,7 +13,6 @@ function Header() {
           </h1>
         </Link>
       </div>
-      {/* <Nav /> */}
     </>
   );
 }

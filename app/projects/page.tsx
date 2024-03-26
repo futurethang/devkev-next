@@ -22,7 +22,14 @@ export default async function Projects() {
         </div>
         <main className={mainWidthStyles}>
           <h1 className={h1Style}>Projects</h1>
-          <p>Fail Often, Fail Fast</p>
+          <p>
+            This is an idea playground to showcase my many spinning plates. As a
+            creative and technical professional, I'm constantly experimenting
+            with new ideas and tools. Some of them keep moving, and some of them
+            peter out, but they are all valuable opportunities for learning and
+            growth.
+          </p>
+          <p>Fail Often, Fail Fast.</p>
           <ProjectsList projects={projects} />
         </main>
       </div>

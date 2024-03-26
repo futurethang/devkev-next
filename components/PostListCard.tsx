@@ -9,7 +9,9 @@ export default function PostListCard({ post }: { post: any }) {
   const { mainImage } = post;
   return (
     <Link
-      href={`/blog/${post.slug.current}`}
+      href={`${post._id != "ill-case-study" ? "/blog/" : ""}${
+        post.slug.current
+      }`}
       key={post._id}
       className="flex flex-start gap-8 items-start bg-slate-700 p-4 shadow-md rounded-sm"
     >

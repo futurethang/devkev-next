@@ -85,6 +85,13 @@ export default async function Home() {
         >
           Resume 📄
         </Link>
+        <Link
+          className="block w-fit py-4 px-6 my-8 xl:text-3xl text-bold hover:text-white bg-blue-700 hover:bg-blue-500 rounded-lg transition-all"
+          key="resume"
+          href="/caseStudy"
+        >
+          Illuminate UX Case Study 📑
+        </Link>
 
         <section>
           <h3 className={h3Style}>Ask me about . . .</h3>
@@ -93,10 +100,32 @@ export default async function Home() {
           <h4 className={homeH4Style}>Product Design</h4>
           <h4 className={homeH4Style}>Team Leadership</h4>
         </section>
-
         <section>
-          <TechIcons />
+          <h3 className={h3Style}>What about AI?</h3>
+          <p>
+            A lot's changed very quickly, and the familiar skills and modes of
+            work in tech professions are evolving. I am forward looking, and
+            with education and experimentation have found incredible utility in
+            AI tools, as well as limitations and flaws.
+          </p>
+          <p>
+            I use this technology as a mutliplier. With a solid core of design
+            and software development knowledge and expertise, I steer my AI
+            assistance thoughtfully. I carefully consider requirements to arrive
+            at appropriate solutions, and scrutinize generative output for
+            hallucinations or simply poor output AI sometimes provides.
+          </p>
+          <p>
+            When we work together, you can expect me to make responsible and
+            transparent use of all the tools at my disposal to get the best
+            outcomes, and eager to share my knowledge and efficiency gains with
+            colleagues!
+          </p>
         </section>
+
+        {/* <section>
+          <TechIcons />
+        </section> */}
       </main>
       <Footer />
     </>

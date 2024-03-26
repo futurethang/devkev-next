@@ -17,6 +17,10 @@ const Nav = ({ includeTitle = false, isHomePage = false }) => {
     { path: "/creative-catalog", label: "Creative" },
   ];
 
+  if (!isHomePage && !includeTitle) {
+    links = [...links, { path: "/projects", label: "Projects" }];
+  }
+
   return (
     <nav
       className={`flex ${
