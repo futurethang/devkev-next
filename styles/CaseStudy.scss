@@ -1,28 +1,38 @@
-article {
+article.cs {
   max-width: 1200px;
   padding: 2rem 4rem;
   margin: auto;
 }
 
-h1 {
-  font-size: 8rem;
+.cs h1 {
+  font-size: 6rem;
   font-weight: 800;
   margin-bottom: 20px;
   color: var(--theme-yellow);
 }
 
-aside {
+.cs aside {
   display: block;
   background-color: var(--theme-blue);
   color: white;
   padding: 2rem;
   border-radius: 2rem;
   align-self: flex-end;
-  font-size: 1.25rem;
+  font-size: 0.75rem;
   font-style: italic; // Added property
 }
 
-section {
+@mixin liBefore($scale, $maskUrl) {
+  transform: scale($scale);
+  content: "";
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  -webkit-mask: url($maskUrl) no-repeat center;
+  background-color: var(--study-blue);
+}
+
+.cs section {
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -42,73 +52,41 @@ section {
     }
 
     li {
-      padding: 1rem 2rem;
+      padding: 0.5rem 1rem;
       background-color: var(--theme-yellow);
       color: var(--main-background);
       border-radius: 3rem 1rem;
       font-family: var(--font-roboto);
-      font-size: 1.5rem;
+      font-size: 0.75rem;
       font-weight: 600;
       display: grid;
       grid-template-columns: auto 1fr;
       align-items: center;
-
-      &::before {
-        transform: scale(2);
-        margin-right: 1.5rem;
-        content: "";
-        display: inline-block;
-        width: 2rem;
-        height: 2rem;
-        -webkit-mask: url("/icons/check.svg") no-repeat center;
-        background-color: var(--study-blue);
-      }
+      gap: 0.5rem;
     }
 
-    &.lessons li {
-      &::before {
-        transform: scale(1.5);
-        margin-right: 1.5rem;
-        border-radius: 2rem 0.5rem;
-        content: "";
-        display: block;
-        width: 2rem;
-        height: 2rem;
-        -webkit-mask: url("/icons/lesson.svg") no-repeat center;
-        background-color: var(--study-blue);
-      }
+    &.check li::before {
+      @include liBefore(1, "/icons/check.svg");
+      border-radius: 2rem 0.5rem;
     }
 
-    &.cycles li {
-      &::before {
-        transform: scale(1.5);
-        margin-right: 1.5rem;
-        border-radius: 2rem 0.5rem;
-        content: "";
-        display: block;
-        width: 2rem;
-        height: 2rem;
-        -webkit-mask: url("/icons/cycle.svg") no-repeat center;
-        background-color: var(--study-blue);
-      }
+    &.lessons li::before {
+      @include liBefore(1, "/icons/lesson.svg");
+      border-radius: 2rem 0.5rem;
     }
 
-    &.question li {
-      &::before {
-        transform: scale(2);
-        margin-right: 1.5rem;
-        content: "";
-        display: inline-block;
-        width: 2rem;
-        height: 2rem;
-        -webkit-mask: url("/icons/question.svg") no-repeat center;
-        background-color: var(--study-blue);
-      }
+    &.cycles li::before {
+      @include liBefore(1, "/icons/cycle.svg");
+      border-radius: 2rem 0.5rem;
+    }
+
+    &.question li::before {
+      @include liBefore(1, "/icons/question.svg");
     }
   }
 }
 
-.split {
+.cs .split {
   display: flex;
   flex-direction: row;
   gap: 4rem;
@@ -119,7 +97,7 @@ section {
   }
 }
 
-.right {
+.cs .right {
   width: 75%;
   margin: 2rem auto;
   display: flex;
@@ -127,26 +105,22 @@ section {
   gap: 1rem;
 }
 
-.image {
+.cs .image {
   border-radius: 1rem;
   overflow: hidden;
 }
 
-.images {
+.cs .images {
   display: flex;
   gap: 2rem;
 }
 
-p {
-  // max-width: 64ch;
-}
-
-em {
+.cs em {
   font-style: normal;
   font-weight: 800;
 }
 
-.carousel-container {
+.cs .carousel-container {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -165,15 +139,16 @@ em {
   }
 }
 
-.carousel-counter,
-.carousel-btn {
+.cs .carousel-counter,
+.cs .carousel-btn {
   background-color: var(--theme-blue);
   color: white;
   border-radius: 0.5rem;
-  padding: 0.5rem 1rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
 }
 
-.carousel-btn {
+.cs .carousel-btn {
   cursor: pointer;
   transition: all 0.3s;
   &:hover {
@@ -181,7 +156,7 @@ em {
   }
 }
 
-.scrollControl {
+.cs .scrollControl {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 
@@ -194,4 +169,65 @@ em {
   :nth-child(3) {
     justify-self: end;
   }
+}
+
+@media only screen and (min-width: 1024px) {
+  /* Desktop styles */
+  /* Add your styles here */
+
+  .cs section ul {
+    li {
+      padding: 1rem 2rem;
+      background-color: var(--theme-yellow);
+      color: var(--main-background);
+      border-radius: 3rem 1rem;
+      font-family: var(--font-roboto);
+      font-size: 1.5rem;
+      font-weight: 600;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    &.check li::before {
+      @include liBefore(2, "/icons/check.svg");
+      border-radius: 2rem 0.5rem;
+    }
+
+    &.lessons li::before {
+      @include liBefore(2, "/icons/lesson.svg");
+      border-radius: 2rem 0.5rem;
+    }
+
+    &.cycles li::before {
+      @include liBefore(2, "/icons/cycle.svg");
+      border-radius: 2rem 0.5rem;
+    }
+
+    &.question li::before {
+      @include liBefore(2, "/icons/question.svg");
+    }
+  }
+
+  .cs aside {
+    font-size: 1.25rem;
+  }
+
+  .cs .carousel-counter,
+  .cs .carousel-btn {
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  /* Large desktop styles */
+  /* Add your styles here */
+}
+
+@media only screen and (min-width: 2560px) {
+  /* 4K styles */
+  /* Add your styles here */
 }

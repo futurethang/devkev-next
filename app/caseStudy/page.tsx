@@ -27,7 +27,7 @@ const CaseStudyPage = () => {
         >
           <Nav includeTitle />
         </div>
-        <article>
+        <article className="cs">
           <h1>Illuminate Finance</h1>
           <p>A case study of Product development, UX, and UI design</p>
           <section>
@@ -142,7 +142,7 @@ const CaseStudyPage = () => {
               The tech stack handles a great deal of complexity, so in order to
               create a digestable user experience we set some clear UI goals:
             </p>
-            <ul>
+            <ul className="check">
               <li>The UI should be exceptionally clean and simple.</li>
               <li>
                 The UI should guide lenders through the complete process easily
