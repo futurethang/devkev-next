@@ -20,10 +20,12 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
       }
     };
 
-    if (carouselRef.current) {
-      carouselRef.current.addEventListener("scroll", handleScroll);
+    const currentCarouselRef = carouselRef.current;
+
+    if (currentCarouselRef) {
+      currentCarouselRef.addEventListener("scroll", handleScroll);
       return () =>
-        carouselRef.current!.removeEventListener("scroll", handleScroll);
+        currentCarouselRef.removeEventListener("scroll", handleScroll);
     }
   }, []);
 

@@ -93,14 +93,14 @@ export default async function Home() {
           Illuminate UX Case Study 📑
         </Link>
 
-        <section>
+        <section className="gap-2">
           <h3 className={h3Style}>Ask me about . . .</h3>
           <h4 className={homeH4Style}>Full Stack Development</h4>
           <h4 className={homeH4Style}>UX & UI Design</h4>
           <h4 className={homeH4Style}>Product Design</h4>
           <h4 className={homeH4Style}>Team Leadership</h4>
         </section>
-        <section>
+        <section className="gap-2">
           <h3 className={h3Style}>What about AI?</h3>
           <p>
             A lot's changed very quickly, and the familiar skills and modes of
@@ -123,9 +123,9 @@ export default async function Home() {
           </p>
         </section>
 
-        {/* <section>
+        <section className="mb-0 gap-4 items-start">
           <TechIcons />
-        </section> */}
+        </section>
       </main>
       <Footer />
     </>
