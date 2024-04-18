@@ -423,16 +423,6 @@ const CaseStudyPage = () => {
                 </span>
               </li>
             </ul>
-
-            <div className="image">
-              <Image
-                src={images.defiComplexity01.src}
-                alt={images.defiComplexity01.alt}
-                width={images.defiComplexity01.width}
-                height={images.defiComplexity01.height}
-                layout="responsive"
-              />
-            </div>
           </section>
           <section>
             {headerStyle("Conclusion")}
@@ -449,15 +439,6 @@ const CaseStudyPage = () => {
               future deep dives on specific feature problems that I worked on
               while head of UX at Illuminate.
             </p>
-            <div className="image">
-              <Image
-                src={images.defiComplexity01.src}
-                alt={images.defiComplexity01.alt}
-                width={images.defiComplexity01.width}
-                height={images.defiComplexity01.height}
-                layout="responsive"
-              />
-            </div>
           </section>
         </article>
       </div>
