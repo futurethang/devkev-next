@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import { images } from "@/public/case-study-images/index.js";
 import ScrollCarousel from "@/components/ScrollCarousel";
 import Link from "next/link";
+import WebVitals from "app/_components/webvitals";
 
 const CaseStudyPage = () => {
   const headerStyle = (text: string) => {
@@ -21,6 +22,8 @@ const CaseStudyPage = () => {
 
   return (
     <>
+      {/* @ts-ignore */}
+      <WebVitals />
       <div className="flex-1 bg-slate-900">
         <div
           className={`my-2 mx-auto p-2 ${mainWidthStyles} bg-[#0c1a1f] rounded-xl`}
@@ -64,8 +67,9 @@ const CaseStudyPage = () => {
                   derivatives that make fixed rate lending possible; however,
                   the similarities end there.
                 </p>
-                <div className="right">
+                <div className="w-full">
                   <iframe
+                    className="my-6 mx-auto"
                     style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
                     width="800"
                     height="450"
@@ -268,7 +272,15 @@ const CaseStudyPage = () => {
               both the overall workflows and domain language, and several
               micro-interactions as well.
             </p>
-            <h5>Click the image below to visit the interactive prototype</h5>
+            <Link
+              href="https://www.figma.com/proto/87VTlSPzeRCtyGEQvc9cOH/Swivel-and-Illuminate?type=design&node-id=4-32618&viewport=-5592%2C751%2C0.21&t=fjF0Nco0XcIp5mif-0&scaling=min-zoom&starting-point-node-id=4%3A32618&show-proto-sidebar=1"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h5 className="py-4 px-6 bg-studyBlue rounded w-fit text-white hover:bg-themeBlue transition-all ease-out duration-200">
+                Launch interactive prototype
+              </h5>
+            </Link>
             <Link
               href="https://www.figma.com/proto/87VTlSPzeRCtyGEQvc9cOH/Swivel-and-Illuminate?type=design&node-id=4-32618&viewport=-5592%2C751%2C0.21&t=fjF0Nco0XcIp5mif-0&scaling=min-zoom&starting-point-node-id=4%3A32618&show-proto-sidebar=1"
               target="_blank"

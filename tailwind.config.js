@@ -14,6 +14,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        studyBlue: "var(--study-blue)",
+        themeBlue: "var(--theme-blue)",
+      },
       fontFamily: {
         sans: ["var(--font-roboto)"],
         mono: ["var(--font-roboto-mono)"],
