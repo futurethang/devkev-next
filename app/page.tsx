@@ -81,7 +81,7 @@ export default async function Home() {
         <Link
           className="block w-fit py-4 px-6 my-8 xl:text-3xl text-bold hover:text-white bg-blue-700 hover:bg-blue-500 rounded-lg transition-all"
           key="resume"
-          href="/html/resume_sr_frontend.html"
+          href="/html/resume_sr_UI_engineer.html"
           target="_blank"
         >
           Resume 📄
