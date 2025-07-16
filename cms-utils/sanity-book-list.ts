@@ -21,7 +21,6 @@ export async function getBookList() {
         title
       }
     }`,
-    { next: { revalidate: 10 } }
   );
   return data;
 }

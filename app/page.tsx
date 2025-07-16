@@ -80,7 +80,7 @@ export default async function Home() {
         </div>
         <Link
           className="block w-fit py-4 px-6 my-8 xl:text-3xl text-bold hover:text-white bg-blue-700 hover:bg-blue-500 rounded-lg transition-all"
-          key="resume"
+          key="resume-link"
           href="/html/resume_sr_UI_engineer.html"
           target="_blank"
         >
@@ -88,7 +88,7 @@ export default async function Home() {
         </Link>
         <Link
           className="block w-fit py-4 px-6 my-8 xl:text-3xl text-bold hover:text-white bg-blue-700 hover:bg-blue-500 rounded-lg transition-all"
-          key="resume"
+          key="case-study-link"
           href="/caseStudy"
         >
           Illuminate UX Case Study 📑

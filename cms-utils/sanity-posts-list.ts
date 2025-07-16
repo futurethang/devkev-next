@@ -53,7 +53,6 @@ export async function getBlogPosts() {
         title
       }
     }`,
-    { next: { revalidate: 10 } }
   );
 }
 

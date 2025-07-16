@@ -7,12 +7,13 @@ import { PortableText } from '@portabletext/react'
 import myPortableTextComponents from '@/components/RichTextComponents'
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
-export default async function Post({ params: { slug } }: Props) {
+export default async function Post({ params }: Props) {
+  const { slug } = await params;
 
   const query = groq`
     *[_type == "post" && slug.current == $slug][0]{
