@@ -37,12 +37,15 @@ function getTags(projects: any[]) {
 }
 
 export default function ProjectsList({ projects }: { projects: Project[] }) {
+  // Ensure projects is always an array
+  const safeProjects = Array.isArray(projects) ? projects : [];
+  
   return (
     <>
       <div className="flex justify-between">
-        {projects.length > 0 && (
+        {safeProjects.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4  ">
-            {projects.map((project: Project) => {
+            {safeProjects.map((project: Project) => {
               return (
                 <div
                   key={project.name}
@@ -70,24 +73,27 @@ export default function ProjectsList({ projects }: { projects: Project[] }) {
                     {project.tags.length > 0 && (
                       <div>
                         <ul className="list-inside list-none flex flex-wrap gap-2">
-                          {project.tags.map((tag, index) => (
-                            <li key={index} title={tag}>
-                              {tagIcons[tag] && (
-                                <FontAwesomeIcon
-                                  icon={tagIcons[tag]}
-                                  aria-hidden="true"
-                                  aria-label={tag}
-                                />
-                              )}
-                              <span className="sr-only">{tag}</span>
-                              <div className="tooltip">
-                                <span
-                                  className="tooltiptext"
-                                  id={`tooltip-${index}`}
-                                ></span>
-                              </div>
-                            </li>
-                          ))}
+                          {project.tags.map((tag, index) => {
+                            const icon = tag && tagIcons[tag];
+                            return (
+                              <li key={index} title={tag || ""}>
+                                {icon && (
+                                  <FontAwesomeIcon
+                                    icon={icon}
+                                    aria-hidden="true"
+                                    aria-label={tag || ""}
+                                  />
+                                )}
+                                <span className="sr-only">{tag || ""}</span>
+                                <div className="tooltip">
+                                  <span
+                                    className="tooltiptext"
+                                    id={`tooltip-${index}`}
+                                  ></span>
+                                </div>
+                              </li>
+                            );
+                          })}
                         </ul>
                       </div>
                     )}
@@ -111,7 +117,7 @@ export default function ProjectsList({ projects }: { projects: Project[] }) {
             })}
           </div>
         )}
-        {projects.length == 0 && <p>No projects to show</p>}
+        {safeProjects.length == 0 && <p>No projects to show</p>}
       </div>
     </>
   );

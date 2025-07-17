@@ -26,8 +26,15 @@ const filterProjects = (data: any): Project[] => {
   }));
 };
 
-export const getNotionProjects = async () => {
+export const getNotionProjects = async (): Promise<Project[]> => {
   const databaseId = "75a5937c068d43c38598ac7accdbcf81";
+  
+  // Check if Notion token is available
+  if (!process.env.NOTION_TOKEN) {
+    console.error("NOTION_TOKEN is not configured");
+    return [];
+  }
+  
   try {
     const response = await notion.databases.query({
       database_id: databaseId,
@@ -51,6 +58,7 @@ export const getNotionProjects = async () => {
     return filterProjects(response);
   } catch (error) {
     console.error(`Data Retrieval Error: ${error}`);
-    return [];
+    // Return empty array with proper type
+    return [] as Project[];
   }
 };
