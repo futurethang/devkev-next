@@ -1,5 +1,4 @@
 "use client";
-import { format } from "date-fns";
 import { useState, useEffect, Fragment } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faChevronDown } from "@fortawesome/free-solid-svg-icons";
@@ -105,7 +104,12 @@ export default function ProjectsList({ projects }: { projects: Project[] }) {
                           if (isNaN(date.getTime())) {
                             return "Unknown";
                           }
-                          return format(date, "MM/dd/yy");
+                          // Use native date formatting instead of date-fns to avoid SSG issues
+                          return date.toLocaleDateString("en-US", {
+                            month: "2-digit",
+                            day: "2-digit",
+                            year: "2-digit"
+                          });
                         } catch (error) {
                           return "Unknown";
                         }
