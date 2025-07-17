@@ -27,7 +27,11 @@ export default function Projects() {
             growth.
           </p>
           <p>Fail Often, Fail Fast.</p>
-          <p>Projects temporarily unavailable.</p>
+          <div className="mt-8">
+            <p className="text-gray-400">
+              Projects section coming soon. Check back later for updates on my latest work!
+            </p>
+          </div>
         </main>
       </div>
       <Footer />
