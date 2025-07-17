@@ -72,11 +72,13 @@ export default function ProjectsList({ projects }: { projects: Project[] }) {
                         <ul className="list-inside list-none flex flex-wrap gap-2">
                           {project.tags.map((tag, index) => (
                             <li key={index} title={tag}>
-                              <FontAwesomeIcon
-                                icon={tagIcons[tag]}
-                                aria-hidden="true"
-                                aria-label={tag}
-                              />
+                              {tagIcons[tag] && (
+                                <FontAwesomeIcon
+                                  icon={tagIcons[tag]}
+                                  aria-hidden="true"
+                                  aria-label={tag}
+                                />
+                              )}
                               <span className="sr-only">{tag}</span>
                               <div className="tooltip">
                                 <span
