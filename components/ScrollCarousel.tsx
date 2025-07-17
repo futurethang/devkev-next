@@ -59,8 +59,8 @@ const Carousel: React.FC<CarouselProps> = ({ children }) => {
           }
         }}
       >
-        {React.Children.map(children, (child) => {
-          return <div>{child}</div>;
+        {React.Children.map(children, (child, index) => {
+          return <div key={index}>{child}</div>;
         })}
       </div>
       <div className="caption">

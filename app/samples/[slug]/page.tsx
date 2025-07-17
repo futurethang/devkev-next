@@ -8,12 +8,13 @@ import myPortableTextComponents2 from "@/components/RichTextComponents2";
 import { h1Style } from "@/styles/tailwindStyles";
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-export default async function Post({ params: { slug } }: Props) {
+export default async function Post({ params }: Props) {
+  const { slug } = await params;
   const query = groq`
     *[_type == "post" && slug.current == $slug][0]{
       ...,

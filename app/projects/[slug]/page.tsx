@@ -7,15 +7,16 @@ import { PortableText } from "@portabletext/react";
 import myPortableTextComponents from "@/components/RichTextComponents";
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 const fallback =
   "https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg";
 
-export default async function Post({ params: { slug } }: Props) {
+export default async function Post({ params }: Props) {
+  const { slug } = await params;
   const query = groq`
   *[_type == "post" && slug.current == $slug][0]{
     ...,
@@ -24,7 +25,7 @@ export default async function Post({ params: { slug } }: Props) {
   }
   `;
 
-  const post = await client.fetch(query, { slug, next: { revalidate: 10 } });
+  const post = await client.fetch(query, { slug });
 
   const imgSrc = post.mainImage ? urlFor(post.mainImage).url() : fallback;
 

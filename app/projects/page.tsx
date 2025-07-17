@@ -2,16 +2,13 @@ import Footer from "@/components/Footer";
 import { h1Style, mainWidthStyles } from "@/styles/tailwindStyles";
 import Nav from "@/components/Nav";
 import { Metadata } from "next";
-import { getNotionProjects } from "@/cms-utils/notion-projects";
-import ProjectsList from "@/components/ProjectsList";
 
 export const metadata: Metadata = {
-  title: "Blog",
-  description: "Blog page for Kevin Hyde",
+  title: "Projects",
+  description: "Projects page for Kevin Hyde",
 };
 
-export default async function Projects() {
-  const projects = await getNotionProjects();
+export default function Projects() {
   return (
     <>
       <div className="flex-1">
@@ -30,7 +27,11 @@ export default async function Projects() {
             growth.
           </p>
           <p>Fail Often, Fail Fast.</p>
-          <ProjectsList projects={projects} />
+          <div className="mt-8">
+            <p className="text-gray-400">
+              Projects section coming soon. Check back later for updates on my latest work!
+            </p>
+          </div>
         </main>
       </div>
       <Footer />

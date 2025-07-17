@@ -21,7 +21,6 @@ export async function getArticleList() {
         title
       }
     }`,
-    { next: { revalidate: 10 } }
   );
   return data;
 }
