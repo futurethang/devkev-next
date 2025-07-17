@@ -93,7 +93,17 @@ export default function ProjectsList({ projects }: { projects: Project[] }) {
                     )}
                     <p className="mb-0 mt-2 text-xs">
                       Last Updated:{" "}
-                      {format(new Date(project.dateUpdated), "MM/dd/yy")}
+                      {(() => {
+                        try {
+                          const date = new Date(project.dateUpdated);
+                          if (isNaN(date.getTime())) {
+                            return "Unknown";
+                          }
+                          return format(date, "MM/dd/yy");
+                        } catch (error) {
+                          return "Unknown";
+                        }
+                      })()}
                     </p>
                   </div>
                 </div>
