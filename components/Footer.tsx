@@ -37,7 +37,7 @@ function Footer() {
       </div>
       <Nav />
       <div className="text-sm mt-6 w-full text-center text-slate-500">
-        ©2024 Kevin Hyde
+        ©2025 Kevin Hyde
       </div>
     </footer>
   );

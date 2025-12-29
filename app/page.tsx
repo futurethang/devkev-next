@@ -1,7 +1,6 @@
 import TechIcons from "../components/TechIcons";
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
-import Marquee from "../components/Marquee";
 import styles from "@/styles/Home.module.scss";
 import {
   h1Style,
@@ -11,7 +10,6 @@ import {
 } from "@/styles/tailwindStyles";
 import Link from "next/link";
 import { Metadata } from "next";
-import { getArticleList } from "@/cms-utils/sanity-posts-list";
 
 export const metadata: Metadata = {
   title: "Kevin Hyde",

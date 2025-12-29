@@ -36,8 +36,8 @@ export default function RootLayout({
           .
         </aside>
         <nav>
-          <Link className={backLinkStyle} href={"/blog"}>
-            👈 Back
+          <Link className={backLinkStyle} href={"/samples"}>
+            👈 Back to Work Samples
           </Link>
         </nav>
       </main>

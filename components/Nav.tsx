@@ -7,23 +7,30 @@ import {
   navTitleStyle,
 } from "@/styles/tailwindStyles";
 
+type NavLink = {
+  path: string;
+  label: string;
+  external?: boolean;
+};
+
 const Nav = ({ includeTitle = false, isHomePage = false }) => {
   const currentPath = usePathname();
 
-  let links = [
+  const internalLinks: NavLink[] = [
     { path: "/samples", label: "Work" },
-    { path: "/blog", label: "Blog" },
-    { path: "/reading", label: "Reading" },
-    { path: "/creative-catalog", label: "Creative" },
   ];
 
-  if (!isHomePage && !includeTitle) {
-    links = [...links, { path: "/projects", label: "Projects" }];
-  }
+  const externalLinks: NavLink[] = [
+    { path: "https://blog.kevinhyde.com", label: "Blog", external: true },
+    { path: "https://music.kevinhyde.com", label: "Music", external: true },
+    { path: "https://tech.kevinhyde.com", label: "Tech", external: true },
+  ];
+
+  const allLinks = [...internalLinks, ...externalLinks];
 
   return (
     <nav
-      className={`flex ${
+      className={`flex flex-wrap ${
         isHomePage ? `sm:flex-row` : `flex-row`
       } gap-4 xl:translate-y-5`}
     >
@@ -33,13 +40,17 @@ const Nav = ({ includeTitle = false, isHomePage = false }) => {
           <h1 className={`${navTitleStyle} hidden sm:flex`}>Kevin Hyde</h1>
         </Link>
       ) : null}
-      {links.map((link) => (
+      {allLinks.map((link) => (
         <Link
           className={isHomePage ? homeLinkStyle : backLinkStyle}
           key={link.path}
           href={link.path}
+          {...(link.external && { target: "_blank", rel: "noopener noreferrer" })}
         >
           {link.label}
+          {link.external && (
+            <span className="ml-1 text-xs opacity-60">↗</span>
+          )}
         </Link>
       ))}
     </nav>
