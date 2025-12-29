@@ -7,11 +7,13 @@ import { Tags } from "@/components/Tags";
 
 export default function PostListCard({ post }: { post: any }) {
   const { mainImage } = post;
+  // Case study links directly to /caseStudy, other posts go to /samples/[slug]
+  const href = post._id === "ill-case-study"
+    ? `/${post.slug.current}`
+    : `/samples/${post.slug.current}`;
   return (
     <Link
-      href={`${post._id != "ill-case-study" ? "/blog/" : ""}${
-        post.slug.current
-      }`}
+      href={href}
       key={post._id}
       className="flex flex-start gap-8 items-start bg-slate-700 p-4 shadow-md rounded-sm"
     >
